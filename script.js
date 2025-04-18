@@ -2257,6 +2257,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     // --- TESTIMONIALS CAROUSEL ---
+    // --- SMILE QUIZ LOGIC ---
+    const quiz = document.querySelector('.smile-quiz');
+    if (quiz) {
+        const steps = Array.from(quiz.querySelectorAll('.quiz-step'));
+        const options = quiz.querySelectorAll('.quiz-option');
+        const progressBar = quiz.querySelector('.quiz-progress-bar');
+        const resultDiv = quiz.querySelector('.quiz-result');
+        const restartBtn = quiz.querySelector('.quiz-restart');
+        let step = 0;
+        let answers = [];
+        function showStep(n) {
+            steps.forEach((s, i) => s.classList.toggle('active', i === n));
+            progressBar.style.width = ((n) / (steps.length - 1)) * 100 + '%';
+            if (n === steps.length - 1) {
+                // Simple recommendation logic
+                let rec = 'Consult with a dental specialist for a personalized plan.';
+                if (answers[0] === 'whiter') rec = 'Try professional whitening or veneers.';
+                if (answers[0] === 'straighter') rec = 'Consider clear aligners or braces.';
+                if (answers[0] === 'replace') rec = 'Dental implants or bridges may be ideal.';
+                if (answers[0] === 'repair') rec = 'Bonding or veneers can repair chips.';
+                resultDiv.textContent = rec;
+                resultDiv.focus();
+            }
+        }
+        options.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const currentStep = steps.findIndex(s => s.classList.contains('active'));
+                if (currentStep < steps.length - 2) {
+                    answers[currentStep] = btn.getAttribute('data-value');
+                    showStep(currentStep + 1);
+                } else if (currentStep === steps.length - 2) {
+                    answers[currentStep] = btn.getAttribute('data-value');
+                    showStep(currentStep + 1);
+                }
+            });
+        });
+        if (restartBtn) {
+            restartBtn.addEventListener('click', () => {
+                step = 0;
+                answers = [];
+                showStep(0);
+            });
+        }
+        showStep(0);
+    }
+    // --- BEFORE/AFTER SLIDER LOGIC ---
+    const baSlider = document.querySelector('.before-after-slider');
+    if (baSlider) {
+        const afterImg = baSlider.querySelector('.after-img');
+        const slider = baSlider.querySelector('.slider');
+        slider.addEventListener('input', () => {
+            const val = slider.value;
+            afterImg.style.clipPath = `inset(0 ${100-val}% 0 0)`;
+        });
+        // Initialize position
+        afterImg.style.clipPath = 'inset(0 50% 0 0)';
+    }
     const carousel = document.querySelector('.carousel');
     if (carousel) {
         const track = carousel.querySelector('.carousel-track');

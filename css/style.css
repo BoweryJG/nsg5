@@ -58,6 +58,114 @@
     --radius-full: 9999px;
 }
 
+/* ---- SMILE QUIZ ---- */
+.smile-quiz {
+  max-width: 420px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(56,96,136,0.10);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.quiz-progress {
+  background: #e6f0f7;
+  border-radius: 8px;
+  height: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-orange));
+  border-radius: 8px;
+  transition: width 0.4s;
+}
+.quiz-step {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+.quiz-step.active {
+  display: flex;
+  animation: fadeIn 0.5s;
+}
+.quiz-option {
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.quiz-option:hover, .quiz-option:focus {
+  background: var(--primary-orange);
+  outline: 2px solid var(--primary-orange);
+  transform: scale(1.05);
+}
+.quiz-result {
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  margin: 1.5rem 0 1rem 0;
+  min-height: 2.5rem;
+}
+.quiz-restart {
+  background: #fff;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 24px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s, color 0.3s;
+}
+.quiz-restart:hover, .quiz-restart:focus {
+  background: var(--primary-blue);
+  color: #fff;
+  outline: 2px solid var(--primary-blue);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- BEFORE/AFTER SLIDER ---- */
+.before-after-slider {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 2rem auto 3rem auto;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(56,96,136,0.10);
+  padding: 2rem 1.5rem 3.5rem 1.5rem;
+}
+.before-after-slider img {
+  user-select: none;
+  pointer-events: none;
+}
+.before-after-slider .slider {
+  width: 100%;
+  margin-top: 24px;
+  accent-color: var(--primary-blue);
+  height: 6px;
+  border-radius: 4px;
+}
+@media (max-width: 600px) {
+  .smile-quiz, .before-after-slider {
+    max-width: 98vw;
+    padding: 1.2rem 0.2rem 2rem 0.2rem;
+  }
+}
+
 /* ---- TESTIMONIALS CAROUSEL ---- */
 .carousel {
   display: flex;
