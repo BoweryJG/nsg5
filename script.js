@@ -2256,6 +2256,39 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.style.transform = '';
         });
     });
+    // --- TESTIMONIALS CAROUSEL ---
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+        const track = carousel.querySelector('.carousel-track');
+        const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+        const left = carousel.querySelector('.carousel-arrow-left');
+        const right = carousel.querySelector('.carousel-arrow-right');
+        let current = 0;
+        function showCard(idx) {
+            cards.forEach((card, i) => {
+                card.classList.toggle('active', i === idx);
+                if (i === idx) card.setAttribute('aria-live', 'polite');
+                else card.removeAttribute('aria-live');
+            });
+            track.focus();
+        }
+        left.addEventListener('click', () => {
+            current = (current - 1 + cards.length) % cards.length;
+            showCard(current);
+        });
+        right.addEventListener('click', () => {
+            current = (current + 1) % cards.length;
+            showCard(current);
+        });
+        track.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') {
+                left.click();
+            } else if (e.key === 'ArrowRight') {
+                right.click();
+            }
+        });
+        showCard(current);
+    }
     // Initialize all components
     initPreloader();
     initScrollEffects();

@@ -58,7 +58,94 @@
     --radius-full: 9999px;
 }
 
+/* ---- TESTIMONIALS CAROUSEL ---- */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.carousel-track {
+  display: flex;
+  overflow: hidden;
+  width: 340px;
+  min-height: 260px;
+  position: relative;
+}
+.testimonial-card {
+  min-width: 340px;
+  max-width: 340px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(56,96,136,0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin: 0 8px;
+  opacity: 0;
+  transform: scale(0.97) translateX(40px);
+  transition: opacity 0.5s, transform 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+.testimonial-card.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  pointer-events: auto;
+}
+.testimonial-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--primary-blue);
+}
+.testimonial-author {
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin-top: 0.5rem;
+}
+.carousel-arrow {
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.2s;
+}
+.carousel-arrow:focus, .carousel-arrow:hover {
+  background: var(--primary-orange);
+  outline: 2px solid var(--primary-orange);
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  .carousel-track, .testimonial-card {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+}
 /* ---- DARK MODE ---- */
+.dark-mode .testimonial-card {
+  background: var(--dark-surface);
+  color: var(--dark-text);
+  box-shadow: 0 4px 24px rgba(56,96,136,0.18);
+}
+.dark-mode .carousel-arrow {
+  background: var(--dark-accent);
+  color: #fff;
+}
+.dark-mode .testimonial-author {
+  color: var(--dark-accent);
+}
 .dark-mode body {
     background-color: var(--dark-bg);
     color: var(--dark-text);
