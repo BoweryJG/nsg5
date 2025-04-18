@@ -2212,6 +2212,50 @@ function openBookingModal(specialist) {
 
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
+    // --- DARK MODE TOGGLE ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark-mode');
+    }
+    if (themeToggle) {
+        themeToggle.setAttribute('tabindex', '0');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark-mode');
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        });
+        themeToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                themeToggle.click();
+            }
+        });
+    }
+    // --- HERO ANIMATION ---
+    const heroText = document.querySelector('.animated-text');
+    if (heroText) {
+        heroText.style.opacity = 0;
+        heroText.style.transform = 'translateY(40px)';
+        setTimeout(() => {
+            heroText.style.transition = 'opacity 1s cubic-bezier(.6,.05,.1,1), transform 1s cubic-bezier(.6,.05,.1,1)';
+            heroText.style.opacity = 1;
+            heroText.style.transform = 'translateY(0)';
+        }, 500);
+    }
+    // --- CTA BUTTON MICROINTERACTION ---
+    document.querySelectorAll('.cta-button').forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+            btn.style.transform = 'scale(0.97)';
+        });
+        btn.addEventListener('mouseup', () => {
+            btn.style.transform = '';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
     // Initialize all components
     initPreloader();
     initScrollEffects();
@@ -2219,7 +2263,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initInteractiveElements();
     initAccessibilityFeatures();
     initPerformanceOptimizations();
-    
     // Initialize specialized features
     initSmileJourneyQuiz();
     initBeforeAfterSlider();
