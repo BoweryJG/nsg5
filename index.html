@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Smile Guide - Your Dental Journey</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #386088;
+            --primary-orange: #f29c74;
+            --button-orange: #f9a75f;
+            --bg-cream: #fff8e8;
+            --text-dark: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 248, 232, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .cta-button {
+            background-color: var(--button-orange);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #e88f45;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #a4d9e4 0%, #c5e6dc 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            max-width: 50%;
+        }
+        
+        .hero-text h1 {
+            font-size: 54px;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text h2 {
+            font-size: 24px;
+            color: var(--primary-orange);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .hero-image {
+            width: 45%;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Dental Implants Section */
+        .dental-implants {
+            padding: 60px 0;
+            background-color: var(--bg-cream);
+        }
+        
+        .dental-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .dental-content h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 70%;
+            margin-top: 30px;
+        }
+        
+        .option-button {
+            background-color: rgba(249, 167, 95, 0.3);
+            color: var(--primary-blue);
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .option-button:hover {
+            background-color: rgba(249, 167, 95, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        /* Smile Stories Section */
+        .smile-stories {
+            padding: 60px 0;
+            background-color: #e8f5f2;
+        }
+        
+        .stories-header {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .story-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-content h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+        
+        .story-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Specialist Section */
+        .specialist {
+            padding: 60px 0;
+            background-color: var(--bg-cream);
+            text-align: center;
+        }
+        
+        .specialist h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+        
+        .specialist-search {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .specialist-search input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #e8e8e8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content, .footer-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+            
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .options-grid, .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#386088" stroke-width="5" fill="none"/>
+                    <path d="M30 60 Q50 75 70 60" stroke="#386088" stroke-width="5" fill="none"/>
+                </svg>
+                <div class="logo-text">The New Smile Guide</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#smile-journey">Smile Journey</a></li>
+                    <li><a href="#smile-academy">Smile Academy</a></li>
+                    <li><a href="#smile-stories">Smile Stories</a></li>
+                    <li><a href="#cost-estimator">Cost Estimator</a></li>
+                    <li><a href="#find-specialist">Find a Specialist</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                </ul>
+            </nav>
+            <a href="#get-started" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Are you ready to smile again?</h1>
+                <h2>What's holding back your happiness?</h2>
+                <a href="#smile-journey" class="cta-button">Discover Your Smile Journey</a>
+            </div>
+            <div class="hero-image">
+                <img src="/api/placeholder/540/400" alt="Woman visualizing her smile transformation" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Dental Implants Section -->
+    <section class="dental-implants" id="dental-implants">
+        <div class="container dental-content">
+            <h2>Want to learn about dental implants?</h2>
+            <div class="implant-person">
+                <img src="/api/placeholder/300/200" alt="Person considering dental implants" />
+            </div>
+            <div class="options-grid">
+                <div class="option-button">Appearance</div>
+                <div class="option-button">Cost</div>
+                <div class="option-button">Procedure</div>
+                <div class="option-button">Function</div>
+                <div class="option-button">Health</div>
+                <div class="option-button">Alternatives</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smile Stories Section -->
+    <section class="smile-stories" id="smile-stories">
+        <div class="container">
+            <h2 class="stories-header">Smile Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/api/placeholder/400/300" alt="Person before dental treatment" />
+                    </div>
+                    <div class="story-content">
+                        <h3>John's Transformation</h3>
+                        <p>After years of hiding my smile, I finally took the step to get dental implants. The difference has been life-changing...</p>
+                        <a href="#john-story" class="cta-button">Read More</a>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/api/placeholder/400/300" alt="Woman smiling after dental procedure" />
+                    </div>
+                    <div class="story-content">
+                        <h3>Sarah's Journey</h3>
+                        <p>I was nervous about getting veneers, but the process was much easier than I expected. Now I can't stop smiling...</p>
+                        <a href="#sarah-story" class="cta-button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find a Specialist Section -->
+    <section class="specialist" id="find-specialist">
+        <div class="container">
+            <h2>Looking for a specialist?</h2>
+            <div class="specialist-search">
+                <input type="text" placeholder="Enter your location..." />
+                <button class="cta-button">Find Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Treatments</h3>
+                    <ul>
+                        <li><a href="#dental-implants">Dental Implants</a></li>
+                        <li><a href="#veneers">Veneers</a></li>
+                        <li><a href="#orthodontics">Orthodontics</a></li>
+                        <li><a href="#whitening">Teeth Whitening</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#smile-academy">Smile Academy</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                        <li><a href="#disclaimer">Medical Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 The New Smile Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

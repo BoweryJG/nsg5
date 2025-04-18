@@ -1,0 +1,2240 @@
+    desktopScreen.setAttribute('x', size/6);
+    desktopScreen.setAttribute('y', size/6);
+    desktopScreen.setAttribute('width', size*2/3);
+    desktopScreen.setAttribute('height', size*3/8);
+    desktopScreen.setAttribute('fill', iconColors.primaryBlueLight);
+    desktopScreen.setAttribute('opacity', '0.1');
+    
+    const smartphoneScreen = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    smartphoneScreen.setAttribute('x', size*5/12 + size/48);
+    smartphoneScreen.setAttribute('y', size*3/8 + size/48);
+    smartphoneScreen.setAttribute('width', size/6 - size/24);
+    smartphoneScreen.setAttribute('height', size/3 - size/24);
+    smartphoneScreen.setAttribute('fill', iconColors.primaryBlueLight);
+    smartphoneScreen.setAttribute('opacity', '0.1');
+    
+    // Create website elements (simplified)
+    // Desktop layout
+    const desktopLayout = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Desktop header
+    const desktopHeader = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktopHeader.setAttribute('x', size/6 + size/48);
+    desktopHeader.setAttribute('y', size/6 + size/48);
+    desktopHeader.setAttribute('width', size*2/3 - size/24);
+    desktopHeader.setAttribute('height', size/16);
+    desktopHeader.setAttribute('fill', iconColors.primaryBlue);
+    desktopHeader.setAttribute('opacity', '0.2');
+    
+    // Desktop content blocks (simplified)
+    const desktopContent1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktopContent1.setAttribute('x', size/6 + size/48);
+    desktopContent1.setAttribute('y', size/6 + size/48 + size/16 + size/48);
+    desktopContent1.setAttribute('width', size/3 - size/24);
+    desktopContent1.setAttribute('height', size/6);
+    desktopContent1.setAttribute('fill', iconColors.primaryOrange);
+    desktopContent1.setAttribute('opacity', '0.2');
+    
+    const desktopContent2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktopContent2.setAttribute('x', size/2 + size/48);
+    desktopContent2.setAttribute('y', size/6 + size/48 + size/16 + size/48);
+    desktopContent2.setAttribute('width', size/3 - size/24);
+    desktopContent2.setAttribute('height', size/6);
+    desktopContent2.setAttribute('fill', iconColors.primaryBlue);
+    desktopContent2.setAttribute('opacity', '0.2');
+    
+    // Desktop footer
+    const desktopFooter = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktopFooter.setAttribute('x', size/6 + size/48);
+    desktopFooter.setAttribute('y', size/2 - size/16);
+    desktopFooter.setAttribute('width', size*2/3 - size/24);
+    desktopFooter.setAttribute('height', size/16);
+    desktopFooter.setAttribute('fill', iconColors.primaryBlue);
+    desktopFooter.setAttribute('opacity', '0.2');
+    
+    // Add all desktop elements to group
+    desktopLayout.appendChild(desktopHeader);
+    desktopLayout.appendChild(desktopContent1);
+    desktopLayout.appendChild(desktopContent2);
+    desktopLayout.appendChild(desktopFooter);
+    
+    // Mobile layout
+    const mobileLayout = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Mobile header
+    const mobileHeader = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    mobileHeader.setAttribute('x', size*5/12 + size/32);
+    mobileHeader.setAttribute('y', size*3/8 + size/32);
+    mobileHeader.setAttribute('width', size/6 - size/16);
+    mobileHeader.setAttribute('height', size/32);
+    mobileHeader.setAttribute('fill', iconColors.primaryBlue);
+    mobileHeader.setAttribute('opacity', '0.2');
+    
+    // Mobile content blocks (stacked)
+    const mobileContent1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    mobileContent1.setAttribute('x', size*5/12 + size/32);
+    mobileContent1.setAttribute('y', size*3/8 + size/32 + size/24);
+    mobileContent1.setAttribute('width', size/6 - size/16);
+    mobileContent1.setAttribute('height', size/12);
+    mobileContent1.setAttribute('fill', iconColors.primaryOrange);
+    mobileContent1.setAttribute('opacity', '0.2');
+    
+    const mobileContent2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    mobileContent2.setAttribute('x', size*5/12 + size/32);
+    mobileContent2.setAttribute('y', size*3/8 + size/32 + size/24 + size/12 + size/48);
+    mobileContent2.setAttribute('width', size/6 - size/16);
+    mobileContent2.setAttribute('height', size/12);
+    mobileContent2.setAttribute('fill', iconColors.primaryBlue);
+    mobileContent2.setAttribute('opacity', '0.2');
+    
+    // Mobile footer
+    const mobileFooter = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    mobileFooter.setAttribute('x', size*5/12 + size/32);
+    mobileFooter.setAttribute('y', size*2/3 - size/16);
+    mobileFooter.setAttribute('width', size/6 - size/16);
+    mobileFooter.setAttribute('height', size/32);
+    mobileFooter.setAttribute('fill', iconColors.primaryBlue);
+    mobileFooter.setAttribute('opacity', '0.2');
+    
+    // Add all mobile elements to group
+    mobileLayout.appendChild(mobileHeader);
+    mobileLayout.appendChild(mobileContent1);
+    mobileLayout.appendChild(mobileContent2);
+    mobileLayout.appendChild(mobileFooter);
+    
+    // Create connection arrows
+    const connectArrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    connectArrow.setAttribute('d', `M${size/2} ${size/3}
+                                   L${size/2} ${size*3/8}
+                                   M${size/2 - size/24} ${size/3 + size/24}
+                                   L${size/2} ${size/3}
+                                   L${size/2 + size/24} ${size/3 + size/24}`);
+    connectArrow.setAttribute('stroke', iconColors.primaryOrange);
+    connectArrow.setAttribute('stroke-width', '1.5');
+    connectArrow.setAttribute('stroke-linecap', 'round');
+    connectArrow.setAttribute('fill', 'none');
+    
+    // Create responsive label
+    const responsiveLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    responsiveLabel.setAttribute('x', size/2);
+    responsiveLabel.setAttribute('y', size*7/8);
+    responsiveLabel.setAttribute('font-size', size/12);
+    responsiveLabel.setAttribute('font-family', 'Arial, sans-serif');
+    responsiveLabel.setAttribute('text-anchor', 'middle');
+    responsiveLabel.setAttribute('fill', iconColors.primaryBlue);
+    responsiveLabel.textContent = 'Responsive';
+    
+    // Append all elements to SVG
+    svg.appendChild(desktopScreen);
+    svg.appendChild(smartphoneScreen);
+    svg.appendChild(desktop);
+    svg.appendChild(desktopStand);
+    svg.appendChild(smartphone);
+    svg.appendChild(desktopLayout);
+    svg.appendChild(mobileLayout);
+    svg.appendChild(connectArrow);
+    svg.appendChild(responsiveLabel);
+    container.appendChild(svg);
+    
+    // Animation for the mobile icon
+    const animation = `
+      @keyframes desktopPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+      }
+      
+      @keyframes smartphonePulse {
+        0%, 100% { transform: scale(1) translateY(0); }
+        50% { transform: scale(1.1) translateY(-${size/24}px); }
+      }
+      
+      @keyframes arrowFlow {
+        0% { opacity: 0; transform: scaleY(0.5); }
+        50% { opacity: 1; transform: scaleY(1); }
+        100% { opacity: 0; transform: scaleY(0.5); }
+      }
+      
+      @keyframes layoutFade {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 0.6; }
+      }
+      
+      @keyframes responsiveLabelPulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.1); }
+      }
+      
+      .nsg-icon-mobile:hover svg rect:nth-of-type(3),
+      .nsg-icon-mobile:hover svg path:nth-of-type(1) {
+        animation: desktopPulse 3s infinite;
+      }
+      
+      .nsg-icon-mobile:hover svg rect:nth-of-type(4) {
+        animation: smartphonePulse 3s infinite;
+      }
+      
+      .nsg-icon-mobile:hover svg path:nth-of-type(2) {
+        animation: arrowFlow 3s infinite;
+      }
+      
+      .nsg-icon-mobile:hover svg g:first-of-type rect {
+        animation: layoutFade 3s infinite;
+      }
+      
+      .nsg-icon-mobile:hover svg g:nth-of-type(2) rect {
+        animation: layoutFade 3s infinite 0.5s;
+      }
+      
+      .nsg-icon-mobile:hover svg text {
+        animation: responsiveLabelPulse 3s infinite;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // Helper function to render multiple icons
+  renderIconSet: function(elementId, size = 64) {
+    const targetElement = document.getElementById(elementId);
+    if (!targetElement) {
+      console.error('Target element not found');
+      return;
+    }
+    
+    // Initialize icon container
+    this.init();
+    
+    // Create a container for all icons
+    const iconSetContainer = document.createElement('div');
+    iconSetContainer.className = 'nsg-icon-set';
+    
+    // Add style for the icon set
+    const iconSetStyle = document.createElement('style');
+    iconSetStyle.textContent = `
+      .nsg-icon-set {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      
+      .nsg-icon-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: ${size * 1.5}px;
+      }
+      
+      .nsg-icon-title {
+        margin-top: 8px;
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        color: ${iconColors.primaryBlue};
+      }
+    `;
+    document.head.appendChild(iconSetStyle);
+    
+    // Create all icons
+    const icons = [
+      { name: 'Smile', create: this.createSmileIcon.bind(this) },
+      { name: 'Tooth', create: this.createToothIcon.bind(this) },
+      { name: 'Cost', create: this.createCostIcon.bind(this) },
+      { name: 'Finder', create: this.createFinderIcon.bind(this) },
+      { name: 'Before/After', create: this.createBeforeAfterIcon.bind(this) },
+      { name: 'Academy', create: this.createAcademyIcon.bind(this) },
+      { name: 'Appointment', create: this.createAppointmentIcon.bind(this) },
+      { name: 'Testimonial', create: this.createTestimonialIcon.bind(this) },
+      { name: 'Procedure', create: this.createProcedureIcon.bind(this) },
+      { name: 'Verified', create: this.createVerifiedIcon.bind(this) },
+      { name: 'Notification', create: this.createNotificationIcon.bind(this) },
+      { name: 'Mobile', create: this.createMobileIcon.bind(this) }
+    ];
+    
+    // Add each icon with its title
+    icons.forEach(icon => {
+      const iconWrapper = document.createElement('div');
+      iconWrapper.className = 'nsg-icon-wrapper';
+      
+      const iconElement = icon.create(size);
+      
+      const iconTitle = document.createElement('div');
+      iconTitle.className = 'nsg-icon-title';
+      iconTitle.textContent = icon.name;
+      
+      iconWrapper.appendChild(iconElement);
+      iconWrapper.appendChild(iconTitle);
+      iconSetContainer.appendChild(iconWrapper);
+    });
+    
+    // Add to target element
+    targetElement.appendChild(iconSetContainer);
+  },
+  
+  // Helper method to add individual icon to element
+  addIconTo: function(elementId, iconName, size = 32) {
+    const targetElement = document.getElementById(elementId);
+    if (!targetElement) {
+      console.error('Target element not found');
+      return;
+    }
+    
+    // Initialize icon container
+    this.init();
+    
+    // Map icon names to creation methods
+    const iconMap = {
+      'smile': this.createSmileIcon.bind(this),
+      'tooth': this.createToothIcon.bind(this),
+      'cost': this.createCostIcon.bind(this),
+      'finder': this.createFinderIcon.bind(this),
+      'before-after': this.createBeforeAfterIcon.bind(this),
+      'academy': this.createAcademyIcon.bind(this),
+      'appointment': this.createAppointmentIcon.bind(this),
+      'testimonial': this.createTestimonialIcon.bind(this),
+      'procedure': this.createProcedureIcon.bind(this),
+      'verified': this.createVerifiedIcon.bind(this),
+      'notification': this.createNotificationIcon.bind(this),
+      'mobile': this.createMobileIcon.bind(this)
+    };
+    
+    // Create and add the icon
+    if (iconMap[iconName.toLowerCase()]) {
+      const icon = iconMap[iconName.toLowerCase()](size);
+      targetElement.appendChild(icon);
+    } else {
+      console.error('Icon name not found:', iconName);
+    }
+  }
+};
+
+// Usage examples:
+
+// To initialize the icon system
+// NewSmileIcons.init();
+
+// To render a single icon
+// const smileIcon = NewSmileIcons.createSmileIcon(64);
+// document.getElementById('icon-container').appendChild(smileIcon);
+
+// To render all icons in a set
+// NewSmileIcons.renderIconSet('icon-set-container', 64);
+
+// To add a specific icon to an element
+// NewSmileIcons.addIconTo('header-icon', 'smile', 32);
+
+// Example integration code for The New Smile Guide website
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize icons
+  NewSmileIcons.init();
+  
+  // Add main logo icon to the header
+  if (document.querySelector('.logo')) {
+    NewSmileIcons.addIconTo('logo', 'smile', 48);
+  }
+  
+  // Add section icons
+  const sections = [
+    { id: 'smile-journey', icon: 'before-after' },
+    { id: 'smile-academy', icon: 'academy' },
+    { id: 'cost-estimator', icon: 'cost' },
+    { id: 'find-specialist', icon: 'finder' },
+    { id: 'appointment-booking', icon: 'appointment' },
+    { id: 'procedure-explainer', icon: 'procedure' },
+    { id: 'smile-stories', icon: 'testimonial' }
+  ];
+  
+  sections.forEach(section => {
+    const sectionElement = document.getElementById(section.id);
+    if (sectionElement) {
+      const iconContainer = document.createElement('div');
+      iconContainer.className = 'section-icon';
+      sectionElement.prepend(iconContainer);
+      
+      // Add icon to the container
+      NewSmileIcons.addIconTo(iconContainer.id, section.icon, 40);
+    }
+  });
+  
+  // Add hover interaction helper
+  const iconHelpText = document.createElement('div');
+  iconHelpText.className = 'icon-help-text';
+  iconHelpText.textContent = 'Hover over icons to see animations';
+  iconHelpText.style.textAlign = 'center';
+  iconHelpText.style.marginTop = '20px';
+  iconHelpText.style.color = iconColors.primaryBlue;
+  iconHelpText.style.fontSize = '14px';
+  
+  if (document.querySelector('.nsg-icons-container')) {
+    document.querySelector('.nsg-icons-container').appendChild(iconHelpText);
+  }
+  
+  // Add responsive verification icon to footer
+  if (document.querySelector('footer')) {
+    const footerVerification = document.createElement('div');
+    footerVerification.className = 'footer-verification';
+    footerVerification.style.display = 'flex';
+    footerVerification.style.alignItems = 'center';
+    footerVerification.style.justifyContent = 'center';
+    footerVerification.style.marginTop = '20px';
+    
+    const verifiedText = document.createElement('span');
+    verifiedText.textContent = 'Verified Secure & Mobile Responsive';
+    verifiedText.style.marginLeft = '8px';
+    verifiedText.style.color = iconColors.primaryBlue;
+    
+    footerVerification.appendChild(NewSmileIcons.createVerifiedIcon(24));
+    footerVerification.appendChild(verifiedText);
+    footerVerification.appendChild(NewSmileIcons.createMobileIcon(24));
+    
+    document.querySelector('footer .container').appendChild(footerVerification);
+  }
+});
+    svg.appendChild(leftEye);
+    svg.appendChild(rightEye);
+    svg.appendChild(smile);
+    container.appendChild(svg);
+    
+    // Animation for the testimonial icon
+    const animation = `
+      @keyframes bubblePulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes starTwinkle {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.2); opacity: 0.8; }
+      }
+      
+      @keyframes avatarBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-${size/16}px); }
+      }
+      
+      @keyframes eyeBlink {
+        0%, 10%, 100% { transform: scaleY(1); }
+        5% { transform: scaleY(0.1); }
+      }
+      
+      @keyframes smileWiden {
+        0%, 100% { transform: scaleX(1); }
+        50% { transform: scaleX(1.2); }
+      }
+      
+      .nsg-icon-testimonial:hover svg path:first-of-type {
+        animation: bubblePulse 3s infinite;
+      }
+      
+      .nsg-icon-testimonial:hover svg g:nth-of-type(2) path:nth-child(1) {
+        animation: starTwinkle 1.5s infinite 0s;
+      }
+      
+      .nsg-icon-testimonial:hover svg g:nth-of-type(2) path:nth-child(2) {
+        animation: starTwinkle 1.5s infinite 0.3s;
+      }
+      
+      .nsg-icon-testimonial:hover svg g:nth-of-type(2) path:nth-child(3) {
+        animation: starTwinkle 1.5s infinite 0.6s;
+      }
+      
+      .nsg-icon-testimonial:hover svg g:nth-of-type(2) path:nth-child(4) {
+        animation: starTwinkle 1.5s infinite 0.9s;
+      }
+      
+      .nsg-icon-testimonial:hover svg g:nth-of-type(2) path:nth-child(5) {
+        animation: starTwinkle 1.5s infinite 1.2s;
+      }
+      
+      .nsg-icon-testimonial:hover svg circle:nth-of-type(1) {
+        animation: avatarBounce 2s infinite;
+      }
+      
+      .nsg-icon-testimonial:hover svg circle:nth-of-type(2),
+      .nsg-icon-testimonial:hover svg circle:nth-of-type(3) {
+        animation: eyeBlink 3s infinite;
+      }
+      
+      .nsg-icon-testimonial:hover svg path:last-of-type {
+        animation: smileWiden 2s infinite;
+        transform-origin: ${size/2}px ${size*3/4}px;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 9. Procedure Icon - For dental procedure explainer
+  // Animated procedure steps visualization with moving parts
+  createProcedureIcon: function(size = 64) {
+    const container = this.createIconContainer('procedure', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create circular gauge for progress indicator
+    const progressRing = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    progressRing.setAttribute('cx', size/2);
+    progressRing.setAttribute('cy', size/2);
+    progressRing.setAttribute('r', size*3/8);
+    progressRing.setAttribute('fill', 'none');
+    progressRing.setAttribute('stroke', iconColors.primaryBlueLight);
+    progressRing.setAttribute('stroke-width', '2');
+    progressRing.setAttribute('stroke-opacity', '0.3');
+    
+    // Create progress indicator
+    const progressIndicator = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    progressIndicator.setAttribute('d', `M${size/2} ${size/2}
+                                       m0 ${-size*3/8}
+                                       a ${size*3/8} ${size*3/8} 0 1 1 0 ${size*3/4}
+                                       a ${size*3/8} ${size*3/8} 0 1 1 0 ${-size*3/4}`);
+    progressIndicator.setAttribute('fill', 'none');
+    progressIndicator.setAttribute('stroke', iconColors.primaryBlue);
+    progressIndicator.setAttribute('stroke-width', '2');
+    progressIndicator.setAttribute('stroke-dasharray', Math.PI * size*3/4);
+    progressIndicator.setAttribute('stroke-dashoffset', Math.PI * size*3/4);
+    
+    // Create step markers
+    const stepMarkers = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Add 5 step markers around the circle
+    for (let i = 0; i < 5; i++) {
+      const angle = (i * 72) * Math.PI / 180;
+      const markerX = size/2 + Math.sin(angle) * (size*3/8);
+      const markerY = size/2 - Math.cos(angle) * (size*3/8);
+      
+      const marker = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      marker.setAttribute('cx', markerX);
+      marker.setAttribute('cy', markerY);
+      marker.setAttribute('r', size/16);
+      marker.setAttribute('fill', i === 0 ? iconColors.primaryOrange : iconColors.white);
+      marker.setAttribute('stroke', iconColors.primaryBlue);
+      marker.setAttribute('stroke-width', '1');
+      
+      const markerText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      markerText.setAttribute('x', markerX);
+      markerText.setAttribute('y', markerY + size/48);
+      markerText.setAttribute('font-size', size/12);
+      markerText.setAttribute('font-family', 'Arial, sans-serif');
+      markerText.setAttribute('font-weight', 'bold');
+      markerText.setAttribute('text-anchor', 'middle');
+      markerText.setAttribute('fill', i === 0 ? iconColors.white : iconColors.primaryBlue);
+      markerText.textContent = (i + 1).toString();
+      
+      stepMarkers.appendChild(marker);
+      stepMarkers.appendChild(markerText);
+    }
+    
+    // Create procedure illustration (simplified dental implant)
+    const implantLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Create jaw bone
+    const jawBone = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    jawBone.setAttribute('x', size*3/8);
+    jawBone.setAttribute('y', size*5/8);
+    jawBone.setAttribute('width', size/4);
+    jawBone.setAttribute('height', size/8);
+    jawBone.setAttribute('rx', size/32);
+    jawBone.setAttribute('fill', iconColors.white);
+    jawBone.setAttribute('stroke', iconColors.primaryBlue);
+    jawBone.setAttribute('stroke-width', '1');
+    jawBone.setAttribute('stroke-opacity', '0.6');
+    
+    // Create dental implant
+    const implant = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    implant.setAttribute('d', `M${size/2} ${size*5/8}
+                             V${size*3/4}
+                             M${size*7/16} ${size*11/16}
+                             H${size*9/16}`);
+    implant.setAttribute('stroke', iconColors.primaryBlue);
+    implant.setAttribute('stroke-width', '2');
+    implant.setAttribute('fill', 'none');
+    
+    // Create dental crown
+    const crown = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    crown.setAttribute('d', `M${size*7/16} ${size/2}
+                           Q${size/2} ${size*3/8}, ${size*9/16} ${size/2}
+                           V${size*9/16}
+                           Q${size/2} ${size*5/8}, ${size*7/16} ${size*9/16}
+                           Z`);
+    crown.setAttribute('fill', iconColors.white);
+    crown.setAttribute('stroke', iconColors.primaryBlue);
+    crown.setAttribute('stroke-width', '1');
+    crown.setAttribute('opacity', '0.7');
+    
+    // Add all implant elements to group
+    implantLayer.appendChild(jawBone);
+    implantLayer.appendChild(implant);
+    implantLayer.appendChild(crown);
+    
+    // Create animated arrow indicating motion
+    const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    arrow.setAttribute('d', `M${size/2} ${size/3}
+                           V${size*2/5}
+                           M${size*7/16} ${size*3/8}
+                           L${size/2} ${size*2/5}
+                           L${size*9/16} ${size*3/8}`);
+    arrow.setAttribute('stroke', iconColors.primaryOrange);
+    arrow.setAttribute('stroke-width', '2');
+    arrow.setAttribute('stroke-linecap', 'round');
+    arrow.setAttribute('fill', 'none');
+    arrow.setAttribute('opacity', '0');
+    
+    // Append all elements to SVG
+    svg.appendChild(progressRing);
+    svg.appendChild(progressIndicator);
+    svg.appendChild(stepMarkers);
+    svg.appendChild(implantLayer);
+    svg.appendChild(arrow);
+    container.appendChild(svg);
+    
+    // Animation for the procedure icon
+    const animation = `
+      @keyframes progressFill {
+        0% { stroke-dashoffset: ${Math.PI * size*3/4}; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes markerActivate {
+        0%, 20% { fill: ${iconColors.white}; }
+        25%, 100% { fill: ${iconColors.primaryOrange}; }
+      }
+      
+      @keyframes textActivate {
+        0%, 20% { fill: ${iconColors.primaryBlue}; }
+        25%, 100% { fill: ${iconColors.white}; }
+      }
+      
+      @keyframes implantMove {
+        0%, 20% { transform: translateY(0); }
+        25%, 75% { transform: translateY(-${size/8}px); }
+        80%, 100% { transform: translateY(0); }
+      }
+      
+      @keyframes crownFade {
+        0%, 40% { opacity: 0.3; }
+        50%, 100% { opacity: 1; }
+      }
+      
+      @keyframes arrowPulse {
+        0%, 15%, 85%, 100% { opacity: 0; }
+        20%, 80% { opacity: 1; }
+      }
+      
+      .nsg-icon-procedure:hover svg path:nth-of-type(1) {
+        animation: progressFill 4s linear forwards;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) circle:nth-child(3) {
+        animation: markerActivate 4s linear forwards 1s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) text:nth-child(4) {
+        animation: textActivate 4s linear forwards 1s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) circle:nth-child(5) {
+        animation: markerActivate 4s linear forwards 2s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) text:nth-child(6) {
+        animation: textActivate 4s linear forwards 2s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) circle:nth-child(7) {
+        animation: markerActivate 4s linear forwards 3s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) text:nth-child(8) {
+        animation: textActivate 4s linear forwards 3s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) circle:nth-child(9) {
+        animation: markerActivate 4s linear forwards 4s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(1) text:nth-child(10) {
+        animation: textActivate 4s linear forwards 4s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(2) {
+        animation: implantMove 4s infinite 1s;
+      }
+      
+      .nsg-icon-procedure:hover svg g:nth-of-type(2) path:nth-of-type(2) {
+        animation: crownFade 4s infinite 1s;
+      }
+      
+      .nsg-icon-procedure:hover svg path:last-of-type {
+        animation: arrowPulse 4s infinite 1s;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 10. Verified Icon - For trust and safety
+  // Animated verification checkmark with shield
+  createVerifiedIcon: function(size = 64) {
+    const container = this.createIconContainer('verified', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create shield shape
+    const shield = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    shield.setAttribute('d', `M${size/2} ${size/12}
+                            L${size*5/6} ${size/6}
+                            V${size/2}
+                            C${size*5/6} ${size*3/4},
+                              ${size/2} ${size*11/12},
+                              ${size/6} ${size/2}
+                            V${size/6}
+                            Z`);
+    shield.setAttribute('fill', iconColors.white);
+    shield.setAttribute('stroke', iconColors.primaryBlue);
+    shield.setAttribute('stroke-width', '2');
+    
+    // Create shield inner border
+    const shieldInner = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    shieldInner.setAttribute('d', `M${size/2} ${size/8}
+                                 L${size*3/4} ${size/4}
+                                 V${size/2}
+                                 C${size*3/4} ${size*2/3},
+                                   ${size/2} ${size*5/6},
+                                   ${size/4} ${size/2}
+                                 V${size/4}
+                                 Z`);
+    shieldInner.setAttribute('fill', 'none');
+    shieldInner.setAttribute('stroke', iconColors.primaryBlue);
+    shieldInner.setAttribute('stroke-width', '1');
+    shieldInner.setAttribute('stroke-opacity', '0.5');
+    
+    // Create checkmark
+    const checkmark = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    checkmark.setAttribute('d', `M${size/3} ${size/2}
+                               L${size*7/16} ${size*5/8}
+                               L${size*2/3} ${size*3/8}`);
+    checkmark.setAttribute('fill', 'none');
+    checkmark.setAttribute('stroke', iconColors.primaryOrange);
+    checkmark.setAttribute('stroke-width', '3');
+    checkmark.setAttribute('stroke-linecap', 'round');
+    checkmark.setAttribute('stroke-linejoin', 'round');
+    checkmark.setAttribute('stroke-dasharray', size);
+    checkmark.setAttribute('stroke-dashoffset', size);
+    
+    // Create security emblem tooth
+    const toothEmblem = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    toothEmblem.setAttribute('d', `M${size/2} ${size/3}
+                                  Q${size*9/16} ${size/3}, ${size*9/16} ${size*5/12}
+                                  Q${size*9/16} ${size/2}, ${size/2} ${size/2}
+                                  Q${size*7/16} ${size/2}, ${size*7/16} ${size*5/12}
+                                  Q${size*7/16} ${size/3}, ${size/2} ${size/3}`);
+    toothEmblem.setAttribute('fill', iconColors.primaryBlueLight);
+    toothEmblem.setAttribute('fill-opacity', '0.2');
+    toothEmblem.setAttribute('stroke', iconColors.primaryBlue);
+    toothEmblem.setAttribute('stroke-width', '1');
+    toothEmblem.setAttribute('stroke-opacity', '0.7');
+    
+    // Create radial glow effect
+    const glowEffect = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    glowEffect.setAttribute('cx', size/2);
+    glowEffect.setAttribute('cy', size/2);
+    glowEffect.setAttribute('r', size/4);
+    glowEffect.setAttribute('fill', 'url(#verifiedGlow)');
+    glowEffect.setAttribute('opacity', '0');
+    
+    // Create radial gradient
+    const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'radialGradient');
+    gradient.setAttribute('id', 'verifiedGlow');
+    gradient.setAttribute('cx', '50%');
+    gradient.setAttribute('cy', '50%');
+    gradient.setAttribute('r', '50%');
+    
+    const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    stop1.setAttribute('offset', '0%');
+    stop1.setAttribute('stop-color', iconColors.primaryOrangeLight);
+    stop1.setAttribute('stop-opacity', '0.7');
+    
+    const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+    stop2.setAttribute('offset', '100%');
+    stop2.setAttribute('stop-color', iconColors.primaryOrangeLight);
+    stop2.setAttribute('stop-opacity', '0');
+    
+    gradient.appendChild(stop1);
+    gradient.appendChild(stop2);
+    
+    // Create definitions for gradient
+    const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    defs.appendChild(gradient);
+    
+    // Append all elements to SVG
+    svg.appendChild(defs);
+    svg.appendChild(glowEffect);
+    svg.appendChild(shield);
+    svg.appendChild(shieldInner);
+    svg.appendChild(toothEmblem);
+    svg.appendChild(checkmark);
+    container.appendChild(svg);
+    
+    // Animation for the verified icon
+    const animation = `
+      @keyframes shieldPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      
+      @keyframes checkmarkDraw {
+        0% { stroke-dashoffset: ${size}; }
+        60%, 100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes checkmarkGlow {
+        0%, 50% { stroke-width: 3; }
+        75% { stroke-width: 4; }
+        100% { stroke-width: 3; }
+      }
+      
+      @keyframes glowPulse {
+        0%, 40% { opacity: 0; }
+        70% { opacity: 0.8; }
+        100% { opacity: 0; }
+      }
+      
+      @keyframes toothEmblemHighlight {
+        0% { fill-opacity: 0.2; }
+        50% { fill-opacity: 0.6; }
+        100% { fill-opacity: 0.2; }
+      }
+      
+      .nsg-icon-verified:hover svg path:nth-of-type(1),
+      .nsg-icon-verified:hover svg path:nth-of-type(2) {
+        animation: shieldPulse 2s infinite;
+      }
+      
+      .nsg-icon-verified:hover svg path:nth-of-type(4) {
+        animation: checkmarkDraw 2s forwards, checkmarkGlow 2s infinite 2s;
+      }
+      
+      .nsg-icon-verified:hover svg circle {
+        animation: glowPulse 2s infinite 2s;
+      }
+      
+      .nsg-icon-verified:hover svg path:nth-of-type(3) {
+        animation: toothEmblemHighlight 2s infinite 2s;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 11. Notification Icon - For alerts and reminders
+  // Animated bell with notification dot
+  createNotificationIcon: function(size = 64) {
+    const container = this.createIconContainer('notification', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create bell shape
+    const bell = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    bell.setAttribute('d', `M${size/2} ${size/6}
+                          Q${size*2/3} ${size/6}, ${size*2/3} ${size/3}
+                          V${size*2/3}
+                          L${size*3/4} ${size*3/4}
+                          H${size/4}
+                          L${size/3} ${size*2/3}
+                          V${size/3}
+                          Q${size/3} ${size/6}, ${size/2} ${size/6}`);
+    bell.setAttribute('fill', iconColors.white);
+    bell.setAttribute('stroke', iconColors.primaryBlue);
+    bell.setAttribute('stroke-width', '2');
+    
+    // Create bell clapper
+    const clapper = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    clapper.setAttribute('d', `M${size/2} ${size/6}
+                             V${size/4}
+                             M${size/2} ${size*11/16}
+                             V${size*5/6}
+                             Q${size/2} ${size*11/12}, ${size*7/12} ${size*11/12}
+                             Q${size/2} ${size*11/12}, ${size*5/12} ${size*11/12}`);
+    clapper.setAttribute('fill', 'none');
+    clapper.setAttribute('stroke', iconColors.primaryBlue);
+    clapper.setAttribute('stroke-width', '2');
+    clapper.setAttribute('stroke-linecap', 'round');
+    
+    // Create notification dot
+    const notificationDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    notificationDot.setAttribute('cx', size*2/3);
+    notificationDot.setAttribute('cy', size/3);
+    notificationDot.setAttribute('r', size/12);
+    notificationDot.setAttribute('fill', iconColors.primaryOrange);
+    
+    // Create sound waves
+    const soundWaves = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Create 3 sound wave arcs
+    for (let i = 1; i <= 3; i++) {
+      const wave = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      wave.setAttribute('d', `M${size*3/4} ${size/2}
+                             Q${size*3/4 + (i * size/16)} ${size/2},
+                               ${size*3/4 + (i * size/16)} ${size/2 - (i * size/32)}
+                             Q${size*3/4 + (i * size/16)} ${size/2 - (i * size/16)},
+                               ${size*3/4} ${size/2 - (i * size/16)}`);
+      wave.setAttribute('fill', 'none');
+      wave.setAttribute('stroke', iconColors.primaryBlue);
+      wave.setAttribute('stroke-width', '1');
+      wave.setAttribute('stroke-opacity', '0.7');
+      wave.setAttribute('stroke-dasharray', '3,3');
+      wave.setAttribute('opacity', '0');
+      
+      soundWaves.appendChild(wave);
+    }
+    
+    // Append all elements to SVG
+    svg.appendChild(bell);
+    svg.appendChild(clapper);
+    svg.appendChild(notificationDot);
+    svg.appendChild(soundWaves);
+    container.appendChild(svg);
+    
+    // Animation for the notification icon
+    const animation = `
+      @keyframes bellShake {
+        0%, 50%, 100% { transform: rotate(0deg); }
+        55%, 65%, 75% { transform: rotate(15deg); }
+        60%, 70%, 80% { transform: rotate(-15deg); }
+      }
+      
+      @keyframes clapperBounce {
+        0%, 50%, 100% { transform: translateY(0); }
+        55%, 65%, 75% { transform: translateY(${size/24}px); }
+        60%, 70%, 80% { transform: translateY(-${size/24}px); }
+      }
+      
+      @keyframes dotPulse {
+        0%, 40% { transform: scale(1); }
+        45% { transform: scale(1.3); }
+        50%, 100% { transform: scale(1); }
+      }
+      
+      @keyframes waveFade {
+        0%, 50% { opacity: 0; }
+        60% { opacity: 1; }
+        90%, 100% { opacity: 0; }
+      }
+      
+      @keyframes waveMove {
+        50% { transform: translateX(0); }
+        100% { transform: translateX(${size/6}px); }
+      }
+      
+      .nsg-icon-notification:hover svg path:first-of-type {
+        animation: bellShake 4s infinite;
+        transform-origin: ${size/2}px ${size/6}px;
+      }
+      
+      .nsg-icon-notification:hover svg path:nth-of-type(2) {
+        animation: clapperBounce 4s infinite;
+      }
+      
+      .nsg-icon-notification:hover svg circle {
+        animation: dotPulse 4s infinite;
+      }
+      
+      .nsg-icon-notification:hover svg g path:nth-child(1) {
+        animation: waveFade 4s infinite, waveMove 4s infinite;
+        transform-origin: ${size*3/4}px ${size/2}px;
+      }
+      
+      .nsg-icon-notification:hover svg g path:nth-child(2) {
+        animation: waveFade 4s infinite 0.2s, waveMove 4s infinite 0.2s;
+        transform-origin: ${size*3/4}px ${size/2}px;
+      }
+      
+      .nsg-icon-notification:hover svg g path:nth-child(3) {
+        animation: waveFade 4s infinite 0.4s, waveMove 4s infinite 0.4s;
+        transform-origin: ${size*3/4}px ${size/2}px;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 12. Mobile Icon - For app responsiveness
+  // Animated device responsiveness visualization
+  createMobileIcon: function(size = 64) {
+    const container = this.createIconContainer('mobile', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create desktop shape
+    const desktop = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktop.setAttribute('x', size/8);
+    desktop.setAttribute('y', size/8);
+    desktop.setAttribute('width', size*3/4);
+    desktop.setAttribute('height', size/2);
+    desktop.setAttribute('rx', size/32);
+    desktop.setAttribute('fill', iconColors.white);
+    desktop.setAttribute('stroke', iconColors.primaryBlue);
+    desktop.setAttribute('stroke-width', '2');
+    
+    // Create desktop stand
+    const desktopStand = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    desktopStand.setAttribute('d', `M${size*3/8} ${size*5/8}
+                                   H${size*5/8}
+                                   V${size*3/4}
+                                   H${size*3/8}
+                                   Z`);
+    desktopStand.setAttribute('fill', iconColors.primaryBlue);
+    desktopStand.setAttribute('opacity', '0.3');
+    
+    // Create smartphone
+    const smartphone = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    smartphone.setAttribute('x', size*5/12);
+    smartphone.setAttribute('y', size*3/8);
+    smartphone.setAttribute('width', size/6);
+    smartphone.setAttribute('height', size/3);
+    smartphone.setAttribute('rx', size/32);
+    smartphone.setAttribute('fill', iconColors.white);
+    smartphone.setAttribute('stroke', iconColors.primaryBlue);
+    smartphone.setAttribute('stroke-width', '1.5');
+    
+    // Create device screens (simplified website display)
+    const desktopScreen = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    desktopScreen.setAttribute('x', size/6);
+    desktopScreen.setAttribute('y', size/6);
+    desktopScreen.setAttribute('width', size*2/3);
+    desktopScreen.setAttribute('height', size*3/8);
+    desktopScreen.setAttribute('fill', iconColors.primaryBlu    beforeText.setAttribute('x', size/4);
+    beforeText.setAttribute('y', size/2);
+    beforeText.setAttribute('font-size', size/10);
+    beforeText.setAttribute('font-family', 'Arial, sans-serif');
+    beforeText.setAttribute('text-anchor', 'middle');
+    beforeText.setAttribute('fill', iconColors.primaryBlue);
+    beforeText.textContent = 'Before';
+    
+    const afterText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    afterText.setAttribute('x', size*3/4);
+    afterText.setAttribute('y', size/2);
+    afterText.setAttribute('font-size', size/10);
+    afterText.setAttribute('font-family', 'Arial, sans-serif');
+    afterText.setAttribute('text-anchor', 'middle');
+    afterText.setAttribute('fill', iconColors.primaryBlue);
+    afterText.textContent = 'After';
+    
+    // Create teeth icons for before/after effect
+    // Before side (crooked teeth)
+    const beforeTeeth = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    beforeTeeth.setAttribute('d', `M${size/8 + size/16} ${size*3/8}
+                                  Q${size/4} ${size*5/8}, ${size/2 - size/16} ${size*3/8 + size/32}
+                                  L${size/2 - size/16} ${size*5/8 - size/32}
+                                  Q${size/4} ${size*3/8}, ${size/8 + size/16} ${size*5/8} Z`);
+    beforeTeeth.setAttribute('fill', iconColors.white);
+    beforeTeeth.setAttribute('stroke', iconColors.primaryBlue);
+    beforeTeeth.setAttribute('stroke-width', '1');
+    
+    // After side (straight teeth)
+    const afterTeeth = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    afterTeeth.setAttribute('d', `M${size/2 + size/16} ${size*3/8}
+                                 Q${size*3/4} ${size*3/8}, ${size*7/8 - size/16} ${size*3/8}
+                                 L${size*7/8 - size/16} ${size*5/8}
+                                 Q${size*3/4} ${size*5/8}, ${size/2 + size/16} ${size*5/8} Z`);
+    afterTeeth.setAttribute('fill', iconColors.white);
+    afterTeeth.setAttribute('stroke', iconColors.primaryBlue);
+    afterTeeth.setAttribute('stroke-width', '1');
+    
+    // Append all elements to SVG
+    svg.appendChild(background);
+    svg.appendChild(beforeTeeth);
+    svg.appendChild(afterTeeth);
+    svg.appendChild(sliderLine);
+    svg.appendChild(beforeText);
+    svg.appendChild(afterText);
+    svg.appendChild(sliderHandle);
+    container.appendChild(svg);
+    
+    // Animation for the before-after icon
+    const animation = `
+      @keyframes sliderMove {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(${size/4}px); }
+        100% { transform: translateX(0); }
+      }
+      
+      @keyframes handlePulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes textFade {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+      }
+      
+      .nsg-icon-before-after:hover svg line {
+        animation: sliderMove 2s infinite;
+      }
+      
+      .nsg-icon-before-after:hover svg g {
+        animation: handlePulse 2s infinite, sliderMove 2s infinite;
+      }
+      
+      .nsg-icon-before-after:hover svg text:first-of-type {
+        animation: textFade 2s infinite;
+      }
+      
+      .nsg-icon-before-after:hover svg text:last-of-type {
+        animation: textFade 2s infinite reverse;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 6. Academy Icon - For educational content
+  // Animated icon with graduation cap and book
+  createAcademyIcon: function(size = 64) {
+    const container = this.createIconContainer('academy', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create book base
+    const book = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    book.setAttribute('x', size/6);
+    book.setAttribute('y', size/3);
+    book.setAttribute('width', size*2/3);
+    book.setAttribute('height', size/2);
+    book.setAttribute('rx', size/32);
+    book.setAttribute('fill', iconColors.white);
+    book.setAttribute('stroke', iconColors.primaryBlue);
+    book.setAttribute('stroke-width', '2');
+    
+    // Create book spine
+    const spine = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    spine.setAttribute('d', `M${size/2} ${size/3}
+                           V${size*5/6}
+                           C${size/2 - size/12} ${size*5/6 - size/24},
+                             ${size/2 - size/6} ${size*5/6 - size/24},
+                             ${size/6} ${size*5/6}
+                           V${size/3}
+                           C${size/2 - size/6} ${size/3 + size/24},
+                             ${size/2 - size/12} ${size/3 + size/24},
+                             ${size/2} ${size/3}`);
+    spine.setAttribute('fill', iconColors.primaryBlueLight);
+    spine.setAttribute('opacity', '0.3');
+    
+    // Create book pages
+    const pages = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pages.setAttribute('d', `M${size/2} ${size/3 + size/24}
+                           C${size/2 + size/12} ${size/3 + size/18},
+                             ${size/2 + size/6} ${size/3 + size/18},
+                             ${size*5/6} ${size/3 + size/24}
+                           V${size*5/6 - size/24}
+                           C${size/2 + size/6} ${size*5/6 - size/18},
+                             ${size/2 + size/12} ${size*5/6 - size/18},
+                             ${size/2} ${size*5/6 - size/24}
+                           Z`);
+    pages.setAttribute('fill', iconColors.white);
+    pages.setAttribute('stroke', iconColors.primaryBlue);
+    pages.setAttribute('stroke-width', '1');
+    
+    // Create graduation cap
+    const cap = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    cap.setAttribute('d', `M${size/4} ${size/6}
+                          L${size/2} ${size/12}
+                          L${size*3/4} ${size/6}
+                          L${size/2} ${size/4} Z`);
+    cap.setAttribute('fill', iconColors.primaryBlue);
+    
+    // Create cap tassel
+    const tassel = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    tassel.setAttribute('d', `M${size/2} ${size/12}
+                            V${size/30}
+                            M${size/2} ${size/4}
+                            V${size/3}`);
+    tassel.setAttribute('stroke', iconColors.primaryBlue);
+    tassel.setAttribute('stroke-width', '1.5');
+    tassel.setAttribute('stroke-linecap', 'round');
+    
+    // Create wisdom teeth for education (simplified dental diagram)
+    const teethDiagram = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Top teeth row
+    const topTeeth = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    topTeeth.setAttribute('d', `M${size/3} ${size*5/12}
+                              Q${size/2} ${size*5/12 - size/24}, ${size*2/3} ${size*5/12}
+                              V${size/2}
+                              Q${size/2} ${size/2 + size/24}, ${size/3} ${size/2}
+                              Z`);
+    topTeeth.setAttribute('fill', iconColors.white);
+    topTeeth.setAttribute('stroke', iconColors.primaryBlue);
+    topTeeth.setAttribute('stroke-width', '1');
+    
+    // Teeth divider lines
+    for (let i = 1; i <= 2; i++) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', size/3 + (size/3) * (i/3));
+      line.setAttribute('y1', size*5/12);
+      line.setAttribute('x2', size/3 + (size/3) * (i/3));
+      line.setAttribute('y2', size/2);
+      line.setAttribute('stroke', iconColors.primaryBlue);
+      line.setAttribute('stroke-width', '0.5');
+      teethDiagram.appendChild(line);
+    }
+    
+    teethDiagram.appendChild(topTeeth);
+    
+    // Create floating text labels for education
+    const textGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Create small floating labels
+    const labels = ['A+', '123', 'XYZ'];
+    labels.forEach((label, index) => {
+      const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      text.setAttribute('x', size/3 + (index * size/6));
+      text.setAttribute('y', size*7/12);
+      text.setAttribute('font-size', size/12);
+      text.setAttribute('font-family', 'Arial, sans-serif');
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('fill', iconColors.primaryOrange);
+      text.setAttribute('opacity', '0');
+      text.textContent = label;
+      
+      textGroup.appendChild(text);
+    });
+    
+    // Append all elements to SVG
+    svg.appendChild(book);
+    svg.appendChild(spine);
+    svg.appendChild(pages);
+    svg.appendChild(teethDiagram);
+    svg.appendChild(textGroup);
+    svg.appendChild(cap);
+    svg.appendChild(tassel);
+    container.appendChild(svg);
+    
+    // Animation for the academy icon
+    const animation = `
+      @keyframes capFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-${size/16}px); }
+      }
+      
+      @keyframes bookOpen {
+        0% { transform: rotateY(0deg); }
+        50% { transform: rotateY(30deg); }
+        100% { transform: rotateY(0deg); }
+      }
+      
+      @keyframes tasselSway {
+        0%, 100% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+      }
+      
+      @keyframes textFloat {
+        0% { opacity: 0; transform: translateY(0) scale(0.5); }
+        25% { opacity: 1; transform: translateY(-${size/12}px) scale(1); }
+        75% { opacity: 1; transform: translateY(-${size/6}px) scale(1); }
+        100% { opacity: 0; transform: translateY(-${size/4}px) scale(0.5); }
+      }
+      
+      .nsg-icon-academy:hover svg path:nth-of-type(3),
+      .nsg-icon-academy:hover svg path:nth-of-type(4) {
+        animation: capFloat 2s infinite ease-in-out;
+      }
+      
+      .nsg-icon-academy:hover svg path:nth-of-type(4) {
+        animation: tasselSway 2s infinite ease-in-out, capFloat 2s infinite ease-in-out;
+        transform-origin: ${size/2}px ${size/12}px;
+      }
+      
+      .nsg-icon-academy:hover svg path:nth-of-type(2) {
+        animation: bookOpen 3s infinite ease-in-out;
+        transform-origin: ${size/2}px ${size/2}px;
+      }
+      
+      .nsg-icon-academy:hover svg g:nth-of-type(2) text:nth-child(1) {
+        animation: textFloat 3s infinite 0s;
+      }
+      
+      .nsg-icon-academy:hover svg g:nth-of-type(2) text:nth-child(2) {
+        animation: textFloat 3s infinite 0.5s;
+      }
+      
+      .nsg-icon-academy:hover svg g:nth-of-type(2) text:nth-child(3) {
+        animation: textFloat 3s infinite 1s;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 7. Appointment Icon - For appointment booking
+  // Animated calendar with pulse effect and clock
+  createAppointmentIcon: function(size = 64) {
+    const container = this.createIconContainer('appointment', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create calendar base
+    const calendar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    calendar.setAttribute('x', size/6);
+    calendar.setAttribute('y', size/4);
+    calendar.setAttribute('width', size*2/3);
+    calendar.setAttribute('height', size*5/8);
+    calendar.setAttribute('rx', size/16);
+    calendar.setAttribute('fill', iconColors.white);
+    calendar.setAttribute('stroke', iconColors.primaryBlue);
+    calendar.setAttribute('stroke-width', '2');
+    
+    // Create calendar top
+    const calendarTop = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    calendarTop.setAttribute('x', size/6);
+    calendarTop.setAttribute('y', size/4);
+    calendarTop.setAttribute('width', size*2/3);
+    calendarTop.setAttribute('height', size/8);
+    calendarTop.setAttribute('rx', size/16);
+    calendarTop.setAttribute('fill', iconColors.primaryBlueLight);
+    calendarTop.setAttribute('opacity', '0.3');
+    
+    // Create calendar hangers
+    const leftHanger = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    leftHanger.setAttribute('x', size/3);
+    leftHanger.setAttribute('y', size/8);
+    leftHanger.setAttribute('width', size/16);
+    leftHanger.setAttribute('height', size/8);
+    leftHanger.setAttribute('rx', size/32);
+    leftHanger.setAttribute('fill', iconColors.primaryBlue);
+    
+    const rightHanger = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rightHanger.setAttribute('x', size*7/12);
+    rightHanger.setAttribute('y', size/8);
+    rightHanger.setAttribute('width', size/16);
+    rightHanger.setAttribute('height', size/8);
+    rightHanger.setAttribute('rx', size/32);
+    rightHanger.setAttribute('fill', iconColors.primaryBlue);
+    
+    // Create calendar grid lines
+    const gridLines = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Horizontal grid lines
+    for (let i = 1; i <= 2; i++) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', size/6);
+      line.setAttribute('y1', size/4 + size/8 + (size/6) * i);
+      line.setAttribute('x2', size*5/6);
+      line.setAttribute('y2', size/4 + size/8 + (size/6) * i);
+      line.setAttribute('stroke', iconColors.primaryBlue);
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('stroke-opacity', '0.3');
+      gridLines.appendChild(line);
+    }
+    
+    // Vertical grid lines
+    for (let i = 1; i <= 2; i++) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', size/6 + (size*2/3) * (i/3));
+      line.setAttribute('y1', size/4 + size/8);
+      line.setAttribute('x2', size/6 + (size*2/3) * (i/3));
+      line.setAttribute('y2', size*7/8);
+      line.setAttribute('stroke', iconColors.primaryBlue);
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('stroke-opacity', '0.3');
+      gridLines.appendChild(line);
+    }
+    
+    // Create highlight date
+    const highlightDate = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    highlightDate.setAttribute('x', size*5/12);
+    highlightDate.setAttribute('y', size/2);
+    highlightDate.setAttribute('width', size/6);
+    highlightDate.setAttribute('height', size/6);
+    highlightDate.setAttribute('rx', size/32);
+    highlightDate.setAttribute('fill', iconColors.primaryOrange);
+    
+    // Create date number
+    const dateNumber = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    dateNumber.setAttribute('x', size/2);
+    dateNumber.setAttribute('y', size*7/12);
+    dateNumber.setAttribute('font-size', size/10);
+    dateNumber.setAttribute('font-family', 'Arial, sans-serif');
+    dateNumber.setAttribute('font-weight', 'bold');
+    dateNumber.setAttribute('text-anchor', 'middle');
+    dateNumber.setAttribute('fill', iconColors.white);
+    dateNumber.textContent = '15';
+    
+    // Create clock for time indication
+    const clock = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    clock.setAttribute('cx', size/4);
+    clock.setAttribute('cy', size*2/3);
+    clock.setAttribute('r', size/12);
+    clock.setAttribute('fill', iconColors.white);
+    clock.setAttribute('stroke', iconColors.primaryBlue);
+    clock.setAttribute('stroke-width', '1');
+    
+    // Create clock hands
+    const hourHand = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    hourHand.setAttribute('x1', size/4);
+    hourHand.setAttribute('y1', size*2/3);
+    hourHand.setAttribute('x2', size/4);
+    hourHand.setAttribute('y2', size*2/3 - size/20);
+    hourHand.setAttribute('stroke', iconColors.primaryBlue);
+    hourHand.setAttribute('stroke-width', '2');
+    hourHand.setAttribute('stroke-linecap', 'round');
+    
+    const minuteHand = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    minuteHand.setAttribute('x1', size/4);
+    minuteHand.setAttribute('y1', size*2/3);
+    minuteHand.setAttribute('x2', size/4 + size/16);
+    minuteHand.setAttribute('y2', size*2/3);
+    minuteHand.setAttribute('stroke', iconColors.primaryBlue);
+    minuteHand.setAttribute('stroke-width', '1');
+    minuteHand.setAttribute('stroke-linecap', 'round');
+    
+    // Create check mark for confirmed appointment
+    const checkMark = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    checkMark.setAttribute('d', `M${size*3/4 - size/12} ${size*2/3}
+                               L${size*3/4} ${size*2/3 + size/12}
+                               L${size*3/4 + size/8} ${size*2/3 - size/12}`);
+    checkMark.setAttribute('stroke', iconColors.primaryOrange);
+    checkMark.setAttribute('stroke-width', '2');
+    checkMark.setAttribute('stroke-linecap', 'round');
+    checkMark.setAttribute('stroke-linejoin', 'round');
+    checkMark.setAttribute('fill', 'none');
+    
+    // Append all elements to SVG
+    svg.appendChild(leftHanger);
+    svg.appendChild(rightHanger);
+    svg.appendChild(calendar);
+    svg.appendChild(calendarTop);
+    svg.appendChild(gridLines);
+    svg.appendChild(highlightDate);
+    svg.appendChild(dateNumber);
+    svg.appendChild(clock);
+    svg.appendChild(hourHand);
+    svg.appendChild(minuteHand);
+    svg.appendChild(checkMark);
+    container.appendChild(svg);
+    
+    // Animation for the appointment icon
+    const animation = `
+      @keyframes highlightPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes calendarShake {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-1deg); }
+        75% { transform: rotate(1deg); }
+      }
+      
+      @keyframes hourHandRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes minuteHandRotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      @keyframes checkBounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+      }
+      
+      .nsg-icon-appointment:hover svg rect:nth-of-type(5) {
+        animation: highlightPulse 1.5s infinite;
+      }
+      
+      .nsg-icon-appointment:hover svg rect:nth-of-type(3) {
+        animation: calendarShake 3s infinite;
+        transform-origin: ${size/2}px ${size/2}px;
+      }
+      
+      .nsg-icon-appointment:hover svg line:nth-of-type(5) {
+        animation: hourHandRotate 6s linear infinite;
+        transform-origin: ${size/4}px ${size*2/3}px;
+      }
+      
+      .nsg-icon-appointment:hover svg line:nth-of-type(6) {
+        animation: minuteHandRotate 1s linear infinite;
+        transform-origin: ${size/4}px ${size*2/3}px;
+      }
+      
+      .nsg-icon-appointment:hover svg path {
+        animation: checkBounce 1.5s infinite;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 8. Testimonial Icon - For user stories section
+  // Animated speech bubble with star rating
+  createTestimonialIcon: function(size = 64) {
+    const container = this.createIconContainer('testimonial', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create speech bubble
+    const bubble = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    bubble.setAttribute('d', `M${size/8} ${size/4}
+                            H${size*7/8}
+                            C${size*7/8 + size/16} ${size/4},
+                              ${size*7/8 + size/16} ${size/4 + size/16},
+                              ${size*7/8} ${size/4 + size/8}
+                            V${size*5/8}
+                            C${size*7/8} ${size*5/8 + size/16},
+                              ${size*7/8 - size/16} ${size*5/8 + size/8},
+                              ${size*7/8 - size/8} ${size*5/8 + size/8}
+                            H${size/2 + size/16}
+                            L${size/2} ${size*7/8}
+                            L${size/2 - size/16} ${size*5/8 + size/8}
+                            H${size/8 + size/8}
+                            C${size/8} ${size*5/8 + size/8},
+                              ${size/8 - size/16} ${size*5/8 + size/16},
+                              ${size/8} ${size*5/8}
+                            V${size/4 + size/8}
+                            C${size/8} ${size/4 + size/16},
+                              ${size/8 + size/16} ${size/4},
+                              ${size/8 + size/8} ${size/4}
+                            Z`);
+    bubble.setAttribute('fill', iconColors.white);
+    bubble.setAttribute('stroke', iconColors.primaryBlue);
+    bubble.setAttribute('stroke-width', '2');
+    
+    // Create text lines in speech bubble
+    const textLines = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    for (let i = 0; i < 3; i++) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', size/4);
+      line.setAttribute('y1', size/4 + size/8 + (size/8) * i);
+      line.setAttribute('x2', size*3/4);
+      line.setAttribute('y2', size/4 + size/8 + (size/8) * i);
+      line.setAttribute('stroke', iconColors.primaryBlue);
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('stroke-opacity', '0.3');
+      textLines.appendChild(line);
+    }
+    
+    // Create star ratings
+    const stars = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Add 5 stars in a row
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const centerX = size/4 + (size/8) * i;
+      const centerY = size/2 + size/16;
+      const outerRadius = size/16;
+      const innerRadius = outerRadius / 2.5;
+      
+      let starPath = `M${centerX},${centerY - outerRadius} `;
+      
+      for (let j = 0; j < 5; j++) {
+        // Outer point
+        const outerAngle = (Math.PI / 10) + (j * Math.PI * 2 / 5);
+        const outerX = centerX + outerRadius * Math.sin(outerAngle);
+        const outerY = centerY - outerRadius * Math.cos(outerAngle);
+        
+        // Inner point
+        const innerAngle = (Math.PI / 5) + (j * Math.PI * 2 / 5);
+        const innerX = centerX + innerRadius * Math.sin(innerAngle);
+        const innerY = centerY - innerRadius * Math.cos(innerAngle);
+        
+        starPath += `L${outerX},${outerY} L${innerX},${innerY} `;
+      }
+      
+      star.setAttribute('d', starPath + 'Z');
+      star.setAttribute('fill', i < 5 ? iconColors.accentYellow : iconColors.white);
+      star.setAttribute('stroke', iconColors.accentYellow);
+      star.setAttribute('stroke-width', '1');
+      
+      stars.appendChild(star);
+    }
+    
+    // Create smiling face avatar
+    const avatar = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    avatar.setAttribute('cx', size/2);
+    avatar.setAttribute('cy', size*3/4);
+    avatar.setAttribute('r', size/12);
+    avatar.setAttribute('fill', iconColors.primaryOrangeLight);
+    
+    // Create happy face eyes
+    const leftEye = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    leftEye.setAttribute('cx', size/2 - size/24);
+    leftEye.setAttribute('cy', size*3/4 - size/32);
+    leftEye.setAttribute('r', size/96);
+    leftEye.setAttribute('fill', iconColors.white);
+    
+    const rightEye = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    rightEye.setAttribute('cx', size/2 + size/24);
+    rightEye.setAttribute('cy', size*3/4 - size/32);
+    rightEye.setAttribute('r', size/96);
+    rightEye.setAttribute('fill', iconColors.white);
+    
+    // Create happy face smile
+    const smile = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    smile.setAttribute('d', `M${size/2 - size/24} ${size*3/4 + size/48}
+                           Q${size/2} ${size*3/4 + size/16}, ${size/2 + size/24} ${size*3/4 + size/48}`);
+    smile.setAttribute('stroke', iconColors.white);
+    smile.setAttribute('stroke-width', '1');
+    smile.setAttribute('fill', 'none');
+    
+    // Append all elements to SVG
+    svg.appendChild(bubble);
+    svg.appendChild(textLines);
+    svg.appendChild(stars);
+    svg.appendChild(avatar);
+    svg.appendChild(leftEye);
+    svg.appendChild(right// The New Smile Guide - Animated SVG Icons Suite
+// This file contains a collection of animated SVG icons for use throughout the website
+
+// Define colors from our brand palette
+const iconColors = {
+  primaryBlue: '#386088',
+  primaryBlueLight: '#4a7ba8',
+  primaryBlueDark: '#2a4b6a',
+  primaryOrange: '#f29c74',
+  primaryOrangeLight: '#f7b799',
+  primaryOrangeDark: '#e6805a',
+  accentYellow: '#f9a75f',
+  white: '#ffffff'
+};
+
+// Create a namespace for our icons
+const NewSmileIcons = {
+  // Icon container to append to DOM
+  iconContainer: null,
+  
+  // Initialize icons
+  init: function() {
+    // Create container for icons if it doesn't exist
+    if (!this.iconContainer) {
+      this.iconContainer = document.createElement('div');
+      this.iconContainer.className = 'nsg-icons-container';
+      document.body.appendChild(this.iconContainer);
+      
+      // Add styles
+      const styleSheet = document.createElement('style');
+      styleSheet.textContent = `
+        .nsg-icon {
+          display: inline-block;
+          vertical-align: middle;
+          overflow: visible;
+        }
+
+        .nsg-icon svg {
+          overflow: visible;
+        }
+
+        .nsg-icon * {
+          transform-origin: center;
+          transform-box: fill-box;
+        }
+      `;
+      document.head.appendChild(styleSheet);
+    }
+  },
+  
+  // Create SVG element with properties
+  createSVG: function(width, height) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', width);
+    svg.setAttribute('height', height);
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    return svg;
+  },
+  
+  // Create a container for an icon
+  createIconContainer: function(name, width, height) {
+    const container = document.createElement('div');
+    container.className = `nsg-icon nsg-icon-${name}`;
+    return container;
+  },
+
+  // 1. Smile Icon - Main brand icon
+  // Animated teeth that transform into a smile
+  createSmileIcon: function(size = 64) {
+    const container = this.createIconContainer('smile', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create circular background
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', size/2);
+    circle.setAttribute('cy', size/2);
+    circle.setAttribute('r', size/2 - 2);
+    circle.setAttribute('fill', iconColors.white);
+    circle.setAttribute('stroke', iconColors.primaryBlue);
+    circle.setAttribute('stroke-width', '2');
+    
+    // Create teeth elements
+    const teeth = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    teeth.setAttribute('d', `M${size/4} ${size/2.2} 
+                          Q${size/2} ${size/1.8}, ${size*3/4} ${size/2.2}
+                          L${size*3/4} ${size*3/5}
+                          Q${size/2} ${size/1.5}, ${size/4} ${size*3/5} Z`);
+    teeth.setAttribute('fill', iconColors.white);
+    teeth.setAttribute('stroke', iconColors.primaryBlue);
+    teeth.setAttribute('stroke-width', '2');
+    
+    // Create smile line (initially hidden)
+    const smile = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    smile.setAttribute('d', `M${size/4} ${size/2} 
+                           Q${size/2} ${size/1.2}, ${size*3/4} ${size/2}`);
+    smile.setAttribute('stroke', iconColors.primaryBlue);
+    smile.setAttribute('stroke-width', '2');
+    smile.setAttribute('stroke-linecap', 'round');
+    smile.setAttribute('fill', 'none');
+    smile.setAttribute('opacity', '0');
+    
+    // Create teeth divider lines
+    const dividers = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Add 3 vertical lines to separate teeth
+    for (let i = 1; i <= 3; i++) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', size/4 + (size/2) * (i/4));
+      line.setAttribute('y1', size/2.2);
+      line.setAttribute('x2', size/4 + (size/2) * (i/4));
+      line.setAttribute('y2', size*3/5);
+      line.setAttribute('stroke', iconColors.primaryBlue);
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('opacity', '1');
+      dividers.appendChild(line);
+    }
+    
+    // Append all elements to SVG
+    svg.appendChild(circle);
+    svg.appendChild(teeth);
+    svg.appendChild(dividers);
+    svg.appendChild(smile);
+    container.appendChild(svg);
+    
+    // Animation for the smile icon
+    const animation = `
+      @keyframes teethToSmile {
+        0% {
+          d: path('M${size/4} ${size/2.2} Q${size/2} ${size/1.8}, ${size*3/4} ${size/2.2} L${size*3/4} ${size*3/5} Q${size/2} ${size/1.5}, ${size/4} ${size*3/5} Z');
+        }
+        50% {
+          d: path('M${size/4} ${size/2.2} Q${size/2} ${size/1.5}, ${size*3/4} ${size/2.2} L${size*3/4} ${size/2.3} Q${size/2} ${size/1.7}, ${size/4} ${size/2.3} Z');
+        }
+        100% {
+          d: path('M${size/4} ${size/2.2} Q${size/2} ${size/1.2}, ${size*3/4} ${size/2.2} L${size*3/4} ${size/2.2} Q${size/2} ${size/1.2}, ${size/4} ${size/2.2} Z');
+        }
+      }
+      
+      @keyframes dividersFade {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 0; }
+      }
+      
+      @keyframes smileAppear {
+        0% { opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+      }
+      
+      .nsg-icon-smile:hover svg path:nth-of-type(1) {
+        animation: teethToSmile 0.6s forwards;
+      }
+      
+      .nsg-icon-smile:hover svg g {
+        animation: dividersFade 0.6s forwards;
+      }
+      
+      .nsg-icon-smile:hover svg path:nth-of-type(2) {
+        animation: smileAppear 0.6s forwards;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 2. Tooth Icon - For dental procedures section
+  // Animated tooth that pulses and glows
+  createToothIcon: function(size = 64) {
+    const container = this.createIconContainer('tooth', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create tooth shape
+    const tooth = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    tooth.setAttribute('d', `M${size/2} ${size/8}
+                           C${size*2/3} ${size/8} ${size*3/4} ${size/6} ${size*3/4} ${size/4}
+                           C${size*3/4} ${size/3} ${size*7/8} ${size/2} ${size*3/4} ${size*2/3}
+                           C${size*2/3} ${size*7/8} ${size*2/3} ${size*7/8} ${size/2} ${size*7/8}
+                           C${size/3} ${size*7/8} ${size/3} ${size*7/8} ${size/4} ${size*2/3}
+                           C${size/8} ${size/2} ${size/4} ${size/3} ${size/4} ${size/4}
+                           C${size/4} ${size/6} ${size/3} ${size/8} ${size/2} ${size/8}Z`);
+    tooth.setAttribute('fill', iconColors.white);
+    tooth.setAttribute('stroke', iconColors.primaryBlue);
+    tooth.setAttribute('stroke-width', '2');
+    
+    // Create roots
+    const leftRoot = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    leftRoot.setAttribute('d', `M${size/3} ${size*7/8}
+                             C${size/3} ${size*7/8} ${size/4} ${size*7/8} ${size/4} ${size}
+                             L${size*3/8} ${size}
+                             C${size*3/8} ${size*7/8} ${size/3} ${size*7/8} ${size/3} ${size*7/8}`);
+    leftRoot.setAttribute('fill', iconColors.white);
+    leftRoot.setAttribute('stroke', iconColors.primaryBlue);
+    leftRoot.setAttribute('stroke-width', '2');
+    
+    const rightRoot = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    rightRoot.setAttribute('d', `M${size*2/3} ${size*7/8}
+                              C${size*2/3} ${size*7/8} ${size*5/8} ${size*7/8} ${size*5/8} ${size}
+                              L${size*3/4} ${size}
+                              C${size*3/4} ${size*7/8} ${size*2/3} ${size*7/8} ${size*2/3} ${size*7/8}`);
+    rightRoot.setAttribute('fill', iconColors.white);
+    rightRoot.setAttribute('stroke', iconColors.primaryBlue);
+    rightRoot.setAttribute('stroke-width', '2');
+    
+    // Create glow effect (initially hidden)
+    const glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    glow.setAttribute('d', tooth.getAttribute('d'));
+    glow.setAttribute('fill', 'none');
+    glow.setAttribute('stroke', iconColors.primaryOrangeLight);
+    glow.setAttribute('stroke-width', '4');
+    glow.setAttribute('opacity', '0');
+    glow.setAttribute('filter', 'blur(4px)');
+    
+    // Append all elements to SVG
+    svg.appendChild(glow);
+    svg.appendChild(tooth);
+    svg.appendChild(leftRoot);
+    svg.appendChild(rightRoot);
+    container.appendChild(svg);
+    
+    // Animation for the tooth icon
+    const animation = `
+      @keyframes toothPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes toothGlow {
+        0% { opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { opacity: 0; }
+      }
+      
+      .nsg-icon-tooth:hover svg path:nth-of-type(2) {
+        animation: toothPulse 1.2s infinite;
+      }
+      
+      .nsg-icon-tooth:hover svg path:first-of-type {
+        animation: toothGlow 1.2s infinite;
+      }
+      
+      .nsg-icon-tooth:hover svg path:nth-of-type(3),
+      .nsg-icon-tooth:hover svg path:nth-of-type(4) {
+        animation: toothPulse 1.2s infinite 0.1s;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 3. Cost Estimator Icon - For pricing section
+  // Animated dollar sign with calculator elements
+  createCostIcon: function(size = 64) {
+    const container = this.createIconContainer('cost', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create calculator base
+    const calculator = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    calculator.setAttribute('x', size/8);
+    calculator.setAttribute('y', size/8);
+    calculator.setAttribute('width', size*3/4);
+    calculator.setAttribute('height', size*3/4);
+    calculator.setAttribute('rx', size/16);
+    calculator.setAttribute('fill', iconColors.white);
+    calculator.setAttribute('stroke', iconColors.primaryBlue);
+    calculator.setAttribute('stroke-width', '2');
+    
+    // Create calculator display
+    const display = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    display.setAttribute('x', size/6);
+    display.setAttribute('y', size/6);
+    display.setAttribute('width', size*2/3);
+    display.setAttribute('height', size/6);
+    display.setAttribute('rx', size/32);
+    display.setAttribute('fill', iconColors.primaryBlueLight);
+    display.setAttribute('opacity', '0.2');
+    
+    // Create calculator buttons
+    const buttons = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Add 9 calculator buttons (3x3 grid)
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        const button = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        button.setAttribute('x', size/6 + col * (size/5));
+        button.setAttribute('y', size*5/12 + row * (size/6));
+        button.setAttribute('width', size/8);
+        button.setAttribute('height', size/8);
+        button.setAttribute('rx', size/32);
+        button.setAttribute('fill', iconColors.primaryBlueDark);
+        button.setAttribute('opacity', '0.1');
+        buttons.appendChild(button);
+      }
+    }
+    
+    // Create dollar sign
+    const dollarSign = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    dollarSign.setAttribute('d', `M${size/2} ${size/4}
+                                 V${size*3/4}
+                                 M${size*3/8} ${size*1/3}
+                                 H${size*5/8}
+                                 A${size/8} ${size/8} 0 0 1 ${size*3/8} ${size*1/2}
+                                 H${size*5/8}
+                                 A${size/8} ${size/8} 0 0 1 ${size*3/8} ${size*2/3}`);
+    dollarSign.setAttribute('stroke', iconColors.primaryBlue);
+    dollarSign.setAttribute('stroke-width', '2.5');
+    dollarSign.setAttribute('stroke-linecap', 'round');
+    dollarSign.setAttribute('fill', 'none');
+    
+    // Create animated coins
+    const coins = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    // Add 3 coins with dollar signs
+    for (let i = 0; i < 3; i++) {
+      const coin = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      coin.setAttribute('cx', size/2);
+      coin.setAttribute('cy', size/2);
+      coin.setAttribute('r', size/12);
+      coin.setAttribute('fill', iconColors.accentYellow);
+      coin.setAttribute('opacity', '0');
+      
+      const coinDollar = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      coinDollar.setAttribute('d', `M${size/2} ${size/2 - size/16}
+                                   V${size/2 + size/16}
+                                   M${size/2 - size/24} ${size/2 - size/24}
+                                   H${size/2 + size/24}
+                                   A${size/48} ${size/48} 0 0 1 ${size/2 - size/24} ${size/2}
+                                   H${size/2 + size/24}
+                                   A${size/48} ${size/48} 0 0 1 ${size/2 - size/24} ${size/2 + size/24}`);
+      coinDollar.setAttribute('stroke', iconColors.white);
+      coinDollar.setAttribute('stroke-width', '1.5');
+      coinDollar.setAttribute('stroke-linecap', 'round');
+      coinDollar.setAttribute('fill', 'none');
+      coinDollar.setAttribute('opacity', '0');
+      
+      coins.appendChild(coin);
+      coins.appendChild(coinDollar);
+    }
+    
+    // Append all elements to SVG
+    svg.appendChild(calculator);
+    svg.appendChild(display);
+    svg.appendChild(buttons);
+    svg.appendChild(dollarSign);
+    svg.appendChild(coins);
+    container.appendChild(svg);
+    
+    // Animation for the cost icon
+    const animation = `
+      @keyframes calculatorPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes dollarGlow {
+        0% { stroke: ${iconColors.primaryBlue}; }
+        50% { stroke: ${iconColors.accentYellow}; }
+        100% { stroke: ${iconColors.primaryBlue}; }
+      }
+      
+      @keyframes buttonPress {
+        0%, 100% { transform: scale(1); opacity: 0.1; }
+        20% { transform: scale(0.9); opacity: 0.3; }
+        40% { transform: scale(1); opacity: 0.1; }
+      }
+      
+      @keyframes coinAppear {
+        0% { opacity: 0; transform: translate(0, 0) scale(0); }
+        20% { opacity: 1; transform: translate(0, 0) scale(1); }
+        100% { opacity: 0; transform: translate(0, -${size/2}px) scale(0.5); }
+      }
+      
+      .nsg-icon-cost:hover svg rect:first-of-type {
+        animation: calculatorPulse 1.5s infinite;
+      }
+      
+      .nsg-icon-cost:hover svg path:nth-of-type(1) {
+        animation: dollarGlow 1.5s infinite;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(1) rect:nth-child(1) {
+        animation: buttonPress 1.5s infinite 0.1s;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(1) rect:nth-child(5) {
+        animation: buttonPress 1.5s infinite 0.3s;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(1) rect:nth-child(9) {
+        animation: buttonPress 1.5s infinite 0.5s;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(2) circle:nth-child(1),
+      .nsg-icon-cost:hover svg g:nth-of-type(2) path:nth-child(2) {
+        animation: coinAppear 1.5s infinite 0.3s;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(2) circle:nth-child(3),
+      .nsg-icon-cost:hover svg g:nth-of-type(2) path:nth-child(4) {
+        animation: coinAppear 1.5s infinite 0.6s;
+      }
+      
+      .nsg-icon-cost:hover svg g:nth-of-type(2) circle:nth-child(5),
+      .nsg-icon-cost:hover svg g:nth-of-type(2) path:nth-child(6) {
+        animation: coinAppear 1.5s infinite 0.9s;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 4. Find Specialist Icon - For specialist finder
+  // Animated magnifying glass with location pin
+  createFinderIcon: function(size = 64) {
+    const container = this.createIconContainer('finder', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create magnifying glass handle
+    const handle = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    handle.setAttribute('x1', size*3/5);
+    handle.setAttribute('y1', size*3/5);
+    handle.setAttribute('x2', size*4/5);
+    handle.setAttribute('y2', size*4/5);
+    handle.setAttribute('stroke', iconColors.primaryBlue);
+    handle.setAttribute('stroke-width', '3');
+    handle.setAttribute('stroke-linecap', 'round');
+    
+    // Create magnifying glass circle
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', size*2/5);
+    circle.setAttribute('cy', size*2/5);
+    circle.setAttribute('r', size/4);
+    circle.setAttribute('fill', 'none');
+    circle.setAttribute('stroke', iconColors.primaryBlue);
+    circle.setAttribute('stroke-width', '2');
+    
+    // Create location pin
+    const pin = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    pin.setAttribute('d', `M${size*2/5} ${size/4}
+                          A${size/16} ${size/16} 0 0 1 ${size*2/5 + size/16} ${size/4 + size/16}
+                          C${size*2/5 + size/16} ${size/4 + size/8} ${size*2/5 + size/8} ${size*2/5} ${size*2/5} ${size*2/5 + size/16}
+                          C${size*2/5 - size/8} ${size*2/5} ${size*2/5 - size/16} ${size/4 + size/8} ${size*2/5 - size/16} ${size/4 + size/16}
+                          A${size/16} ${size/16} 0 0 1 ${size*2/5} ${size/4}Z`);
+    pin.setAttribute('fill', iconColors.primaryOrange);
+    pin.setAttribute('stroke', iconColors.white);
+    pin.setAttribute('stroke-width', '1');
+    
+    // Create pin dot
+    const pinDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    pinDot.setAttribute('cx', size*2/5);
+    pinDot.setAttribute('cy', size/4 + size/16);
+    pinDot.setAttribute('r', size/48);
+    pinDot.setAttribute('fill', iconColors.white);
+    
+    // Create search scan effect
+    const scanEffect = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    scanEffect.setAttribute('cx', size*2/5);
+    scanEffect.setAttribute('cy', size*2/5);
+    scanEffect.setAttribute('r', size/4 - 2);
+    scanEffect.setAttribute('fill', 'none');
+    scanEffect.setAttribute('stroke', iconColors.primaryOrangeLight);
+    scanEffect.setAttribute('stroke-width', '2');
+    scanEffect.setAttribute('stroke-dasharray', Math.PI * (size/2 - 4));
+    scanEffect.setAttribute('stroke-dashoffset', '0');
+    scanEffect.setAttribute('opacity', '0.7');
+    
+    // Append all elements to SVG
+    svg.appendChild(scanEffect);
+    svg.appendChild(handle);
+    svg.appendChild(circle);
+    svg.appendChild(pin);
+    svg.appendChild(pinDot);
+    container.appendChild(svg);
+    
+    // Animation for the finder icon
+    const animation = `
+      @keyframes handleSway {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        75% { transform: rotate(-5deg); }
+        100% { transform: rotate(0deg); }
+      }
+      
+      @keyframes glassPulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      
+      @keyframes pinBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-${size/16}px); }
+      }
+      
+      @keyframes scanRotate {
+        from { 
+          transform: rotate(0deg);
+          stroke-dashoffset: 0;
+        }
+        to { 
+          transform: rotate(360deg);
+          stroke-dashoffset: -${Math.PI * (size/2 - 4)}; 
+        }
+      }
+      
+      .nsg-icon-finder:hover svg line {
+        animation: handleSway 1.5s infinite;
+        transform-origin: ${size*3/5}px ${size*3/5}px;
+      }
+      
+      .nsg-icon-finder:hover svg circle:nth-of-type(1) {
+        animation: scanRotate 3s linear infinite;
+      }
+      
+      .nsg-icon-finder:hover svg circle:nth-of-type(2) {
+        animation: glassPulse 1.5s infinite;
+      }
+      
+      .nsg-icon-finder:hover svg path {
+        animation: pinBounce 0.8s infinite;
+      }
+      
+      .nsg-icon-finder:hover svg circle:nth-of-type(3) {
+        animation: pinBounce 0.8s infinite;
+      }
+    `;
+    
+    // Add animation styles
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = animation;
+    document.head.appendChild(styleSheet);
+    
+    return container;
+  },
+
+  // 5. Before-After Icon - For treatment visualizer
+  // Animated slider showing before/after comparison
+  createBeforeAfterIcon: function(size = 64) {
+    const container = this.createIconContainer('before-after', size, size);
+    const svg = this.createSVG(size, size);
+    
+    // Create background rectangle
+    const background = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    background.setAttribute('x', size/8);
+    background.setAttribute('y', size/8);
+    background.setAttribute('width', size*3/4);
+    background.setAttribute('height', size*3/4);
+    background.setAttribute('rx', size/16);
+    background.setAttribute('fill', iconColors.white);
+    background.setAttribute('stroke', iconColors.primaryBlue);
+    background.setAttribute('stroke-width', '2');
+    
+    // Create slider line
+    const sliderLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    sliderLine.setAttribute('x1', size/2);
+    sliderLine.setAttribute('y1', size/8);
+    sliderLine.setAttribute('x2', size/2);
+    sliderLine.setAttribute('y2', size*7/8);
+    sliderLine.setAttribute('stroke', iconColors.primaryBlue);
+    sliderLine.setAttribute('stroke-width', '2');
+    
+    // Create slider handle
+    const sliderHandle = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    
+    const handle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    handle.setAttribute('cx', size/2);
+    handle.setAttribute('cy', size/2);
+    handle.setAttribute('r', size/12);
+    handle.setAttribute('fill', iconColors.primaryOrange);
+    handle.setAttribute('stroke', iconColors.white);
+    handle.setAttribute('stroke-width', '1');
+    
+    const leftArrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    leftArrow.setAttribute('d', `M${size/2 - size/24} ${size/2}
+                               L${size/2 - size/16} ${size/2 - size/24}
+                               L${size/2 - size/16} ${size/2 + size/24}Z`);
+    leftArrow.setAttribute('fill', iconColors.white);
+    
+    const rightArrow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    rightArrow.setAttribute('d', `M${size/2 + size/24} ${size/2}
+                                L${size/2 + size/16} ${size/2 - size/24}
+                                L${size/2 + size/16} ${size/2 + size/24}Z`);
+    rightArrow.setAttribute('fill', iconColors.white);
+    
+    sliderHandle.appendChild(handle);
+    sliderHandle.appendChild(leftArrow);
+    sliderHandle.appendChild(rightArrow);
+    
+    // Create before/after text
+    const beforeText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    beforeText.setAttribute('x', size/4);
+    beforeText.setAttribute('y', size/2);
+    beforeText.setAttribute('font-size', size/10);
+    beforeText.setAttribute('font-family', 'Arial, sans-serif');
+    beforeText.setAttribute('text-anchor', 'middle');
