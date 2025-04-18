@@ -1769,3 +1769,1616 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize
     setTimeout(handleScrollAnimations, 100);
 });
+/**
+ * The New Smile Guide - Interactive JavaScript
+ * Version: 1.0
+ * 
+ * This script enhances The New Smile Guide website with smooth animations,
+ * interactive elements, and performance optimizations to create an
+ * award-winning user experience.
+ */
+
+ // Wait for the DOM to be fully loaded before running scripts
+ document.addEventListener('DOMContentLoaded', function() {
+     // Initialize all components
+     initPreloader();
+     initScrollEffects();
+     initAnimations();
+     initInteractiveElements();
+     initAccessibilityFeatures();
+     initPerformanceOptimizations();
+ });
+ 
+ /**
+  * Preloader Animation
+  * Displays an elegant loading animation until the page is fully loaded
+  */
+ function initPreloader() {
+     const preloader = document.createElement('div');
+     preloader.className = 'preloader';
+     preloader.innerHTML = '<div class="loader"></div>';
+     document.body.prepend(preloader);
+ 
+     // Hide preloader once page is loaded
+     window.addEventListener('load', () => {
+         setTimeout(() => {
+             preloader.classList.add('hidden');
+             // Remove preloader from DOM after animation completes
+             setTimeout(() => {
+                 preloader.remove();
+             }, 500);
+         }, 800);
+     });
+ }
+ 
+ /**
+  * Scroll Effects
+  * Handles scroll-triggered animations and effects
+  */
+ function initScrollEffects() {
+     // Elements to animate on scroll
+     const animatedElements = document.querySelectorAll('.scroll-animation, [data-aos]');
+     
+     // Header scroll effect
+     const header = document.querySelector('header');
+     
+     // Scroll to top button
+     const scrollTopBtn = document.createElement('div');
+     scrollTopBtn.className = 'scroll-top';
+     scrollTopBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>';
+     document.body.appendChild(scrollTopBtn);
+     
+     // Handle scroll events
+     window.addEventListener('scroll', throttle(() => {
+         // Header shrink effect
+         if (window.scrollY > 50) {
+             header.classList.add('scrolled');
+         } else {
+             header.classList.remove('scrolled');
+         }
+         
+         // Scroll to top button visibility
+         if (window.scrollY > 300) {
+             scrollTopBtn.classList.add('visible');
+         } else {
+             scrollTopBtn.classList.remove('visible');
+         }
+         
+         // Reveal elements when scrolled into view
+         animatedElements.forEach(element => {
+             if (isElementInViewport(element)) {
+                 element.classList.add('aos-animate');
+                 element.classList.add('visible');
+             }
+         });
+     }, 100));
+     
+     // Scroll to top button click handler
+     scrollTopBtn.addEventListener('click', () => {
+         window.scrollTo({
+             top: 0,
+             behavior: 'smooth'
+         });
+     });
+     
+     // Smooth scroll for anchor links
+     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+         anchor.addEventListener('click', function(e) {
+             e.preventDefault();
+             
+             const targetId = this.getAttribute('href');
+             if (targetId === '#') return;
+             
+             const targetElement = document.querySelector(targetId);
+             if (targetElement) {
+                 targetElement.scrollIntoView({
+                     behavior: 'smooth',
+                     block: 'start'
+                 });
+             }
+         });
+     });
+ }
+ 
+ /**
+  * Animations
+  * Sets up various animations and effects throughout the site
+  */
+ function initAnimations() {
+     // Hero text typing effect
+     const heroText = document.querySelector('.hero-text h1');
+     if (heroText) {
+         const originalText = heroText.textContent;
+         heroText.innerHTML = '';
+         heroText.classList.add('typing-effect');
+         
+         // Animated text reveal
+         setTimeout(() => {
+             heroText.textContent = originalText;
+             heroText.classList.remove('typing-effect');
+             heroText.classList.add('reveal-text');
+             heroText.innerHTML = `<span>${originalText}</span>`;
+         }, 1000);
+     }
+     
+     // Staggered animation for navigation items
+     const navItems = document.querySelectorAll('nav ul li');
+     navItems.forEach((item, index) => {
+         item.style.opacity = '0';
+         item.style.transform = 'translateY(-20px)';
+         
+         setTimeout(() => {
+             item.style.transition = 'all 0.5s ease';
+             item.style.opacity = '1';
+             item.style.transform = 'translateY(0)';
+         }, 100 + (index * 100));
+     });
+     
+     // Parallax effect for hero section
+     const hero = document.querySelector('.hero');
+     if (hero) {
+         window.addEventListener('scroll', throttle(() => {
+             const scrollPosition = window.scrollY;
+             const heroHeight = hero.offsetHeight;
+             const parallaxSpeed = 0.4;
+             
+             if (scrollPosition <= heroHeight) {
+                 const translateY = scrollPosition * parallaxSpeed;
+                 hero.style.backgroundPositionY = `${translateY}px`;
+             }
+         }, 10));
+     }
+     
+     // Breathe animation for cards
+     document.querySelectorAll('.story-card, .option-button').forEach(item => {
+         item.classList.add('breathe');
+     });
+     
+     // Initialize logo animation
+     const logo = document.querySelector('.logo');
+     if (logo) {
+         logo.addEventListener('mouseenter', () => {
+             logo.classList.add('sizzle');
+         });
+         
+         logo.addEventListener('mouseleave', () => {
+             setTimeout(() => {
+                 logo.classList.remove('sizzle');
+             }, 500);
+         });
+     }
+ }
+ 
+ /**
+  * Interactive Elements
+  * Sets up interactive components like tabs, accordions, tooltips
+  */
+ function initInteractiveElements() {
+     // Initialize tabs
+     initTabs();
+     
+     // Initialize accordions
+     initAccordions();
+     
+     // Initialize tooltips
+     initTooltips();
+     
+     // Initialize 3D card effects
+     init3DCards();
+     
+     // Initialize custom cursor
+     initCustomCursor();
+     
+     // Add ripple effect to buttons
+     document.querySelectorAll('.cta-button, .option-button').forEach(button => {
+         button.classList.add('ripple-effect');
+     });
+     
+     // Initialize mobile menu
+     initMobileMenu();
+     
+     // Initialize theme switcher
+     initThemeSwitcher();
+ }
+ 
+ /**
+  * Tabs Component
+  * Creates interactive tabbed content areas
+  */
+ function initTabs() {
+     document.querySelectorAll('.tabs').forEach(tabsContainer => {
+         const tabButtons = tabsContainer.querySelectorAll('.tab-button');
+         const tabContents = tabsContainer.querySelectorAll('.tab-content');
+         
+         // Set first tab as active by default
+         if (tabButtons.length > 0) {
+             tabButtons[0].classList.add('active');
+         }
+         
+         if (tabContents.length > 0) {
+             tabContents[0].classList.add('active');
+         }
+         
+         // Add click event listeners to tab buttons
+         tabButtons.forEach((button, index) => {
+             button.addEventListener('click', () => {
+                 // Remove active class from all buttons and contents
+                 tabButtons.forEach(btn => btn.classList.remove('active'));
+                 tabContents.forEach(content => content.classList.remove('active'));
+                 
+                 // Add active class to current button and content
+                 button.classList.add('active');
+                 if (tabContents[index]) {
+                     tabContents[index].classList.add('active');
+                 }
+             });
+         });
+     });
+ }
+ 
+ /**
+  * Accordions Component
+  * Creates collapsible content sections
+  */
+ function initAccordions() {
+     document.querySelectorAll('.accordion').forEach(accordion => {
+         const header = accordion.querySelector('.accordion-header');
+         const content = accordion.querySelector('.accordion-content');
+         
+         if (header && content) {
+             header.addEventListener('click', () => {
+                 accordion.classList.toggle('active');
+                 
+                 if (accordion.classList.contains('active')) {
+                     content.style.maxHeight = content.scrollHeight + 'px';
+                 } else {
+                     content.style.maxHeight = '0';
+                 }
+             });
+         }
+     });
+ }
+ 
+ /**
+  * Tooltips Component
+  * Adds informational tooltips to elements
+  */
+ function initTooltips() {
+     document.querySelectorAll('[data-tooltip]').forEach(element => {
+         const tooltipText = element.getAttribute('data-tooltip');
+         
+         // Create tooltip element
+         const tooltip = document.createElement('span');
+         tooltip.className = 'tooltip-text';
+         tooltip.textContent = tooltipText;
+         
+         // Add tooltip element to container
+         element.classList.add('tooltip');
+         element.appendChild(tooltip);
+     });
+ }
+ 
+ /**
+  * 3D Card Effects
+  * Adds interactive 3D tilt effects to cards
+  */
+ function init3DCards() {
+     document.querySelectorAll('.card-3d').forEach(card => {
+         card.addEventListener('mousemove', e => {
+             const cardRect = card.getBoundingClientRect();
+             const cardCenterX = cardRect.left + cardRect.width / 2;
+             const cardCenterY = cardRect.top + cardRect.height / 2;
+             
+             // Calculate mouse position relative to card center
+             const mouseX = e.clientX - cardCenterX;
+             const mouseY = e.clientY - cardCenterY;
+             
+             // Calculate rotation values (limited to ±15 degrees)
+             const rotateY = mouseX * 0.03;
+             const rotateX = -mouseY * 0.03;
+             
+             // Apply transform
+             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+         });
+         
+         // Reset transform on mouse leave
+         card.addEventListener('mouseleave', () => {
+             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+         });
+     });
+ }
+ 
+ /**
+  * Custom Cursor
+  * Creates a custom cursor that follows mouse movement
+  */
+ function initCustomCursor() {
+     // Create custom cursor element
+     const cursor = document.createElement('div');
+     cursor.className = 'custom-cursor';
+     document.body.appendChild(cursor);
+     
+     // Update cursor position on mouse move
+     document.addEventListener('mousemove', e => {
+         cursor.style.left = e.clientX + 'px';
+         cursor.style.top = e.clientY + 'px';
+     });
+     
+     // Add active class on mouse down
+     document.addEventListener('mousedown', () => {
+         cursor.classList.add('active');
+     });
+     
+     // Remove active class on mouse up
+     document.addEventListener('mouseup', () => {
+         cursor.classList.remove('active');
+     });
+     
+     // Hide cursor when mouse leaves window
+     document.addEventListener('mouseleave', () => {
+         cursor.style.opacity = '0';
+     });
+     
+     // Show cursor when mouse enters window
+     document.addEventListener('mouseenter', () => {
+         cursor.style.opacity = '0.5';
+     });
+     
+     // Change cursor appearance when hovering over links and buttons
+     document.querySelectorAll('a, button, .option-button, .cta-button').forEach(element => {
+         element.addEventListener('mouseenter', () => {
+             cursor.classList.add('active');
+         });
+         
+         element.addEventListener('mouseleave', () => {
+             cursor.classList.remove('active');
+         });
+     });
+ }
+ 
+ /**
+  * Mobile Menu
+  * Creates a responsive mobile navigation menu
+  */
+ function initMobileMenu() {
+     const navContainer = document.querySelector('.nav-container');
+     const nav = document.querySelector('nav');
+     
+     if (navContainer && nav) {
+         // Create mobile menu button
+         const mobileMenuBtn = document.createElement('button');
+         mobileMenuBtn.className = 'mobile-menu-btn';
+         mobileMenuBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+         
+         // Create mobile nav container
+         const mobileNav = document.createElement('div');
+         mobileNav.className = 'mobile-nav';
+         mobileNav.appendChild(nav.cloneNode(true));
+         
+         // Create close button
+         const closeBtn = document.createElement('button');
+         closeBtn.className = 'mobile-menu-close';
+         closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+         mobileNav.prepend(closeBtn);
+         
+         // Append elements to DOM
+         navContainer.appendChild(mobileMenuBtn);
+         document.body.appendChild(mobileNav);
+         
+         // Toggle mobile menu
+         mobileMenuBtn.addEventListener('click', () => {
+             mobileNav.classList.add('open');
+             document.body.style.overflow = 'hidden';
+         });
+         
+         // Close mobile menu
+         closeBtn.addEventListener('click', () => {
+             mobileNav.classList.remove('open');
+             document.body.style.overflow = '';
+         });
+         
+         // Close menu when clicking on mobile nav links
+         mobileNav.querySelectorAll('a').forEach(link => {
+             link.addEventListener('click', () => {
+                 mobileNav.classList.remove('open');
+                 document.body.style.overflow = '';
+             });
+         });
+         
+         // Close menu when clicking outside
+         document.addEventListener('click', e => {
+             if (!mobileNav.contains(e.target) && e.target !== mobileMenuBtn) {
+                 mobileNav.classList.remove('open');
+                 document.body.style.overflow = '';
+             }
+         });
+     }
+ }
+ 
+ /**
+  * Theme Switcher
+  * Allows users to toggle between light and dark themes
+  */
+ function initThemeSwitcher() {
+     // Create theme switch button
+     const themeSwitch = document.createElement('div');
+     themeSwitch.className = 'theme-switch';
+     themeSwitch.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+     document.body.appendChild(themeSwitch);
+     
+     // Check for saved theme preference
+     const savedTheme = localStorage.getItem('theme');
+     if (savedTheme === 'dark') {
+         document.body.classList.add('dark-theme');
+         themeSwitch.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+     }
+     
+     // Toggle theme on button click
+     themeSwitch.addEventListener('click', () => {
+         document.body.classList.toggle('dark-theme');
+         
+         // Update icon and save preference
+         if (document.body.classList.contains('dark-theme')) {
+             themeSwitch.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+             localStorage.setItem('theme', 'dark');
+         } else {
+             themeSwitch.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+             localStorage.setItem('theme', 'light');
+         }
+     });
+ }
+ 
+ /**
+  * Accessibility Features
+  * Improves site accessibility for all users
+  */
+ function initAccessibilityFeatures() {
+     // Add skip to content link
+     const skipLink = document.createElement('a');
+     skipLink.className = 'skip-link';
+     skipLink.href = '#main';
+     skipLink.textContent = 'Skip to content';
+     document.body.prepend(skipLink);
+     
+     // Add ARIA labels to interactive elements without text
+     document.querySelectorAll('button:not([aria-label]):not([title])').forEach(button => {
+         if (!button.textContent.trim()) {
+             button.setAttribute('aria-label', 'Button');
+         }
+     });
+     
+     // Add focus trap for modal dialogs
+     document.querySelectorAll('.modal').forEach(modal => {
+         const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+         const firstFocusable = focusableElements[0];
+         const lastFocusable = focusableElements[focusableElements.length - 1];
+         
+         modal.addEventListener('keydown', e => {
+             if (e.key === 'Tab') {
+                 if (e.shiftKey && document.activeElement === firstFocusable) {
+                     e.preventDefault();
+                     lastFocusable.focus();
+                 } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+                     e.preventDefault();
+                     firstFocusable.focus();
+                 }
+             }
+         });
+     });
+     
+     // Add font size adjustment feature
+     const fontSizeAdjuster = document.createElement('div');
+     fontSizeAdjuster.className = 'font-size-adjuster';
+     fontSizeAdjuster.innerHTML = `
+         <button class="font-size-btn decrease" aria-label="Decrease font size">A-</button>
+         <button class="font-size-btn reset" aria-label="Reset font size">A</button>
+         <button class="font-size-btn increase" aria-label="Increase font size">A+</button>
+     `;
+     
+     const currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+     
+     fontSizeAdjuster.querySelector('.decrease').addEventListener('click', () => {
+         document.documentElement.style.fontSize = (currentFontSize * 0.9) + 'px';
+         localStorage.setItem('fontSize', document.documentElement.style.fontSize);
+     });
+     
+     fontSizeAdjuster.querySelector('.reset').addEventListener('click', () => {
+         document.documentElement.style.fontSize = currentFontSize + 'px';
+         localStorage.removeItem('fontSize');
+     });
+     
+     fontSizeAdjuster.querySelector('.increase').addEventListener('click', () => {
+         document.documentElement.style.fontSize = (currentFontSize * 1.1) + 'px';
+         localStorage.setItem('fontSize', document.documentElement.style.fontSize);
+     });
+     
+     // Apply saved font size
+     const savedFontSize = localStorage.getItem('fontSize');
+     if (savedFontSize) {
+         document.documentElement.style.fontSize = savedFontSize;
+     }
+ }
+ 
+ /**
+  * Performance Optimizations
+  * Improves site performance and loading speed
+  */
+ function initPerformanceOptimizations() {
+     // Lazy load images
+     lazyLoadImages();
+     
+     // Defer non-critical resources
+     deferNonCriticalResources();
+ }
+ 
+ /**
+  * Lazy Load Images
+  * Loads images only when they come into viewport
+  */
+ function lazyLoadImages() {
+     // Create IntersectionObserver if supported
+     if ('IntersectionObserver' in window) {
+         const imageObserver = new IntersectionObserver((entries, observer) => {
+             entries.forEach(entry => {
+                 if (entry.isIntersecting) {
+                     const img = entry.target;
+                     const src = img.getAttribute('data-src');
+                     
+                     if (src) {
+                         img.src = src;
+                         img.classList.add('loaded');
+                         observer.unobserve(img);
+                     }
+                 }
+             });
+         });
+         
+         // Observe all images with data-src attribute
+         document.querySelectorAll('img[data-src]').forEach(img => {
+             // Add placeholder wrapper
+             const wrapper = document.createElement('div');
+             wrapper.className = 'lazy-image';
+             img.parentNode.insertBefore(wrapper, img);
+             wrapper.appendChild(img);
+             
+             // Add placeholder animation
+             const placeholder = document.createElement('div');
+             placeholder.className = 'placeholder';
+             wrapper.appendChild(placeholder);
+             
+             // Observe image
+             imageObserver.observe(img);
+         });
+     } else {
+         // Fallback for browsers that don't support IntersectionObserver
+         document.querySelectorAll('img[data-src]').forEach(img => {
+             img.src = img.getAttribute('data-src');
+         });
+     }
+ }
+ 
+ /**
+  * Defer Non-Critical Resources
+  * Delays loading of non-essential resources
+  */
+ function deferNonCriticalResources() {
+     // Find all script tags with data-defer attribute
+     document.querySelectorAll('script[data-defer]').forEach(script => {
+         const src = script.getAttribute('src');
+         
+         if (src) {
+             // Create new script element with defer attribute
+             const deferredScript = document.createElement('script');
+             deferredScript.src = src;
+             deferredScript.defer = true;
+             
+             // Replace original script with deferred version
+             script.parentNode.replaceChild(deferredScript, script);
+         }
+     });
+ }
+ 
+ /**
+  * Utility Functions
+  */
+ 
+ /**
+  * Checks if an element is in the viewport
+  * @param {HTMLElement} element - The element to check
+  * @param {number} offset - Optional offset to trigger before element is fully visible
+  * @returns {boolean} - Whether the element is in viewport
+  */
+ function isElementInViewport(element, offset = 0) {
+     const rect = element.getBoundingClientRect();
+     return (
+         rect.top <= (window.innerHeight || document.documentElement.clientHeight) - offset &&
+         rect.bottom >= 0 &&
+         rect.left <= (window.innerWidth || document.documentElement.clientWidth) - offset &&
+         rect.right >= 0
+     );
+ }
+ 
+ /**
+  * Throttle function to limit execution rate
+  * @param {Function} func - The function to throttle
+  * @param {number} limit - Minimum time between executions in milliseconds
+  * @returns {Function} - Throttled function
+  */
+ function throttle(func, limit) {
+     let inThrottle;
+     return function() {
+         const args = arguments;
+         const context = this;
+         if (!inThrottle) {
+             func.apply(context, args);
+             inThrottle = true;
+             setTimeout(() => inThrottle = false, limit);
+         }
+     };
+ }
+ 
+ /**
+  * Debounce function to prevent excessive executions
+  * @param {Function} func - The function to debounce
+  * @param {number} delay - Delay in milliseconds
+  * @returns {Function} - Debounced function
+  */
+ function debounce(func, delay) {
+     let timeoutId;
+     return function() {
+         const context = this;
+         const args = arguments;
+         clearTimeout(timeoutId);
+         timeoutId = setTimeout(() => {
+             func.apply(context, args);
+         }, delay);
+     };
+ }
+ 
+ /**
+  * Enhanced JavaScript functionality for dental-specific features
+  */
+ 
+ // Initialize interactive dental visualization on page load
+ document.addEventListener('DOMContentLoaded', function() {
+     initSmileJourneyQuiz();
+     initBeforeAfterSlider();
+     initDentalProcedureExplainer();
+     initSpecialistFinder();
+ });
+ 
+ /**
+  * Smile Journey Quiz
+  * Interactive questionnaire to guide users to appropriate treatments
+  */
+ function initSmileJourneyQuiz() {
+     const quizContainer = document.querySelector('#smile-journey-quiz');
+     if (!quizContainer) return;
+     
+     const questions = [
+         {
+             id: 'concern',
+             text: 'What is your main smile concern?',
+             options: [
+                 { value: 'missing', text: 'Missing teeth' },
+                 { value: 'crooked', text: 'Crooked teeth' },
+                 { value: 'discolored', text: 'Discolored teeth' },
+                 { value: 'damaged', text: 'Chipped or damaged teeth' },
+                 { value: 'gummy', text: 'Gummy smile' }
+             ]
+         },
+         {
+             id: 'timeline',
+             text: 'What is your ideal timeline for treatment?',
+             options: [
+                 { value: 'immediate', text: 'As soon as possible (days/weeks)' },
+                 { value: 'medium', text: 'Medium term (2-6 months)' },
+                 { value: 'longterm', text: 'I\'m comfortable with longer treatment (6+ months)' }
+             ]
+         },
+         {
+             id: 'budget',
+             text: 'What is your budget range?',
+             options: [
+                 { value: 'economy', text: 'Economy ($1,000-$3,000)' },
+                 { value: 'standard', text: 'Standard ($3,000-$8,000)' },
+                 { value: 'premium', text: 'Premium ($8,000+)' }
+             ]
+         }
+     ];
+     
+     // Generate quiz HTML
+     let quizHTML = '<div class="quiz-container">';
+     quizHTML += '<h2>Discover Your Ideal Smile Journey</h2>';
+     
+     questions.forEach((question, qIndex) => {
+         quizHTML += `
+             <div class="quiz-step" data-step="${qIndex + 1}" ${qIndex > 0 ? 'style="display: none;"' : ''}>
+                 <h3>${question.text}</h3>
+                 <div class="options-grid quiz-options">
+         `;
+         
+         question.options.forEach(option => {
+             quizHTML += `
+                 <div class="option-button quiz-option" data-question="${question.id}" data-value="${option.value}">
+                     ${option.text}
+                 </div>
+             `;
+         });
+         
+         quizHTML += `
+                 </div>
+                 <div class="quiz-navigation">
+                     ${qIndex > 0 ? '<button class="quiz-prev">Previous</button>' : ''}
+                     ${qIndex < questions.length - 1 ? '' : '<button class="quiz-submit">Get Results</button>'}
+                 </div>
+             </div>
+         `;
+     });
+     
+     // Add results container
+     quizHTML += `
+         <div class="quiz-results" style="display: none;">
+             <h3>Your Personalized Recommendations</h3>
+             <div class="results-content"></div>
+             <button class="quiz-restart">Start Over</button>
+         </div>
+     `;
+     
+     quizHTML += '</div>';
+     quizContainer.innerHTML = quizHTML;
+     
+     // Track user selections
+     const userSelections = {};
+     
+     // Handle option selection
+     quizContainer.querySelectorAll('.quiz-option').forEach(option => {
+         option.addEventListener('click', function() {
+             const question = this.getAttribute('data-question');
+             const value = this.getAttribute('data-value');
+             
+             // Highlight selected option
+             const siblings = quizContainer.querySelectorAll(`.quiz-option[data-question="${question}"]`);
+             siblings.forEach(sib => sib.classList.remove('selected'));
+             this.classList.add('selected');
+             
+             // Store selection
+             userSelections[question] = value;
+             
+             // Auto-advance to next question after short delay
+             const currentStep = this.closest('.quiz-step');
+             const currentStepNum = parseInt(currentStep.getAttribute('data-step'));
+             const nextStep = quizContainer.querySelector(`.quiz-step[data-step="${currentStepNum + 1}"]`);
+             
+             if (nextStep) {
+                 setTimeout(() => {
+                     currentStep.style.display = 'none';
+                     nextStep.style.display = 'block';
+                 }, 500);
+             }
+         });
+     });
+     
+     // Handle previous button
+     quizContainer.querySelectorAll('.quiz-prev').forEach(button => {
+         button.addEventListener('click', function() {
+             const currentStep = this.closest('.quiz-step');
+             const currentStepNum = parseInt(currentStep.getAttribute('data-step'));
+             const prevStep = quizContainer.querySelector(`.quiz-step[data-step="${currentStepNum - 1}"]`);
+             
+             if (prevStep) {
+                 currentStep.style.display = 'none';
+                 prevStep.style.display = 'block';
+             }
+         });
+     });
+     
+     // Handle submit button
+     const submitButton = quizContainer.querySelector('.quiz-submit');
+     if (submitButton) {
+         submitButton.addEventListener('click', function() {
+             // Get results container
+             const resultsContainer = quizContainer.querySelector('.quiz-results');
+             const resultsContent = quizContainer.querySelector('.results-content');
+             
+             // Hide all steps
+             quizContainer.querySelectorAll('.quiz-step').forEach(step => {
+                 step.style.display = 'none';
+             });
+             
+             // Generate personalized recommendations based on user selections
+             let recommendations = generateRecommendations(userSelections);
+             
+             // Display results
+             resultsContent.innerHTML = recommendations;
+             resultsContainer.style.display = 'block';
+             
+             // Add animation classes
+             resultsContainer.classList.add('fade-in-section');
+             setTimeout(() => {
+                 resultsContainer.classList.add('is-visible');
+             }, 100);
+         });
+     }
+     
+     // Handle restart button
+     const restartButton = quizContainer.querySelector('.quiz-restart');
+     if (restartButton) {
+         restartButton.addEventListener('click', function() {
+             // Reset selections
+             Object.keys(userSelections).forEach(key => delete userSelections[key]);
+             
+             // Reset UI
+             quizContainer.querySelectorAll('.quiz-option').forEach(option => {
+                 option.classList.remove('selected');
+             });
+             
+             // Hide results
+             quizContainer.querySelector('.quiz-results').style.display = 'none';
+             
+             // Show first step
+             quizContainer.querySelector('.quiz-step[data-step="1"]').style.display = 'block';
+         });
+     }
+ }
+ 
+ /**
+  * Generate personalized recommendations based on user selections
+  * @param {Object} selections - User's quiz selections
+  * @returns {string} - HTML content for recommendations
+  */
+ function generateRecommendations(selections) {
+     // Treatment options mapping
+     const treatments = {
+         'missing': {
+             primary: 'Dental Implants',
+             alternativeMedium: 'Dental Bridge',
+             alternativeBudget: 'Removable Partial Denture'
+         },
+         'crooked': {
+             primary: 'Invisalign® Clear Aligners',
+             alternativeMedium: 'Traditional Braces',
+             alternativeBudget: 'Limited Orthodontic Treatment'
+         },
+         'discolored': {
+             primary: 'Porcelain Veneers',
+             alternativeMedium: 'Professional Whitening',
+             alternativeBudget: 'At-Home Whitening Kit'
+         },
+         'damaged': {
+             primary: 'Porcelain Veneers',
+             alternativeMedium: 'Dental Bonding',
+             alternativeBudget: 'Composite Fillings'
+         },
+         'gummy': {
+             primary: 'Laser Gum Contouring',
+             alternativeMedium: 'Porcelain Veneers',
+             alternativeBudget: 'Orthodontic Treatment'
+         }
+     };
+     
+     const concern = selections.concern || 'missing';
+     const timeline = selections.timeline || 'medium';
+     const budget = selections.budget || 'standard';
+     
+     // Determine primary recommendation
+     let primaryRecommendation = treatments[concern].primary;
+     
+     // Adjust based on timeline and budget
+     if (timeline === 'immediate' && budget === 'economy') {
+         primaryRecommendation = treatments[concern].alternativeBudget;
+     } else if (timeline === 'longterm' && budget === 'economy') {
+         primaryRecommendation = treatments[concern].alternativeMedium;
+     } else if (budget === 'economy') {
+         primaryRecommendation = treatments[concern].alternativeBudget;
+     }
+     
+     // Generate HTML
+     let html = '<div class="recommendations">';
+     
+     // Primary recommendation
+     html += `
+         <div class="recommendation-card primary">
+             <h4>Your Ideal Treatment</h4>
+             <div class="treatment-name">${primaryRecommendation}</div>
+             <p>Based on your concerns about ${getConcernText(concern)} and preferences for ${getTimelineText(timeline)} treatment within a ${getBudgetText(budget)} budget.</p>
+             <a href="#${primaryRecommendation.toLowerCase().replace(/[^\w]+/g, '-')}" class="cta-button">Learn More</a>
+         </div>
+     `;
+     
+     // Alternative options
+     html += '<h4>Alternative Options to Consider</h4><div class="options-grid">';
+     
+     // Add other treatment options
+     Object.values(treatments[concern]).forEach(treatment => {
+         if (treatment !== primaryRecommendation) {
+             html += `
+                 <div class="option-button">
+                     <span>${treatment}</span>
+                 </div>
+             `;
+         }
+     });
+     
+     html += '</div>';
+     
+     // Next steps
+     html += `
+         <div class="next-steps">
+             <h4>Your Next Steps</h4>
+             <ol>
+                 <li>Learn more about ${primaryRecommendation} in our <a href="#smile-academy">Smile Academy</a></li>
+                 <li>Use our <a href="#cost-estimator">Cost Estimator</a> to plan your budget</li>
+                 <li>Find a specialist near you with our <a href="#find-specialist">Specialist Finder</a></li>
+             </ol>
+         </div>
+     `;
+     
+     html += '</div>';
+     return html;
+ }
+ 
+ /**
+  * Get human-readable text for concern selection
+  */
+ function getConcernText(concern) {
+     const concernMap = {
+         'missing': 'missing teeth',
+         'crooked': 'teeth alignment',
+         'discolored': 'tooth discoloration',
+         'damaged': 'damaged teeth',
+         'gummy': 'gum appearance'
+     };
+     return concernMap[concern] || concern;
+ }
+ 
+ /**
+  * Get human-readable text for timeline selection
+  */
+ function getTimelineText(timeline) {
+     const timelineMap = {
+         'immediate': 'quick',
+         'medium': 'moderate-length',
+         'longterm': 'gradual'
+     };
+     return timelineMap[timeline] || timeline;
+ }
+ 
+ /**
+  * Get human-readable text for budget selection
+  */
+ function getBudgetText(budget) {
+     const budgetMap = {
+         'economy': 'cost-effective',
+         'standard': 'standard',
+         'premium': 'premium'
+     };
+     return budgetMap[budget] || budget;
+ }
+ 
+ /**
+  * Before/After Image Slider
+  * Interactive slider to compare dental treatment results
+  */
+ function initBeforeAfterSlider() {
+     const sliders = document.querySelectorAll('.before-after-slider');
+     if (!sliders.length) return;
+     
+     sliders.forEach(slider => {
+         // Get image elements
+         const beforeImg = slider.querySelector('.before-image');
+         const afterImg = slider.querySelector('.after-image');
+         
+         if (!beforeImg || !afterImg) return;
+         
+         // Create slider handle
+         const sliderHandle = document.createElement('div');
+         sliderHandle.className = 'slider-handle';
+         sliderHandle.innerHTML = '<div class="handle-circle"></div>';
+         
+         // Create slider divider
+         const sliderDivider = document.createElement('div');
+         sliderDivider.className = 'slider-divider';
+         
+         // Add elements to container
+         slider.appendChild(sliderDivider);
+         slider.appendChild(sliderHandle);
+         
+         // Set initial position (50%)
+         setSliderPosition(slider, 50);
+         
+         // Add event listeners for dragging
+         let isDragging = false;
+         
+         sliderHandle.addEventListener('mousedown', () => {
+             isDragging = true;
+             slider.classList.add('active');
+         });
+         
+         document.addEventListener('mouseup', () => {
+             if (isDragging) {
+                 isDragging = false;
+                 slider.classList.remove('active');
+             }
+         });
+         
+         document.addEventListener('mousemove', (e) => {
+             if (isDragging) {
+                 // Calculate slider position
+                 const rect = slider.getBoundingClientRect();
+                 const x = e.clientX - rect.left;
+                 const position = (x / rect.width) * 100;
+                 
+                 // Set position within bounds (0-100%)
+                 setSliderPosition(slider, Math.min(Math.max(position, 0), 100));
+             }
+         });
+         
+         // Touch support for mobile
+         sliderHandle.addEventListener('touchstart', (e) => {
+             isDragging = true;
+             slider.classList.add('active');
+             e.preventDefault();
+         });
+         
+         document.addEventListener('touchend', () => {
+             if (isDragging) {
+                 isDragging = false;
+                 slider.classList.remove('active');
+             }
+         });
+         
+         document.addEventListener('touchmove', (e) => {
+             if (isDragging && e.touches[0]) {
+                 // Calculate slider position
+                 const rect = slider.getBoundingClientRect();
+                 const x = e.touches[0].clientX - rect.left;
+                 const position = (x / rect.width) * 100;
+                 
+                 // Set position within bounds (0-100%)
+                 setSliderPosition(slider, Math.min(Math.max(position, 0), 100));
+                 e.preventDefault();
+             }
+         });
+     });
+ }
+ 
+ /**
+  * Set the position of a before/after slider
+  * @param {HTMLElement} slider - The slider container
+  * @param {number} position - Position percentage (0-100)
+  */
+ function setSliderPosition(slider, position) {
+     // Get elements
+     const afterImg = slider.querySelector('.after-image');
+     const handle = slider.querySelector('.slider-handle');
+     const divider = slider.querySelector('.slider-divider');
+     
+     // Set positions
+     if (afterImg) afterImg.style.width = `${position}%`;
+     if (handle) handle.style.left = `${position}%`;
+     if (divider) divider.style.left = `${position}%`;
+ }
+ 
+ /**
+  * Dental Procedure Explainer
+  * Interactive visual explainers for dental procedures
+  */
+ function initDentalProcedureExplainer() {
+     const explainers = document.querySelectorAll('.procedure-explainer');
+     if (!explainers.length) return;
+     
+     explainers.forEach(explainer => {
+         // Get steps container
+         const stepsContainer = explainer.querySelector('.procedure-steps');
+         if (!stepsContainer) return;
+         
+         // Get visual container
+         const visualContainer = explainer.querySelector('.procedure-visual');
+         if (!visualContainer) return;
+         
+         // Create visual layers for animation
+         const layers = ['bone', 'gum', 'implant', 'crown', 'tooth'];
+         let layersHTML = '';
+         
+         layers.forEach(layer => {
+             layersHTML += `<div class="visual-layer ${layer}-layer"></div>`;
+         });
+         
+         visualContainer.innerHTML = layersHTML;
+         
+         // Get steps
+         const steps = stepsContainer.querySelectorAll('.procedure-step');
+         
+         // Initialize step navigation
+         const stepNav = document.createElement('div');
+         stepNav.className = 'step-navigation';
+         
+         let navHTML = '';
+         steps.forEach((step, index) => {
+             navHTML += `<button class="step-nav-btn ${index === 0 ? 'active' : ''}" data-step="${index + 1}">${index + 1}</button>`;
+         });
+         
+         stepNav.innerHTML = navHTML;
+         explainer.appendChild(stepNav);
+         
+         // Add interactivity
+         const navButtons = stepNav.querySelectorAll('.step-nav-btn');
+         
+         // Show first step by default
+         if (steps.length > 0) {
+             steps[0].classList.add('active');
+             updateVisual(visualContainer, 1);
+         }
+         
+         // Add click handlers to navigation buttons
+         navButtons.forEach(button => {
+             button.addEventListener('click', function() {
+                 const stepNum = parseInt(this.getAttribute('data-step'));
+                 
+                 // Update active button
+                 navButtons.forEach(btn => btn.classList.remove('active'));
+                 this.classList.add('active');
+                 
+                 // Update active step
+                 steps.forEach((step, index) => {
+                     if (index + 1 === stepNum) {
+                         step.classList.add('active');
+                     } else {
+                         step.classList.remove('active');
+                     }
+                 });
+                 
+                 // Update visual
+                 updateVisual(visualContainer, stepNum);
+             });
+         });
+     });
+ }
+ 
+ /**
+  * Update dental procedure visual based on step
+  * @param {HTMLElement} visualContainer - The visual container element
+  * @param {number} stepNum - Current step number
+  */
+ function updateVisual(visualContainer, stepNum) {
+     // Reset all layers
+     visualContainer.querySelectorAll('.visual-layer').forEach(layer => {
+         layer.className = layer.className.replace(/ active| highlight/g, '');
+     });
+     
+     // Customize visual based on step
+     switch (stepNum) {
+         case 1: // Initial examination
+             visualContainer.querySelector('.bone-layer').classList.add('active');
+             visualContainer.querySelector('.gum-layer').classList.add('active');
+             visualContainer.querySelector('.tooth-layer').classList.add('active');
+             break;
+             
+         case 2: // Tooth extraction (if needed)
+             visualContainer.querySelector('.bone-layer').classList.add('active');
+             visualContainer.querySelector('.gum-layer').classList.add('active');
+             break;
+             
+         case 3: // Implant placement
+             visualContainer.querySelector('.bone-layer').classList.add('active');
+             visualContainer.querySelector('.gum-layer').classList.add('active');
+             visualContainer.querySelector('.implant-layer').classList.add('active');
+             visualContainer.querySelector('.implant-layer').classList.add('highlight');
+             break;
+             
+         case 4: // Healing period
+             visualContainer.querySelector('.bone-layer').classList.add('active');
+             visualContainer.querySelector('.gum-layer').classList.add('active');
+             visualContainer.querySelector('.implant-layer').classList.add('active');
+             visualContainer.querySelector('.bone-layer').classList.add('highlight');
+             break;
+             
+         case 5: // Crown placement
+             visualContainer.querySelector('.bone-layer').classList.add('active');
+             visualContainer.querySelector('.gum-layer').classList.add('active');
+             visualContainer.querySelector('.implant-layer').classList.add('active');
+             visualContainer.querySelector('.crown-layer').classList.add('active');
+             visualContainer.querySelector('.crown-layer').classList.add('highlight');
+             break;
+     }
+ }
+ 
+ /**
+  * Specialist Finder
+  * Location-based search for dental specialists
+  */
+ function initSpecialistFinder() {
+     const specialistFinder = document.querySelector('.specialist-search');
+     if (!specialistFinder) return;
+     
+     const searchInput = specialistFinder.querySelector('input');
+     const searchButton = specialistFinder.querySelector('button');
+     
+     if (!searchInput || !searchButton) return;
+     
+     // Add results container
+     const resultsContainer = document.createElement('div');
+     resultsContainer.className = 'specialist-results';
+     resultsContainer.style.display = 'none';
+     specialistFinder.after(resultsContainer);
+     
+     // Handle search
+     searchButton.addEventListener('click', () => {
+         const location = searchInput.value.trim();
+         if (!location) return;
+         
+         // Show loading state
+         resultsContainer.innerHTML = '<div class="loading-spinner"></div>';
+         resultsContainer.style.display = 'block';
+         
+         // Simulate API call with setTimeout (in a real implementation, this would be an actual API call)
+         setTimeout(() => {
+             // Sample specialists data (in a real implementation, this would come from the API)
+             const specialists = [
+                 {
+                     name: 'Dr. Emily Chen',
+                     specialty: 'Cosmetic Dentistry',
+                     address: '123 Smile Avenue, ' + location,
+                     rating: 4.9,
+                     reviews: 127,
+                     image: '/api/placeholder/80/80'
+                 },
+                 {
+                     name: 'Dr. James Wilson',
+                     specialty: 'Implant Specialist',
+                     address: '456 Dental Drive, ' + location,
+                     rating: 4.8,
+                     reviews: 94,
+                     image: '/api/placeholder/80/80'
+                 },
+                 {
+                     name: 'Dr. Sarah Johnson',
+                     specialty: 'Orthodontist',
+                     address: '789 Bright Way, ' + location,
+                     rating: 4.7,
+                     reviews: 112,
+                     image: '/api/placeholder/80/80'
+                 }
+             ];
+             
+             // Generate results HTML
+             let resultsHTML = '<h3>Specialists Near ' + location + '</h3>';
+             resultsHTML += '<div class="specialists-list">';
+             
+             specialists.forEach(specialist => {
+                 resultsHTML += `
+                     <div class="specialist-card">
+                         <div class="specialist-image">
+                             <img src="${specialist.image}" alt="${specialist.name}">
+                         </div>
+                         <div class="specialist-info">
+                             <h4>${specialist.name}</h4>
+                             <div class="specialty">${specialist.specialty}</div>
+                             <div class="address">${specialist.address}</div>
+                             <div class="rating">
+                                 <span class="stars">${'★'.repeat(Math.floor(specialist.rating))}${specialist.rating % 1 >= 0.5 ? '½' : ''}</span>
+                                 <span class="rating-number">${specialist.rating}</span>
+                                 <span class="reviews">(${specialist.reviews} reviews)</span>
+                             </div>
+                         </div>
+                         <a href="#book-appointment" class="cta-button">Book Consultation</a>
+                     </div>
+                 `;
+             });
+             
+             resultsHTML += '</div>';
+             
+             // Display results
+             resultsContainer.innerHTML = resultsHTML;
+             
+             // Add animation
+             const specialistCards = resultsContainer.querySelectorAll('.specialist-card');
+             specialistCards.forEach((card, index) => {
+                 card.style.opacity = '0';
+                 card.style.transform = 'translateY(20px)';
+                 
+                 setTimeout(() => {
+                     card.style.transition = 'all 0.5s ease';
+                     card.style.opacity = '1';
+                     card.style.transform = 'translateY(0)';
+                 }, 100 + (index * 150));
+             });
+         }, 1500);
+     });
+     
+     // Add geolocation support
+     if (navigator.geolocation) {
+         const geoButton = document.createElement('button');
+         geoButton.className = 'geo-button';
+         geoButton.setAttribute('aria-label', 'Use my current location');
+         geoButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>';
+         
+         searchInput.after(geoButton);
+         
+         geoButton.addEventListener('click', () => {
+             navigator.geolocation.getCurrentPosition(position => {
+                 // In a real implementation, we'd use the Geocoding API to get the city name
+                 // For this example, we'll just use placeholder text
+                 searchInput.value = 'Your Current Location';
+                 searchButton.click();
+             }, error => {
+                 console.error('Geolocation error:', error);
+                 alert('Unable to get your location. Please enter it manually.');
+             });
+         });
+     }
+ }
+ 
+ /**
+  * Cost Estimator Calculator
+  * Interactive tool to estimate treatment costs
+  */
+ function initCostEstimator() {
+     const costEstimator = document.querySelector('#cost-estimator');
+     if (!costEstimator) return;
+     
+     // Treatment options with cost ranges
+     const treatments = [
+         {
+             id: 'dental-implants',
+             name: 'Dental Implants',
+             description: 'Permanent replacement for missing teeth',
+             baseCost: 3000,
+             perToothCost: 1500,
+             factorsAffectingCost: [
+                 'Number of implants',
+                 'Type of implant material',
+                 'Need for bone grafting',
+                 'Type of final restoration'
+             ]
+         },
+         {
+             id: 'veneers',
+             name: 'Porcelain Veneers',
+             description: 'Thin shells to improve appearance',
+             baseCost: 800,
+             perToothCost: 1200,
+             factorsAffectingCost: [
+                 'Number of veneers',
+                 'Material (porcelain vs. composite)',
+                 'Complexity of placement'
+             ]
+         },
+         {
+             id: 'invisalign',
+             name: 'Invisalign® Treatment',
+             description: 'Clear aligners to straighten teeth',
+             baseCost: 3500,
+             perToothCost: 0,
+             factorsAffectingCost: [
+                 'Treatment complexity',
+                 'Treatment duration',
+                 'Need for refinements'
+             ]
+         },
+         {
+             id: 'whitening',
+             name: 'Professional Whitening',
+             description: 'In-office teeth whitening',
+             baseCost: 500,
+             perToothCost: 0,
+             factorsAffectingCost: [
+                 'Whitening method',
+                 'Number of sessions',
+                 'Current tooth color'
+             ]
+         }
+     ];
+     
+     // Generate estimator HTML
+     let estimatorHTML = `
+         <div class="estimator-container">
+             <h2>Treatment Cost Estimator</h2>
+             <p>Get an estimate for your dental treatment. Actual costs may vary based on individual needs.</p>
+             
+             <div class="estimator-form">
+                 <div class="form-group">
+                     <label for="treatment-select">Select Treatment</label>
+                     <select id="treatment-select">
+                         <option value="">Choose a treatment...</option>
+     `;
+     
+     treatments.forEach(treatment => {
+         estimatorHTML += `<option value="${treatment.id}">${treatment.name}</option>`;
+     });
+     
+     estimatorHTML += `
+                     </select>
+                 </div>
+                 
+                 <div class="form-group tooth-count" style="display: none;">
+                     <label for="tooth-count">Number of Teeth</label>
+                     <input type="number" id="tooth-count" min="1" max="32" value="1">
+                 </div>
+                 
+                 <div class="form-group complexity" style="display: none;">
+                     <label for="complexity">Treatment Complexity</label>
+                     <select id="complexity">
+                         <option value="standard">Standard</option>
+                         <option value="moderate">Moderate</option>
+                         <option value="complex">Complex</option>
+                     </select>
+                 </div>
+                 
+                 <div class="form-group">
+                     <label for="insurance">Insurance Coverage</label>
+                     <select id="insurance">
+                         <option value="none">No Insurance</option>
+                         <option value="basic">Basic Coverage (20%)</option>
+                         <option value="standard">Standard Coverage (40%)</option>
+                         <option value="premium">Premium Coverage (60%)</option>
+                     </select>
+                 </div>
+                 
+                 <button id="calculate-btn" class="cta-button">Calculate Estimate</button>
+             </div>
+             
+             <div class="estimate-results" style="display: none;">
+                 <h3>Your Estimated Cost</h3>
+                 <div class="estimate-breakdown"></div>
+                 <div class="estimate-disclaimer">
+                     <p><strong>Note:</strong> This is an estimate only. Actual costs may vary based on examination findings and specific treatment needs. Contact a specialist for an accurate quote.</p>
+                 </div>
+             </div>
+         </div>
+     `;
+     
+     costEstimator.innerHTML = estimatorHTML;
+     
+     // Get form elements
+     const treatmentSelect = document.getElementById('treatment-select');
+     const toothCountInput = document.getElementById('tooth-count');
+     const complexitySelect = document.getElementById('complexity');
+     const insuranceSelect = document.getElementById('insurance');
+     const calculateBtn = document.getElementById('calculate-btn');
+     const resultsContainer = costEstimator.querySelector('.estimate-results');
+     const breakdownContainer = costEstimator.querySelector('.estimate-breakdown');
+     
+     // Show/hide relevant form fields based on treatment
+     treatmentSelect.addEventListener('change', () => {
+         const selectedTreatment = treatmentSelect.value;
+         const selectedTreatmentData = treatments.find(t => t.id === selectedTreatment);
+         
+         if (selectedTreatmentData) {
+             // Show/hide tooth count input based on per-tooth cost
+             if (selectedTreatmentData.perToothCost > 0) {
+                 document.querySelector('.tooth-count').style.display = 'block';
+             } else {
+                 document.querySelector('.tooth-count').style.display = 'none';
+             }
+             
+             // Show complexity selection for all treatments
+             document.querySelector('.complexity').style.display = 'block';
+         } else {
+             document.querySelector('.tooth-count').style.display = 'none';
+             document.querySelector('.complexity').style.display = 'none';
+         }
+     });
+     
+     // Calculate estimate on button click
+     calculateBtn.addEventListener('click', () => {
+         const selectedTreatmentId = treatmentSelect.value;
+         
+         if (!selectedTreatmentId) {
+             alert('Please select a treatment');
+             return;
+         }
+         
+         const selectedTreatment = treatments.find(t => t.id === selectedTreatmentId);
+         const toothCount = parseInt(toothCountInput.value) || 1;
+         const complexity = complexitySelect.value;
+         const insurance = insuranceSelect.value;
+         
+         // Calculate base cost
+         let baseCost = selectedTreatment.baseCost;
+         let perToothCost = selectedTreatment.perToothCost * toothCount;
+         
+         // Apply complexity multiplier
+         let complexityMultiplier = 1;
+         if (complexity === 'moderate') {
+             complexityMultiplier = 1.2;
+         } else if (complexity === 'complex') {
+             complexityMultiplier = 1.5;
+         }
+         
+         let totalBeforeInsurance = (baseCost + perToothCost) * complexityMultiplier;
+         
+         // Apply insurance discount
+         let insuranceDiscount = 0;
+         if (insurance === 'basic') {
+             insuranceDiscount = totalBeforeInsurance * 0.2;
+         } else if (insurance === 'standard') {
+             insuranceDiscount = totalBeforeInsurance * 0.4;
+         } else if (insurance === 'premium') {
+             insuranceDiscount = totalBeforeInsurance * 0.6;
+         }
+         
+         let finalCost = totalBeforeInsurance - insuranceDiscount;
+         
+         // Generate breakdown HTML
+         let breakdownHTML = `
+             <div class="cost-breakdown">
+                 <div class="breakdown-row">
+                     <span>Base Treatment Cost:</span>
+                     <span>${baseCost.toFixed(2)}</span>
+                 </div>
+         `;
+         
+         if (perToothCost > 0) {
+             breakdownHTML += `
+                 <div class="breakdown-row">
+                     <span>Additional Teeth (${toothCount}):</span>
+                     <span>${perToothCost.toFixed(2)}</span>
+                 </div>
+             `;
+         }
+         
+         if (complexityMultiplier > 1) {
+             breakdownHTML += `
+                 <div class="breakdown-row">
+                     <span>Complexity Adjustment:</span>
+                     <span>+${((complexityMultiplier - 1) * 100).toFixed(0)}%</span>
+                 </div>
+             `;
+         }
+         
+         breakdownHTML += `
+             <div class="breakdown-row">
+                 <span>Subtotal:</span>
+                 <span>${totalBeforeInsurance.toFixed(2)}</span>
+             </div>
+         `;
+         
+         if (insuranceDiscount > 0) {
+             breakdownHTML += `
+                 <div class="breakdown-row">
+                     <span>Insurance Coverage:</span>
+                     <span>-${insuranceDiscount.toFixed(2)}</span>
+                 </div>
+             `;
+         }
+         
+         breakdownHTML += `
+             <div class="breakdown-row total">
+                 <span>Estimated Total:</span>
+                 <span>${finalCost.toFixed(2)}</span>
+             </div>
+             
+             <div class="factors-list">
+                 <h4>Factors Affecting Cost</h4>
+                 <ul>
+         `;
+         
+         selectedTreatment.factorsAffectingCost.forEach(factor => {
+             breakdownHTML += `<li>${factor}</li>`;
+         });
+         
+         breakdownHTML += `
+                 </ul>
+             </div>
+             
+             <div class="next-steps">
+                 <a href="#find-specialist" class="cta-button">Find a Specialist for Consultation</a>
+             </div>
+         `;
+         
+         // Update and show results
+         breakdownContainer.innerHTML = breakdownHTML;
+         resultsContainer.style.display = 'block';
+         
+         // Scroll to results
+         resultsContainer.scrollIntoView({ behavior: 'smooth' });
+     });
+ }
+ 
+ // Initialize cost estimator
+ document.addEventListener('DOMContentLoaded', function() {
+     initCostEstimator();
+ });
+ 

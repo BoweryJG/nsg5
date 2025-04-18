@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The New Smile Guide - Your Dental Journey</title>
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="The New Smile Guide: Your personalized journey to a confident, healthy smile. Explore treatments, get recommendations, and connect with top specialists.">
+    <meta property="og:title" content="The New Smile Guide - Your Dental Journey">
+    <meta property="og:description" content="Personalized dental treatment recommendations, real stories, and interactive tools to transform your smile.">
+    <meta property="og:image" content="/assets/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://newsmileguide.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Accessibility: Skip to content link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
     <style>
         /* Global Styles */
         :root {
@@ -360,10 +373,29 @@
     </style>
 </head>
 <body>
+    <!-- Accessibility: Skip to Content -->
+    <a href="#main" class="skip-link">Skip to main content</a>
     <!-- Header -->
-    <header>
+    <header role="banner">
         <div class="container nav-container">
-            <div class="logo">
+            <div class="logo" aria-label="The New Smile Guide Logo">
+                <img src="/assets/logo.svg" alt="Smile Guide Logo" loading="lazy">
+                <span class="logo-text">New Smile Guide</span>
+            </div>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M19.4 15A7 7 0 1 1 12 5v0"></path></svg>
+            </button>
+        </div>
+    </header>
                 <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="50" cy="50" r="45" stroke="#386088" stroke-width="5" fill="none"/>
                     <path d="M30 60 Q50 75 70 60" stroke="#386088" stroke-width="5" fill="none"/>
