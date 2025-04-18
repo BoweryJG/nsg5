@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The New Smile Guide - Your Dental Journey</title>
+<!-- SVG Icon Utility -->
+<style>
+  .icon-svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 0.4em;
+    margin-bottom: 0.1em;
+  }
+</style>
     <!-- SEO & Open Graph Meta Tags -->
     <meta name="description" content="The New Smile Guide: Your personalized journey to a confident, healthy smile. Explore treatments, get recommendations, and connect with top specialists.">
     <meta property="og:title" content="The New Smile Guide - Your Dental Journey">
@@ -395,6 +406,7 @@
         <div class="hero-text">
             <h1>Are you ready to smile again?</h1>
             <h2>What's holding back your happiness?</h2>
+            <h1 class="hero-headline"><svg class="icon-svg" aria-label="Smile Icon"><use xlink:href="img/newsmile-icons.svg#smile-icon"></use></svg>Transform Your Smile Journey</h1>
             <a href="#smile-journey" class="cta-button">Discover Your Smile Journey</a>
         </div>
         <div class="hero-image">
@@ -412,13 +424,14 @@
       <source src="videos/New Smile Guide.mov" type="video/quicktime">
       Sorry, your browser doesn't support embedded videos. <a href="videos/New Smile Guide.mov">Download the video</a> instead.
     </video>
+    <span class="verified-badge"><svg class="icon-svg" aria-label="Verified Icon"><use xlink:href="img/newsmile-icons.svg#verified-icon"></use></svg>Verified</span>
   </div>
 </section>
 
 <!-- Dental Implants Section -->
 <section class="dental-implants" id="dental-implants">
     <div class="container dental-content">
-        <h2>Want to learn about dental implants?</h2>
+        <h2><svg class="icon-svg" aria-label="Tooth Icon"><use xlink:href="img/newsmile-icons.svg#tooth-icon"></use></svg>Dental Implants</h2>
         <div class="implant-person">
             <img src="img/ChatGPT Image Apr 17, 2025, 11_20_03 PM.png" alt="Person considering dental implants" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 4px 16px rgba(56,96,136,0.10);">
         </div>
@@ -436,7 +449,7 @@
 <!-- Smile Stories Section -->
 <section class="smile-stories" id="smile-stories">
     <div class="container">
-        <h2 class="stories-header">Smile Stories</h2>
+        <h2 class="stories-header"><svg class="icon-svg" aria-label="Testimonial Icon"><use xlink:href="img/newsmile-icons.svg#testimonial-icon"></use></svg>Smile Stories</h2>
         <div class="stories-grid">
             <div class="story-card">
                 <div class="story-image">
@@ -465,7 +478,7 @@
 <!-- Quiz Section -->
 <section id="quiz" class="quiz-section" aria-label="Smile Journey Quiz">
     <div class="smile-quiz" role="form" aria-labelledby="quiz-title">
-        <h2 id="quiz-title">Find Your Best Smile Solution</h2>
+        <h2 id="quiz-title"><svg class="icon-svg" aria-label="Cost Estimator Icon"><use xlink:href="img/newsmile-icons.svg#cost-icon"></use></svg>Find Your Best Smile Solution</h2>
         <div class="quiz-progress"><div class="quiz-progress-bar" style="width:0%"></div></div>
         <div class="quiz-step active" data-step="1">
             <p>What is your primary smile goal?</p>
@@ -491,13 +504,14 @@
             <p>Thank you! Here is our recommendation:</p>
             <div class="quiz-result" tabindex="0"></div>
             <button class="quiz-restart">Start Over</button>
+            <button class="cta-button" aria-label="Book Your Appointment"><svg class="icon-svg" aria-label="Appointment Icon"><use xlink:href="img/newsmile-icons.svg#appointment-icon"></use></svg>Book Your Appointment</button>
         </div>
     </div>
 </section>
 
 <!-- Gallery Section -->
 <section id="gallery" class="gallery-section" aria-label="Before and After Gallery">
-    <h2>Smile Transformations</h2>
+    <h2 class="gallery-header"><svg class="icon-svg" aria-label="Before/After Icon"><use xlink:href="img/newsmile-icons.svg#before-after-icon"></use></svg>Smile Transformations</h2>
     <div class="before-after-slider" aria-label="Before and After Smile Gallery">
         <img src="img/ChatGPT Image Apr 17, 2025, 11_47_08 PM.png" alt="After smile" class="after-img" style="width:100%;max-width:420px;border-radius:16px;box-shadow:0 4px 24px rgba(56,96,136,0.12);position:absolute;clip-path:inset(0 50% 0 0);transition:clip-path 0.4s;">
         <img src="img/ChatGPT Image Apr 17, 2025, 11_19_44 PM.png" alt="Before smile" class="before-img" style="width:100%;max-width:420px;border-radius:16px;box-shadow:0 4px 24px rgba(56,96,136,0.12);position:relative;z-index:1;">
@@ -510,7 +524,7 @@
     <div class="container">
         <h2>Looking for a specialist?</h2>
         <div class="specialist-search">
-            <input type="text" placeholder="Enter your location..." />
+            <span style="display:inline-flex;align-items:center;"><svg class="icon-svg" aria-label="Finder Icon"><use xlink:href="img/newsmile-icons.svg#finder-icon"></use></svg><input type="text" placeholder="Find a specialist..." aria-label="Find a specialist" class="specialist-search-input"></span>
             <button class="cta-button">Find Now</button>
         </div>
     </div>
@@ -518,12 +532,16 @@
 
 <!-- Footer -->
 <footer>
+  <div style="text-align:center; margin-bottom: 1em;">
+    <svg class="icon-svg" aria-label="Academy Icon"><use xlink:href="img/newsmile-icons.svg#academy-icon"></use></svg>
+    <svg class="icon-svg" aria-label="Mobile Icon"><use xlink:href="img/newsmile-icons.svg#mobile-icon"></use></svg>
+  </div>
     <div class="container">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>Treatments</h3>
                 <ul>
-                    <li><a href="#dental-implants">Dental Implants</a></li>
+                    <li><a href="#dental-implants"><svg class="icon-svg" aria-label="Tooth Icon"><use xlink:href="img/newsmile-icons.svg#tooth-icon"></use></svg>Dental Implants</a></li>
                     <li><a href="#veneers">Veneers</a></li>
                     <li><a href="#orthodontics">Orthodontics</a></li>
                     <li><a href="#whitening">Teeth Whitening</a></li>
@@ -564,7 +582,7 @@
 </footer>
 
 <!-- OllieiQ Chatbot (RepSpheres) Placeholder -->
-<div id="ollieiq-chatbot" aria-label="OllieiQ Chatbot" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+<div id="ollieiq-chatbot" aria-label="OllieiQ Chatbot" style="position:fixed;bottom:24px;right:24px;z-index:9999;"><svg class="icon-svg" aria-label="Notification Icon"><use xlink:href="img/newsmile-icons.svg#notification-icon"></use></svg>
     <button style="background:#386088;color:#fff;border:none;border-radius:50%;width:64px;height:64px;box-shadow:0 4px 18px rgba(56,96,136,0.15);font-size:2rem;cursor:pointer;transition:background 0.3s;" aria-label="Open Chatbot">
         💬
     </button>
