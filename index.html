@@ -26,8 +26,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    <!-- Accessibility: Skip to content link -->
-    <a href="#main" class="skip-link">Skip to main content</a>
+
     <style>
         /* Global Styles */
         :root {
@@ -84,26 +83,47 @@
             color: var(--primary-blue);
         }
         
-        nav ul {
+        nav ul.enhanced-navbar {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
+            gap: 18px;
         }
-        
-        nav ul li {
-            margin-left: 25px;
+
+        nav ul.enhanced-navbar li {
+            margin: 0;
         }
-        
-        nav ul li a {
+
+        nav ul.enhanced-navbar li a {
             text-decoration: none;
             color: var(--primary-blue);
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 22px;
+            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+            font-size: 1.08em;
+            letter-spacing: 0.01em;
+            display: inline-block;
         }
-        
-        nav ul li a:hover {
-            color: var(--primary-orange);
+
+        nav ul.enhanced-navbar li a:hover, nav ul.enhanced-navbar li a:focus {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(242,156,116,0.12);
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul.enhanced-navbar {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            nav ul.enhanced-navbar li a {
+                width: 100%;
+                text-align: left;
+            }
         }
         
         .cta-button {
@@ -386,7 +406,7 @@
 <body>
         </div>
         <nav aria-label="Main navigation">
-            <ul>
+            <ul class="enhanced-navbar">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#gallery">Gallery</a></li>
@@ -394,9 +414,6 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <button class="theme-toggle" aria-label="Toggle dark mode">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M19.4 15A7 7 0 1 1 12 5v0"></path></svg>
-        </button>
     </div>
 </header>
 
