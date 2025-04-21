@@ -1,0 +1,9 @@
+{
+  "name": "The New Smile Guide",
+  "short_name": "SmileGuide",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8e8",
+  "theme_color": "#386088",
+  "icons": []
+}
