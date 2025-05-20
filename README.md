@@ -2,6 +2,8 @@
 
 Welcome to the **New Smile Guide** project! This project appears to be a web-based guide, possibly related to dental care, smile design, or a similar topic. Below you’ll find instructions for setup, usage, and contributing.
 
+The site has been converted to use **React** and **Material UI** directly from CDN sources. The original static HTML remains in `index_backup.html` for reference, while `index.html` now bootstraps the React application found in the `src/` folder.
+
 ---
 
 ## Table of Contents
@@ -18,14 +20,16 @@ Welcome to the **New Smile Guide** project! This project appears to be a web-bas
 ## Project Structure
 ```
 new_smile_guide/
-├── index.html               # Main HTML file
+├── index.html               # React entry point
+├── index_backup.html        # Original static HTML
+├── src/
+│   └── App.jsx              # React application code
 ├── css/
-│   └── style.css            # Main stylesheet
-├── js/
-│   └── (JavaScript files)   # Additional JS files
-├── script.js                # Main JavaScript file
+│   └── style.css            # Legacy stylesheet
+├── script.js                # Legacy JavaScript (optional)
 ├── img/                     # Images and icons
 ├── videos/                  # Video assets
+├── assets/                  # Misc assets
 ├── newsmileguide-animated-icons.txt # Icon data or reference
 ```
 
@@ -33,17 +37,17 @@ new_smile_guide/
 1. **Clone or Download** this repository to your local machine.
 2. Open `index.html` in your web browser to view the site.
 
-No build steps are required—this is a static website.
+All dependencies are loaded from CDNs so no build step is required. Simply open the file and the React application will run.
 
 ## Usage
-- All styling is handled in `css/style.css`.
-- Main interactivity is in `script.js` and possibly additional JS files in the `js/` directory.
+- Styling is primarily handled by **Material UI** components.
+- The legacy `style.css` and `script.js` files remain for reference but are no longer required.
 - Assets (images, videos, icons) are in their respective folders.
 
 ## Customization
-- Update `index.html` for content changes.
-- Add or edit styles in `css/style.css`.
-- Add or update scripts in `script.js` or the `js/` directory.
+- Update the React components in `src/App.jsx` for content changes.
+- Material UI's theming can be customized within the components or by adding additional stylesheets.
+- Legacy scripts in `script.js` can be removed once all functionality has been ported to React.
 - Place additional images in `img/` and videos in `videos/`.
 
 ## Assets
