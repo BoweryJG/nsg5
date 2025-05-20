@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The New Smile Guide - Your Dental Journey</title>
+<!-- SVG Icon Utility -->
+<style>
+  .icon-svg {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 0.4em;
+    margin-bottom: 0.1em;
+  }
+</style>
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="The New Smile Guide: Your personalized journey to a confident, healthy smile. Explore treatments, get recommendations, and connect with top specialists.">
+    <meta property="og:title" content="The New Smile Guide - Your Dental Journey">
+    <meta property="og:description" content="Personalized dental treatment recommendations, real stories, and interactive tools to transform your smile.">
+    <meta property="og:image" content="/assets/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://newsmileguide.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #386088;
+            --primary-orange: #f29c74;
+            --button-orange: #f9a75f;
+            --bg-cream: #fff8e8;
+            --text-dark: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 248, 232, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        nav ul.enhanced-navbar {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 18px;
+        }
+
+        nav ul.enhanced-navbar li {
+            margin: 0;
+        }
+
+        nav ul.enhanced-navbar li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 700;
+            padding: 10px 22px;
+            border-radius: 22px;
+            transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+            font-size: 1.08em;
+            letter-spacing: 0.01em;
+            display: inline-block;
+        }
+
+        nav ul.enhanced-navbar li a:hover, nav ul.enhanced-navbar li a:focus {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(242,156,116,0.12);
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul.enhanced-navbar {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            nav ul.enhanced-navbar li a {
+                width: 100%;
+                text-align: left;
+            }
+        }
+        
+        .cta-button {
+            background-color: var(--button-orange);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: #e88f45;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #a4d9e4 0%, #c5e6dc 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            max-width: 50%;
+        }
+        
+        .hero-text h1 {
+            font-size: 54px;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text h2 {
+            font-size: 24px;
+            color: var(--primary-orange);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .hero-image {
+            width: 45%;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Dental Implants Section */
+        .dental-implants {
+            padding: 60px 0;
+            background-color: var(--bg-cream);
+        }
+        
+        .dental-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .dental-content h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 70%;
+            margin-top: 30px;
+        }
+        
+        .option-button {
+            background-color: rgba(249, 167, 95, 0.3);
+            color: var(--primary-blue);
+            padding: 15px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .option-button:hover {
+            background-color: rgba(249, 167, 95, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        /* Smile Stories Section */
+        .smile-stories {
+            padding: 60px 0;
+            background-color: #e8f5f2;
+        }
+        
+        .stories-header {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .story-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-content h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+        
+        .story-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Specialist Section */
+        .specialist {
+            padding: 60px 0;
+            background-color: var(--bg-cream);
+            text-align: center;
+        }
+        
+        .specialist h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+        
+        .specialist-search {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .specialist-search input {
+            flex: 1;
+            padding: 15px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #e8e8e8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--primary-orange);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content, .footer-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+            
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .options-grid, .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul class="enhanced-navbar">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>Are you ready to smile again?</h1>
+            <h2>What's holding back your happiness?</h2>
+            <h1 class="hero-headline"><svg class="icon-svg" aria-label="Smile Icon"><use xlink:href="img/newsmile-icons.svg#smile-icon"></use></svg>Transform Your Smile Journey</h1>
+            <a href="#smile-journey" class="cta-button">Discover Your Smile Journey</a>
+        </div>
+        <style>
+  .before-after-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 2.5rem auto;
+    max-width: 420px;
+    width: 100%;
+  }
+  .before-after-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(56,96,136,0.10);
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background: #fff;
+    margin-bottom: 1.3rem;
+  }
+  .before-after-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    transition: opacity 0.3s, clip-path 0.4s;
+  }
+  .before-after-container .before-img {
+    z-index: 1;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0.97;
+  }
+  .before-after-container .after-img {
+    z-index: 2;
+    position: absolute;
+    top: 0; left: 0;
+    clip-path: inset(0 50% 0 0);
+    opacity: 1;
+    pointer-events: none;
+  }
+  .before-after-label {
+    position: absolute;
+    top: 12px;
+    font-size: 1.05em;
+    color: #444;
+    background: rgba(255,255,255,0.7);
+    padding: 2px 14px;
+    border-radius: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    box-shadow: 0 1px 6px rgba(56,96,136,0.05);
+    user-select: none;
+  }
+  .before-after-label.left { left: 18px; }
+  .before-after-label.right { right: 18px; }
+  .before-after-slider-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.2rem;
+  }
+  .before-after-slider-wrap .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #e5e5e5;
+    outline: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .before-after-slider-wrap .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #b7b7b7;
+    box-shadow: 0 2px 6px rgba(56,96,136,0.15);
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+  .before-after-slider-wrap .slider:focus::-webkit-slider-thumb {
+    border: 2px solid #f29c74;
+  }
+  .before-after-slider-wrap .slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #b7b7b7;
+    box-shadow: 0 2px 6px rgba(56,96,136,0.15);
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+  .before-after-slider-wrap .slider:focus::-moz-range-thumb {
+    border: 2px solid #f29c74;
+  }
+  .before-after-slider-wrap .slider::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #b7b7b7;
+    box-shadow: 0 2px 6px rgba(56,96,136,0.15);
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+  @media (max-width: 600px) {
+    .before-after-outer { max-width: 98vw; }
+    .before-after-container { aspect-ratio: 1 / 1.1; }
+  }
+</style>
+<div class="hero-image">
+  <div class="before-after-outer">
+    <div class="before-after-container">
+      <img src="img/ChatGPT Image Apr 17, 2025, 11_46_58 PM.png" alt="Before smile" class="before-img">
+      <img src="img/ChatGPT Image Apr 17, 2025, 11_47_08 PM.png" alt="After smile" class="after-img">
+      <span class="before-after-label left">Before</span>
+      <span class="before-after-label right">After</span>
+    </div>
+    <div class="before-after-slider-wrap">
+      <input type="range" min="0" max="100" value="50" class="slider" aria-label="Compare smiles">
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const container = document.querySelector('.before-after-container');
+  if (!container) return;
+  const slider = document.querySelector('.before-after-slider-wrap .slider');
+  const afterImg = container.querySelector('.after-img');
+  slider.addEventListener('input', function() {
+    afterImg.style.clipPath = `inset(0 ${100 - this.value}% 0 0)`;
+  });
+})();
+</script>
+    </div>
+</section>
+
+<!-- Featured Video Section -->
+<section class="featured-video" aria-label="Featured Video">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:0.5em;">Welcome to The New Smile Guide</h2>
+    <p style="text-align:center;margin-bottom:1em;">Watch our introduction video to learn how we help you achieve your best smile!</p>
+    <video controls style="width:100%;max-width:640px;display:block;margin:0 auto;border-radius:16px;box-shadow:0 4px 24px rgba(56,96,136,0.10);background:#000;" poster="img/ChatGPT Image Apr 17, 2025, 11_19_44 PM.png">
+      <source src="https://example.com/NewSmileGuide.mov" type="video/quicktime">
+      Sorry, your browser doesn't support embedded videos. <a href="https://example.com/NewSmileGuide.mov">Download the video</a> instead.
+    </video>
+    <span class="verified-badge"><svg class="icon-svg" aria-label="Verified Icon"><use xlink:href="img/newsmile-icons.svg#verified-icon"></use></svg>Verified</span>
+  </div>
+</section>
+
+<!-- Dental Implants Section -->
+<section class="dental-implants" id="dental-implants">
+    <div class="container dental-content">
+        <h2><svg class="icon-svg" aria-label="Tooth Icon"><use xlink:href="img/newsmile-icons.svg#tooth-icon"></use></svg>Dental Implants</h2>
+        <div class="implant-person">
+            <img src="img/ChatGPT Image Apr 17, 2025, 11_20_03 PM.png" alt="Person considering dental implants" style="width:100%;max-width:220px;border-radius:12px;box-shadow:0 4px 16px rgba(56,96,136,0.10);">
+        </div>
+        <div class="options-grid">
+            <div class="option-button">Appearance</div>
+            <div class="option-button">Cost</div>
+            <div class="option-button">Procedure</div>
+            <div class="option-button">Function</div>
+            <div class="option-button">Health</div>
+            <div class="option-button">Alternatives</div>
+        </div>
+    </div>
+</section>
+
+<!-- Smile Stories Section -->
+<section class="smile-stories" id="smile-stories">
+    <div class="container">
+        <h2 class="stories-header"><svg class="icon-svg" aria-label="Testimonial Icon"><use xlink:href="img/newsmile-icons.svg#testimonial-icon"></use></svg>Smile Stories</h2>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div class="story-image">
+                    <img src="img/ChatGPT Image Apr 17, 2025, 11_46_58 PM.png" alt="Person before dental treatment" style="width:100%;max-width:320px;border-radius:12px;box-shadow:0 4px 16px rgba(56,96,136,0.10);">
+                </div>
+                <div class="story-content">
+                    <h3>John's Transformation</h3>
+                    <p>After years of hiding my smile, I finally took the step to get dental implants. The difference has been life-changing...</p>
+                    <a href="#john-story" class="cta-button">Read More</a>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-image">
+                    <img src="img/ChatGPT Image Apr 17, 2025, 11_47_08 PM.png" alt="Woman smiling after dental procedure" style="width:100%;max-width:320px;border-radius:12px;box-shadow:0 4px 16px rgba(56,96,136,0.10);">
+                </div>
+                <div class="story-content">
+                    <h3>Sarah's Journey</h3>
+                    <p>I was nervous about getting veneers, but the process was much easier than I expected. Now I can't stop smiling...</p>
+                    <a href="#sarah-story" class="cta-button">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quiz Section -->
+<section id="quiz" class="quiz-section" aria-label="Smile Journey Quiz">
+    <div class="smile-quiz" role="form" aria-labelledby="quiz-title">
+        <h2 id="quiz-title"><svg class="icon-svg" aria-label="Cost Estimator Icon"><use xlink:href="img/newsmile-icons.svg#cost-icon"></use></svg>Find Your Best Smile Solution</h2>
+        <div class="quiz-progress"><div class="quiz-progress-bar" style="width:0%"></div></div>
+        <div class="quiz-step active" data-step="1">
+            <p>What is your primary smile goal?</p>
+            <button class="quiz-option" data-value="whiter">Whiter teeth</button>
+            <button class="quiz-option" data-value="straighter">Straighter teeth</button>
+            <button class="quiz-option" data-value="replace">Replace missing teeth</button>
+            <button class="quiz-option" data-value="repair">Repair chipped/damaged teeth</button>
+        </div>
+        <div class="quiz-step" data-step="2">
+            <p>What is your age group?</p>
+            <button class="quiz-option" data-value="under18">Under 18</button>
+            <button class="quiz-option" data-value="18-35">18–35</button>
+            <button class="quiz-option" data-value="36-60">36–60</button>
+            <button class="quiz-option" data-value="60plus">60+</button>
+        </div>
+        <div class="quiz-step" data-step="3">
+            <p>What is your budget for treatment?</p>
+            <button class="quiz-option" data-value="low">Low</button>
+            <button class="quiz-option" data-value="medium">Medium</button>
+            <button class="quiz-option" data-value="high">High</button>
+        </div>
+        <div class="quiz-step" data-step="4">
+            <p>Thank you! Here is our recommendation:</p>
+            <div class="quiz-result" tabindex="0"></div>
+            <button class="quiz-restart">Start Over</button>
+            <button class="cta-button" aria-label="Book Your Appointment"><svg class="icon-svg" aria-label="Appointment Icon"><use xlink:href="img/newsmile-icons.svg#appointment-icon"></use></svg>Book Your Appointment</button>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery-section" aria-label="Before and After Gallery">
+    <h2 class="gallery-header"><svg class="icon-svg" aria-label="Before/After Icon"><use xlink:href="img/newsmile-icons.svg#before-after-icon"></use></svg>Smile Transformations</h2>
+    <div class="before-after-slider" aria-label="Before and After Smile Gallery">
+      <div class="before-after-images">
+        <img src="img/ChatGPT Image Apr 17, 2025, 11_47_08 PM.png" alt="After smile" class="after-img">
+        <img src="img/ChatGPT Image Apr 17, 2025, 11_19_44 PM.png" alt="Before smile" class="before-img">
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider" aria-label="Slide to compare before and after">
+    </div>
+</section>
+
+<!-- Find a Specialist Section -->
+<section class="specialist" id="find-specialist">
+    <div class="container">
+        <h2>Looking for a specialist?</h2>
+        <div class="specialist-search">
+            <span style="display:inline-flex;align-items:center;"><svg class="icon-svg" aria-label="Finder Icon"><use xlink:href="img/newsmile-icons.svg#finder-icon"></use></svg><input type="text" placeholder="Find a specialist..." aria-label="Find a specialist" class="specialist-search-input"></span>
+            <button class="cta-button">Find Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div style="text-align:center; margin-bottom: 1em;">
+    <svg class="icon-svg" aria-label="Academy Icon"><use xlink:href="img/newsmile-icons.svg#academy-icon"></use></svg>
+    <svg class="icon-svg" aria-label="Mobile Icon"><use xlink:href="img/newsmile-icons.svg#mobile-icon"></use></svg>
+  </div>
+    <div class="container">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Treatments</h3>
+                <ul>
+                    <li><a href="#dental-implants"><svg class="icon-svg" aria-label="Tooth Icon"><use xlink:href="img/newsmile-icons.svg#tooth-icon"></use></svg>Dental Implants</a></li>
+                    <li><a href="#veneers">Veneers</a></li>
+                    <li><a href="#orthodontics">Orthodontics</a></li>
+                    <li><a href="#whitening">Teeth Whitening</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#smile-academy">Smile Academy</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#cookies">Cookie Policy</a></li>
+                    <li><a href="#disclaimer">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 The New Smile Guide. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- OllieiQ Chatbot (RepSpheres) Placeholder -->
+<div id="ollieiq-chatbot" aria-label="OllieiQ Chatbot" style="position:fixed;bottom:24px;right:24px;z-index:9999;"><svg class="icon-svg" aria-label="Notification Icon"><use xlink:href="img/newsmile-icons.svg#notification-icon"></use></svg>
+    <button style="background:#386088;color:#fff;border:none;border-radius:50%;width:64px;height:64px;box-shadow:0 4px 18px rgba(56,96,136,0.15);font-size:2rem;cursor:pointer;transition:background 0.3s;" aria-label="Open Chatbot">
+        💬
+    </button>
+    <!-- Replace this div/button with the official OllieiQ chatbot script from RepSpheres -->
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.before-after-slider .slider');
+  const afterImg = document.querySelector('.before-after-images .after-img');
+  if (slider && afterImg) {
+    slider.addEventListener('input', function() {
+      const value = slider.value;
+      afterImg.style.clipPath = `inset(0 ${100-value}% 0 0)`;
+    });
+  }
+});
+</script>
+</html>
