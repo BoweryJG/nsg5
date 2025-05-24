@@ -11,6 +11,15 @@ import {
   CardMedia,
   Stack,
 } from '@mui/material';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
+import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
+import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
+import AppRegistrationOutlinedIcon from '@mui/icons-material/AppRegistrationOutlined';
+import CastForEducationOutlinedIcon from '@mui/icons-material/CastForEducationOutlined'; // Alternative for courses
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined'; // Alternative for specialists
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined'; // Alternative for resources
+
 
 // Import images if needed
 // import heroBackground from '../path/to/image.jpg';
@@ -58,6 +67,7 @@ const LandingPage: React.FC = () => {
                 size="large" 
                 color="primary"
                 sx={{ fontWeight: 600, py: 1.5, px: 4 }}
+                startIcon={<SchoolOutlinedIcon />}
               >
                 Explore Courses
               </Button>
@@ -76,6 +86,7 @@ const LandingPage: React.FC = () => {
                     backgroundColor: 'rgba(255,255,255,0.1)'
                   }
                 }}
+                startIcon={<PersonSearchOutlinedIcon />}
               >
                 Find a Specialist
               </Button>
@@ -114,7 +125,8 @@ const LandingPage: React.FC = () => {
               image="/path/to/course-image.jpg"
               alt="Educational Courses"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
+              <CastForEducationOutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Educational Courses
               </Typography>
@@ -122,7 +134,7 @@ const LandingPage: React.FC = () => {
                 Learn from expert surgeons with our beginner-friendly courses designed specifically for patients.
                 Complete a course and receive a $500 certificate toward your dental implant procedure.
               </Typography>
-              <Button variant="outlined" fullWidth>
+              <Button variant="outlined" fullWidth startIcon={<ArrowForwardOutlinedIcon />}>
                 Browse Courses
               </Button>
             </CardContent>
@@ -135,7 +147,8 @@ const LandingPage: React.FC = () => {
               image="/path/to/specialists-image.jpg"
               alt="Find Specialists"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
+              <MapOutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Find Specialists
               </Typography>
@@ -143,7 +156,7 @@ const LandingPage: React.FC = () => {
                 Connect with qualified implant specialists in your area who can provide
                 personalized consultations and treatment options tailored to your needs.
               </Typography>
-              <Button variant="outlined" fullWidth>
+              <Button variant="outlined" fullWidth startIcon={<ArrowForwardOutlinedIcon />}>
                 Locate Specialists
               </Button>
             </CardContent>
@@ -156,7 +169,8 @@ const LandingPage: React.FC = () => {
               image="/path/to/resources-image.jpg"
               alt="Patient Resources"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
+              <ArticleOutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Patient Resources
               </Typography>
@@ -164,7 +178,7 @@ const LandingPage: React.FC = () => {
                 Access comprehensive guides, articles, videos, and FAQs to help you understand
                 dental implants, procedures, costs, care, and what to expect.
               </Typography>
-              <Button variant="outlined" fullWidth>
+              <Button variant="outlined" fullWidth startIcon={<ArrowForwardOutlinedIcon />}>
                 View Resources
               </Button>
             </CardContent>
@@ -201,6 +215,7 @@ const LandingPage: React.FC = () => {
               px: 5,
               fontSize: '1.1rem'
             }}
+            startIcon={<AppRegistrationOutlinedIcon />}
           >
             Sign Up Now
           </Button>
