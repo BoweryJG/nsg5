@@ -11,6 +11,8 @@ import ContactPage from './pages/ContactPage';
 import UserCertificatesPage from './pages/UserCertificatesPage';
 import FinancingPage from './pages/FinancingPage';
 import NotFoundPage from './pages/NotFoundPage';
+import AdminAnalyticsPage from './pages/AdminAnalyticsPage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function RouteChangeTracker() {
   const location = useLocation();
@@ -40,6 +42,14 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/certificates" element={<UserCertificatesPage />} />
           <Route path="/financing" element={<FinancingPage />} />
+          <Route
+            path="/admin/analytics"
+            element={
+              <ProtectedRoute>
+                <AdminAnalyticsPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </MainLayout>
