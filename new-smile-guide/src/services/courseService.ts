@@ -137,10 +137,17 @@ export const courseService = {
       .eq('course_id', courseId)
       .single();
 
-    if (certCheckError && certCheckError.code !== 'PGRST116') { // PGRST116: "Searched for a single row, but found no rows" - this is expected if cert doesn't exist
-      console.error('Error checking for existing certificate:', certCheckError);
-      // Optionally, decide if this is a fatal error or if you can proceed
-      // For now, we'll proceed to try and create one, but this might need more robust handling
+    if (certCheckError) {
+      // Log any error, regardless of code, to ensure 'certCheckError' is used by the linter.
+      console.warn('Supabase check for existing certificate encountered an issue or condition:', certCheckError);
+      if (certCheckError.code !== 'PGRST116') { 
+        // PGRST116 means "no rows found", which is an expected outcome if the certificate doesn't exist yet.
+        // For other, unexpected errors, log as a more severe error.
+        console.error('A critical error occurred while checking for existing certificate:', certCheckError);
+        // Depending on the desired behavior, you might want to return null here for critical errors
+        // to prevent attempting to create a new certificate when there was a genuine DB issue.
+        // For now, the logic will proceed if existingCert is null.
+      }
     }
     
     if (existingCert) {
