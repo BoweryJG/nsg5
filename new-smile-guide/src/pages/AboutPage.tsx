@@ -1,5 +1,10 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Divider } from '@mui/material';
+import { Container, Typography, Box, Paper, Divider, Stack } from '@mui/material';
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import HistoryEduOutlinedIcon from '@mui/icons-material/HistoryEduOutlined';
 
 const AboutPage: React.FC = () => {
   return (
@@ -14,9 +19,12 @@ const AboutPage: React.FC = () => {
       </Box>
       
       <Paper elevation={2} sx={{ p: 4, mb: 6 }}>
-        <Typography variant="h4" component="h2" gutterBottom fontWeight={600}>
-          Our Mission
-        </Typography>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2 }}>
+          <FlagOutlinedIcon color="primary" sx={{ fontSize: '2.5rem' }} />
+          <Typography variant="h4" component="h2" fontWeight={600}>
+            Our Mission
+          </Typography>
+        </Stack>
         <Typography variant="body1" paragraph>
           At New Smile Guide, our mission is to provide comprehensive, accessible, and patient-friendly education on dental implants. 
           We believe that informed patients make better decisions about their oral health and experience better outcomes.
@@ -35,7 +43,8 @@ const AboutPage: React.FC = () => {
         </Typography>
         
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, mt: 4 }}>
-          <Paper elevation={1} sx={{ p: 3, flex: 1 }}>
+          <Paper elevation={1} sx={{ p: 3, flex: 1, textAlign: 'center' }}>
+            <PeopleOutlineOutlinedIcon color="primary" sx={{ fontSize: '3rem', mb: 1 }} />
             <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
               Patient-Centered
             </Typography>
@@ -44,7 +53,8 @@ const AboutPage: React.FC = () => {
             </Typography>
           </Paper>
           
-          <Paper elevation={1} sx={{ p: 3, flex: 1 }}>
+          <Paper elevation={1} sx={{ p: 3, flex: 1, textAlign: 'center' }}>
+            <ScienceOutlinedIcon color="primary" sx={{ fontSize: '3rem', mb: 1 }} />
             <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
               Evidence-Based
             </Typography>
@@ -53,7 +63,8 @@ const AboutPage: React.FC = () => {
             </Typography>
           </Paper>
           
-          <Paper elevation={1} sx={{ p: 3, flex: 1 }}>
+          <Paper elevation={1} sx={{ p: 3, flex: 1, textAlign: 'center' }}>
+            <VisibilityOutlinedIcon color="primary" sx={{ fontSize: '3rem', mb: 1 }} />
             <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
               Transparency
             </Typography>
@@ -67,9 +78,12 @@ const AboutPage: React.FC = () => {
       <Divider sx={{ my: 6 }} />
       
       <Box>
-        <Typography variant="h4" component="h2" gutterBottom fontWeight={600} textAlign="center">
-          Our Story
-        </Typography>
+        <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 2, justifyContent: 'center' }}>
+          <HistoryEduOutlinedIcon color="primary" sx={{ fontSize: '2.5rem' }} />
+          <Typography variant="h4" component="h2" fontWeight={600} textAlign="center">
+            Our Story
+          </Typography>
+        </Stack>
         <Typography variant="body1" paragraph>
           New Smile Guide was founded by a team of dental professionals who recognized a significant gap in patient education 
           regarding dental implants. Despite being one of the most transformative dental procedures available, many patients 
