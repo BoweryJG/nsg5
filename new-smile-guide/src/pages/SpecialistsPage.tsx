@@ -23,13 +23,20 @@ import {
   Tabs,
   SelectChangeEvent,
 } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import LanguageIcon from '@mui/icons-material/Language';
-import StarIcon from '@mui/icons-material/Star';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined'; // For filled stars in Rating
+import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
+import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+
 
 interface Specialist {
   id: string;
@@ -131,7 +138,7 @@ const SpecialistsPage: React.FC = () => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SearchIcon />
+                      <SearchOutlinedIcon />
                     </InputAdornment>
                   ),
                 }}
@@ -182,9 +189,9 @@ const SpecialistsPage: React.FC = () => {
               variant="scrollable"
               scrollButtons="auto"
             >
-              <Tab label="All Specialists" />
-              <Tab label="Verified Specialists" />
-              <Tab label="Accept Certificate" />
+              <Tab icon={<ListAltOutlinedIcon />} iconPosition="start" label="All Specialists" />
+              <Tab icon={<VerifiedUserOutlinedIcon />} iconPosition="start" label="Verified Specialists" />
+              <Tab icon={<WorkspacePremiumOutlinedIcon />} iconPosition="start" label="Accept Certificate" />
             </Tabs>
           </Box>
         </Paper>
@@ -221,7 +228,7 @@ const SpecialistsPage: React.FC = () => {
                         <Typography variant="h5" component="h2" gutterBottom>
                           {specialist.name}{' '}
                           {specialist.verified && (
-                            <VerifiedIcon sx={{ color: 'primary.main', ml: 1, verticalAlign: 'middle' }} />
+                            <VerifiedOutlinedIcon sx={{ color: 'primary.main', ml: 1, verticalAlign: 'middle' }} />
                           )}
                         </Typography>
                         <Typography variant="subtitle1" color="text.secondary" gutterBottom>
@@ -234,7 +241,8 @@ const SpecialistsPage: React.FC = () => {
                           value={specialist.rating}
                           precision={0.5}
                           readOnly
-                          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                          icon={<StarOutlinedIcon fontSize="inherit" />}
+                          emptyIcon={<StarBorderOutlinedIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                         />
                         <Typography variant="body2" sx={{ ml: 1 }}>
                           ({specialist.reviewCount} reviews)
@@ -247,20 +255,20 @@ const SpecialistsPage: React.FC = () => {
                         {specialist.practiceName}
                       </Typography>
                       <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <LocationOnIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
+                        <LocationOnOutlinedIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
                         {specialist.address}, {specialist.city}, {specialist.state} {specialist.zipCode}
                       </Typography>
                       <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <PhoneIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
+                        <PhoneOutlinedIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
                         {specialist.phone}
                       </Typography>
                       <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                        <EmailIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
+                        <EmailOutlinedIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
                         {specialist.email}
                       </Typography>
                       {specialist.website && (
                         <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center' }}>
-                          <LanguageIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
+                          <LanguageOutlinedIcon fontSize="small" sx={{ mr: 1, color: 'text.secondary' }} />
                           <a href={specialist.website} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
                             {specialist.website.replace(/(^\w+:|^)\/\//, '')}
                           </a>
@@ -305,10 +313,10 @@ const SpecialistsPage: React.FC = () => {
                 <Divider />
                 
                 <CardActions sx={{ justifyContent: 'flex-end', p: 2 }}>
-                  <Button variant="outlined" sx={{ mr: 1 }}>
+                  <Button variant="outlined" sx={{ mr: 1 }} startIcon={<VisibilityOutlinedIcon />}>
                     View Profile
                   </Button>
-                  <Button variant="contained">
+                  <Button variant="contained" startIcon={<MailOutlineOutlinedIcon />}>
                     Contact
                   </Button>
                 </CardActions>
