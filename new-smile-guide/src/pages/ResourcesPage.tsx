@@ -20,14 +20,18 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from '@mui/material';
-import ArticleIcon from '@mui/icons-material/Article';
-import VideocamIcon from '@mui/icons-material/Videocam';
-import DownloadIcon from '@mui/icons-material/Download';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import BookIcon from '@mui/icons-material/Book';
-import SchoolIcon from '@mui/icons-material/School';
-import LanguageIcon from '@mui/icons-material/Language';
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
+import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
+import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
+import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+import ReadMoreOutlinedIcon from '@mui/icons-material/ReadMoreOutlined';
+import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+import { Link as RouterLink } from 'react-router-dom'; // Added for Contact Us button
 
 const ResourcesPage: React.FC = () => {
   return (
@@ -87,7 +91,7 @@ const ResourcesPage: React.FC = () => {
                 </CardContent>
                 <CardActions>
                   <Button 
-                    startIcon={<PictureAsPdfIcon />} 
+                    startIcon={<PictureAsPdfOutlinedIcon />} 
                     variant="contained" 
                     color="primary"
                     fullWidth
@@ -126,7 +130,7 @@ const ResourcesPage: React.FC = () => {
                 </CardContent>
                 <CardActions>
                   <Button 
-                    startIcon={<VideocamIcon />} 
+                    startIcon={<VideocamOutlinedIcon />} 
                     variant="contained" 
                     color="primary"
                     fullWidth
@@ -165,7 +169,7 @@ const ResourcesPage: React.FC = () => {
                 </CardContent>
                 <CardActions>
                   <Button 
-                    startIcon={<DownloadIcon />} 
+                    startIcon={<DownloadOutlinedIcon />} 
                     variant="contained" 
                     color="primary"
                     fullWidth
@@ -188,70 +192,70 @@ const ResourcesPage: React.FC = () => {
             <List sx={{ width: '100%' }}>
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <ArticleIcon color="primary" />
+                  <ArticleOutlinedIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Understanding the Different Types of Dental Implants" 
                   secondary="Learn about endosteal, subperiosteal, and zygomatic implants and which might be right for you."
                 />
-                <Button variant="outlined" size="small">Read Article</Button>
+                <Button variant="outlined" size="small" startIcon={<ReadMoreOutlinedIcon />}>Read Article</Button>
               </ListItem>
               
               <Divider />
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <ArticleIcon color="primary" />
+                  <ArticleOutlinedIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText 
                   primary="The Cost of Dental Implants: What to Expect" 
                   secondary="A breakdown of implant costs, insurance coverage, financing options, and how to maximize your benefits."
                 />
-                <Button variant="outlined" size="small">Read Article</Button>
+                <Button variant="outlined" size="small" startIcon={<ReadMoreOutlinedIcon />}>Read Article</Button>
               </ListItem>
               
               <Divider />
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <ArticleIcon color="primary" />
+                  <ArticleOutlinedIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Bone Grafting for Dental Implants: When Is It Necessary?" 
                   secondary="Everything you need to know about bone grafting procedures that may be required before implant placement."
                 />
-                <Button variant="outlined" size="small">Read Article</Button>
+                <Button variant="outlined" size="small" startIcon={<ReadMoreOutlinedIcon />}>Read Article</Button>
               </ListItem>
               
               <Divider />
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <ArticleIcon color="primary" />
+                  <ArticleOutlinedIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Implants vs. Bridges vs. Dentures: Making the Right Choice" 
                   secondary="A comparison of tooth replacement options to help you understand the pros and cons of each approach."
                 />
-                <Button variant="outlined" size="small">Read Article</Button>
+                <Button variant="outlined" size="small" startIcon={<ReadMoreOutlinedIcon />}>Read Article</Button>
               </ListItem>
               
               <Divider />
               
               <ListItem sx={{ py: 2 }}>
                 <ListItemIcon>
-                  <ArticleIcon color="primary" />
+                  <ArticleOutlinedIcon color="primary" />
                 </ListItemIcon>
                 <ListItemText 
                   primary="Maintaining Your Dental Implants: A Lifetime Care Guide" 
                   secondary="How to care for your implants to ensure they last a lifetime, including daily care and professional maintenance."
                 />
-                <Button variant="outlined" size="small">Read Article</Button>
+                <Button variant="outlined" size="small" startIcon={<ReadMoreOutlinedIcon />}>Read Article</Button>
               </ListItem>
             </List>
             
             <Box sx={{ textAlign: 'center', mt: 2 }}>
-              <Button variant="contained">View All Articles</Button>
+              <Button variant="contained" startIcon={<ViewListOutlinedIcon />}>View All Articles</Button>
             </Box>
           </Paper>
         </Box>
@@ -274,7 +278,7 @@ const ResourcesPage: React.FC = () => {
                   textAlign: 'center'
                 }}
               >
-                <PictureAsPdfIcon fontSize="large" color="error" sx={{ mb: 2 }} />
+                <PictureAsPdfOutlinedIcon fontSize="large" color="error" sx={{ mb: 2 }} />
                 <Typography variant="h6" component="h3" gutterBottom>
                   Pre-Op Instructions
                 </Typography>
@@ -284,7 +288,7 @@ const ResourcesPage: React.FC = () => {
                 <Button 
                   variant="outlined" 
                   color="primary"
-                  startIcon={<DownloadIcon />}
+                  startIcon={<DownloadOutlinedIcon />}
                   sx={{ mt: 'auto' }}
                 >
                   Download PDF
@@ -303,7 +307,7 @@ const ResourcesPage: React.FC = () => {
                   textAlign: 'center'
                 }}
               >
-                <PictureAsPdfIcon fontSize="large" color="error" sx={{ mb: 2 }} />
+                <PictureAsPdfOutlinedIcon fontSize="large" color="error" sx={{ mb: 2 }} />
                 <Typography variant="h6" component="h3" gutterBottom>
                   Post-Op Care Guide
                 </Typography>
@@ -313,7 +317,7 @@ const ResourcesPage: React.FC = () => {
                 <Button 
                   variant="outlined" 
                   color="primary"
-                  startIcon={<DownloadIcon />}
+                  startIcon={<DownloadOutlinedIcon />}
                   sx={{ mt: 'auto' }}
                 >
                   Download PDF
@@ -332,7 +336,7 @@ const ResourcesPage: React.FC = () => {
                   textAlign: 'center'
                 }}
               >
-                <PictureAsPdfIcon fontSize="large" color="error" sx={{ mb: 2 }} />
+                <PictureAsPdfOutlinedIcon fontSize="large" color="error" sx={{ mb: 2 }} />
                 <Typography variant="h6" component="h3" gutterBottom>
                   Financing Options
                 </Typography>
@@ -342,7 +346,7 @@ const ResourcesPage: React.FC = () => {
                 <Button 
                   variant="outlined" 
                   color="primary"
-                  startIcon={<DownloadIcon />}
+                  startIcon={<DownloadOutlinedIcon />}
                   sx={{ mt: 'auto' }}
                 >
                   Download PDF
@@ -360,7 +364,7 @@ const ResourcesPage: React.FC = () => {
           
           <Stack spacing={2}>
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="subtitle1" fontWeight={500}>
                   How long does the entire implant process take?
                 </Typography>
@@ -373,7 +377,7 @@ const ResourcesPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="subtitle1" fontWeight={500}>
                   Are dental implants painful?
                 </Typography>
@@ -386,7 +390,7 @@ const ResourcesPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="subtitle1" fontWeight={500}>
                   How do I care for my implants?
                 </Typography>
@@ -399,7 +403,7 @@ const ResourcesPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="subtitle1" fontWeight={500}>
                   How much do dental implants cost?
                 </Typography>
@@ -412,7 +416,7 @@ const ResourcesPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="subtitle1" fontWeight={500}>
                   What is the success rate of dental implants?
                 </Typography>
@@ -429,7 +433,13 @@ const ResourcesPage: React.FC = () => {
             <Typography variant="body1" sx={{ mb: 2 }}>
               Still have questions? We're here to help.
             </Typography>
-            <Button variant="contained" size="large">
+            <Button 
+              variant="contained" 
+              size="large" 
+              component={RouterLink} 
+              to="/contact"
+              startIcon={<MailOutlineOutlinedIcon />}
+            >
               Contact Us
             </Button>
           </Box>
@@ -445,7 +455,7 @@ const ResourcesPage: React.FC = () => {
             <Grid component="div" sx={{ gridColumn: { xs: 'span 12', md: 'span 4' } }}>
               <Paper sx={{ p: 3, height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <BookIcon color="primary" sx={{ mr: 1 }} />
+                  <BookOutlinedIcon color="primary" sx={{ mr: 1 }} />
                   <Typography variant="h6" component="h3">
                     Recommended Reading
                   </Typography>
@@ -467,7 +477,7 @@ const ResourcesPage: React.FC = () => {
             <Grid component="div" sx={{ gridColumn: { xs: 'span 12', md: 'span 4' } }}>
               <Paper sx={{ p: 3, height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <SchoolIcon color="primary" sx={{ mr: 1 }} />
+                  <SchoolOutlinedIcon color="primary" sx={{ mr: 1 }} />
                   <Typography variant="h6" component="h3">
                     Educational Organizations
                   </Typography>
@@ -498,7 +508,7 @@ const ResourcesPage: React.FC = () => {
             <Grid component="div" sx={{ gridColumn: { xs: 'span 12', md: 'span 4' } }}>
               <Paper sx={{ p: 3, height: '100%' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <LanguageIcon color="primary" sx={{ mr: 1 }} />
+                  <LanguageOutlinedIcon color="primary" sx={{ mr: 1 }} />
                   <Typography variant="h6" component="h3">
                     Helpful Websites
                   </Typography>
