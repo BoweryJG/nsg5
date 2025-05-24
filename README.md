@@ -13,6 +13,7 @@ The site has been converted to use **React** and **Material UI** directly from C
 - [Customization](#customization)
 - [Assets](#assets)
 - [Contributing](#contributing)
+- [Deployment](#deployment)
 - [License](#license)
 
 ---
@@ -57,6 +58,14 @@ All dependencies are loaded from CDNs so no build step is required. Simply open 
 
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## Deployment
+To deploy the **New Smile Guide** on Netlify:
+
+1. **Connect your repository.** From the Netlify dashboard, choose **Add new site** and link this Git repository.
+2. **Use the included `netlify.toml`.** Netlify will automatically detect the base directory (`new-smile-guide`), run `npm install && npm run build`, and publish the `build/` folder.
+3. **Set environment variables (optional).** The configuration pins Node.js to version `18` and enables CI mode. Modify these in `netlify.toml` if needed.
+4. **Deploy.** Netlify will build and host the production files. Locally you can mimic this step with `npm run netlify`.
 
 ## License
 Specify your license here. (e.g., MIT, Apache 2.0, etc.)
