@@ -25,7 +25,7 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 // Navigation links
 const navLinks = [
@@ -202,14 +202,18 @@ const Header: React.FC = () => {
               .map((link) => (
                 <Button
                   key={link.title}
-                  component={RouterLink}
+                  component={NavLink}
                   to={link.path}
+                  style={({ isActive }) => ({
+                    color: isActive ? theme.palette.primary.main : undefined,
+                    textDecoration: isActive ? 'underline' : 'none',
+                  })}
                   sx={{
                     my: 2,
                     mx: 1,
-                    color: 'text.primary',
                     display: 'block',
                     fontWeight: 500,
+                    color: 'text.primary',
                     '&:hover': {
                       color: 'primary.main',
                     },
