@@ -169,7 +169,7 @@ const Header: React.FC = () => {
             <IconButton
               edge="start"
               color="inherit"
-              aria-label="Open navigation menu"
+              aria-label="Open main navigation menu"
               aria-expanded={drawerOpen}
               onClick={toggleDrawer(true)}
               sx={{ mr: 2, display: { md: 'none' } }}
