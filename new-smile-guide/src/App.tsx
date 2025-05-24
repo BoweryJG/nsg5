@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -12,9 +12,22 @@ import UserCertificatesPage from './pages/UserCertificatesPage';
 import FinancingPage from './pages/FinancingPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+function RouteChangeTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', { page_path: location.pathname });
+    }
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <RouteChangeTracker />
       <MainLayout>
         <Routes>
           <Route path="/" element={<HomePage />} />
