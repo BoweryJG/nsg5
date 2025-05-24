@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
+import Icon from '../components/Icon';
 import { Link as RouterLink } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
@@ -110,6 +111,8 @@ const HomePage: React.FC = () => {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
                   bgcolor: 'background.paper',
                   borderRadius: 3,
                   boxShadow: 3,
@@ -121,16 +124,9 @@ const HomePage: React.FC = () => {
                   },
                 }}
               >
-                <Box
-                  component="img"
-                  src={feature.image}
-                  alt={feature.title}
-                  sx={{
-                    height: 200,
-                    width: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
+                <Box sx={{ mt: 4 }}>
+                  <Icon name={feature.icon} size={80} />
+                </Box>
                 <Box sx={{ p: 3, flexGrow: 1 }}>
                   <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
                     {feature.title}
@@ -250,17 +246,17 @@ const features = [
   {
     title: 'Expert-Led Courses',
     description: 'Learn from top dental surgeons with comprehensive courses designed specifically for patients.',
-    image: '/path/to/feature1.jpg',
+    icon: 'academy-icon',
   },
   {
     title: 'Find Specialists Near You',
     description: 'Connect with verified implant specialists in your area who can provide personalized care.',
-    image: '/path/to/feature2.jpg',
+    icon: 'finder-icon',
   },
   {
     title: 'Earn Certificates',
     description: 'Complete courses to receive certificates worth $500 towards your dental implant procedure.',
-    image: '/path/to/feature3.jpg',
+    icon: 'verified-icon',
   },
 ];
 
