@@ -1,7 +1,10 @@
 import React from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import SentimentVeryDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentVeryDissatisfiedOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 
 const NotFoundPage: React.FC = () => {
   return (
@@ -15,7 +18,7 @@ const NotFoundPage: React.FC = () => {
           minHeight: '50vh'
         }}
       >
-        <SentimentVeryDissatisfiedIcon sx={{ fontSize: 100, color: 'primary.main', mb: 4 }} />
+        <SentimentVeryDissatisfiedOutlinedIcon sx={{ fontSize: 100, color: 'primary.main', mb: 4 }} />
         
         <Typography variant="h1" component="h1" gutterBottom sx={{ fontWeight: 700 }}>
           404
@@ -36,6 +39,7 @@ const NotFoundPage: React.FC = () => {
             to="/" 
             variant="contained" 
             size="large"
+            startIcon={<HomeOutlinedIcon />}
           >
             Return Home
           </Button>
@@ -45,6 +49,7 @@ const NotFoundPage: React.FC = () => {
             to="/dental-implants" 
             variant="outlined" 
             size="large"
+            startIcon={<InfoOutlinedIcon />}
           >
             Learn About Dental Implants
           </Button>
