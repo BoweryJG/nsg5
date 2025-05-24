@@ -137,6 +137,12 @@ export const courseService = {
       .eq('course_id', courseId)
       .single();
 
+    if (certCheckError && certCheckError.code !== 'PGRST116') { // PGRST116: "Searched for a single row, but found no rows" - this is expected if cert doesn't exist
+      console.error('Error checking for existing certificate:', certCheckError);
+      // Optionally, decide if this is a fatal error or if you can proceed
+      // For now, we'll proceed to try and create one, but this might need more robust handling
+    }
+    
     if (existingCert) {
       return existingCert;
     }
