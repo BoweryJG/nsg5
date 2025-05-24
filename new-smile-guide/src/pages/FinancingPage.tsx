@@ -21,15 +21,17 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import CalculateIcon from '@mui/icons-material/Calculate';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import CreditScoreIcon from '@mui/icons-material/CreditScore';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import StarsIcon from '@mui/icons-material/Stars';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import CreditScoreOutlinedIcon from '@mui/icons-material/CreditScoreOutlined';
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import StarsOutlinedIcon from '@mui/icons-material/StarsOutlined';
+import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Financing options data
@@ -166,7 +168,7 @@ const FinancingPage: React.FC = () => {
               variant="outlined"
               color="inherit"
               size="large"
-              startIcon={<WorkspacePremiumIcon />}
+              startIcon={<WorkspacePremiumOutlinedIcon />}
             >
               Earn a $500 Certificate
             </Button>
@@ -177,7 +179,7 @@ const FinancingPage: React.FC = () => {
               variant="contained"
               color="secondary"
               size="large"
-              startIcon={<CreditScoreIcon />}
+              startIcon={<CreditScoreOutlinedIcon />}
             >
               Apply with Cherry Now
             </Button>
@@ -194,16 +196,16 @@ const FinancingPage: React.FC = () => {
             variant="fullWidth"
             sx={{ borderBottom: 1, borderColor: 'divider' }}
           >
-            <Tab label="Financing Options" />
-            <Tab label="Payment Calculator" />
-            <Tab label="How It Works" />
+            <Tab icon={<AccountBalanceWalletOutlinedIcon />} iconPosition="start" label="Financing Options" />
+            <Tab icon={<CalculateOutlinedIcon />} iconPosition="start" label="Payment Calculator" />
+            <Tab icon={<InfoOutlinedIcon />} iconPosition="start" label="How It Works" />
           </Tabs>
 
           {/* Financing Options Tab */}
           <TabPanel value={tabValue} index={0}>
             <Box sx={{ p: { xs: 2, md: 4 } }}>
               <Alert 
-                icon={<StarsIcon fontSize="inherit" />} 
+                icon={<StarsOutlinedIcon fontSize="inherit" />} 
                 severity="info" 
                 sx={{ mb: 4, bgcolor: 'secondary.light', color: 'text.primary' }}
               >
@@ -215,7 +217,7 @@ const FinancingPage: React.FC = () => {
               {/* Featured Financing Option */}
               <Box sx={{ mb: 6 }}>
                 <Typography variant="h5" component="h2" gutterBottom>
-                  <VerifiedIcon sx={{ mr: 1, color: 'secondary.main' }} />
+                  <VerifiedOutlinedIcon sx={{ mr: 1, color: 'secondary.main' }} />
                   Recommended Financing
                 </Typography>
                 <Paper 
@@ -276,7 +278,7 @@ const FinancingPage: React.FC = () => {
                         <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: { xs: '100%', sm: 'calc(50% - 8px)' } }}>
                           <Paper sx={{ p: 2, bgcolor: 'background.default' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                              <AccessTimeIcon sx={{ color: 'secondary.main', mr: 1 }} />
+                              <AccessTimeOutlinedIcon sx={{ color: 'secondary.main', mr: 1 }} />
                               <Typography variant="subtitle1" fontWeight={600}>
                                 60-Second Application
                               </Typography>
@@ -286,7 +288,7 @@ const FinancingPage: React.FC = () => {
                         <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: { xs: '100%', sm: 'calc(50% - 8px)' } }}>
                           <Paper sx={{ p: 2, bgcolor: 'background.default' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                              <CheckCircleIcon sx={{ color: 'secondary.main', mr: 1 }} />
+                              <CheckCircleOutlineOutlinedIcon sx={{ color: 'secondary.main', mr: 1 }} />
                               <Typography variant="subtitle1" fontWeight={600}>
                                 80% Approval Rate
                               </Typography>
@@ -306,7 +308,7 @@ const FinancingPage: React.FC = () => {
               <Box sx={{ mb: 4 }}>
                 {financingOptions.filter(option => !option.featured).map((option) => (
                   <Accordion key={option.id} sx={{ mb: 2 }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                       <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' }}>
                         <Box sx={{ flex: { xs: 1, sm: 2 } }}>
                           <Typography variant="h6">{option.name}</Typography>
@@ -339,7 +341,7 @@ const FinancingPage: React.FC = () => {
           <TabPanel value={tabValue} index={1}>
             <Box sx={{ p: { xs: 2, md: 4 } }}>
               <Typography variant="h5" component="h2" gutterBottom sx={{ display: 'flex', alignItems: 'center' }}>
-                <CalculateIcon sx={{ mr: 1 }} />
+                <CalculateOutlinedIcon sx={{ mr: 1 }} />
                 Monthly Payment Calculator
               </Typography>
               
@@ -363,7 +365,7 @@ const FinancingPage: React.FC = () => {
                         InputProps={{
                           startAdornment: (
                             <InputAdornment position="start">
-                              <AttachMoneyIcon />
+                              <AttachMoneyOutlinedIcon />
                             </InputAdornment>
                           ),
                         }}
@@ -392,7 +394,7 @@ const FinancingPage: React.FC = () => {
                           justifyContent: 'center',
                           bgcolor: useCertificate ? 'secondary.main' : 'transparent'
                         }}>
-                          {useCertificate && <CheckCircleIcon sx={{ color: 'white', fontSize: '1rem' }} />}
+                          {useCertificate && <CheckCircleOutlineOutlinedIcon sx={{ color: 'white', fontSize: '1rem' }} />}
                         </Box>
                         <Box>
                           <Typography variant="body1" fontWeight={500}>

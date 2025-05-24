@@ -10,7 +10,11 @@ import {
   Divider
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import AddIcon from '@mui/icons-material/Add';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import PresentToAllOutlinedIcon from '@mui/icons-material/PresentToAllOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import CertificateCard from '../components/CertificateCard';
 import { Certificate } from '../services/supabase';
 import { courseService } from '../services/courseService';
@@ -156,23 +160,27 @@ const UserCertificatesPage: React.FC = () => {
               <Typography variant="body1" paragraph>
                 Follow these simple steps to redeem your $500 certificate:
               </Typography>
-              <Box component="ol" sx={{ pl: 4 }}>
-                <Box component="li" sx={{ mb: 1 }}>
+              <Box component="ol" sx={{ pl: 0, listStyle: 'none' }}>
+                <Box component="li" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <SearchOutlinedIcon sx={{ mr: 1.5, color: 'primary.main' }} />
                   <Typography variant="body1">
                     Click on "Find Specialists" to browse participating dental specialists in your area.
                   </Typography>
                 </Box>
-                <Box component="li" sx={{ mb: 1 }}>
+                <Box component="li" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <PhoneOutlinedIcon sx={{ mr: 1.5, color: 'primary.main' }} />
                   <Typography variant="body1">
                     Contact the specialist and schedule a consultation, mentioning your New Smile Guide certificate.
                   </Typography>
                 </Box>
-                <Box component="li" sx={{ mb: 1 }}>
+                <Box component="li" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <PresentToAllOutlinedIcon sx={{ mr: 1.5, color: 'primary.main' }} />
                   <Typography variant="body1">
                     When you meet with the specialist, simply present your certificate (digital or printed).
                   </Typography>
                 </Box>
-                <Box component="li">
+                <Box component="li" sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <CheckCircleOutlineOutlinedIcon sx={{ mr: 1.5, color: 'primary.main' }} />
                   <Typography variant="body1">
                     The $500 value will be applied to your dental implant procedure with the participating specialist.
                   </Typography>
@@ -195,7 +203,7 @@ const UserCertificatesPage: React.FC = () => {
               variant="contained"
               color="primary"
               size="large"
-              startIcon={<AddIcon />}
+              startIcon={<AddOutlinedIcon />}
               sx={{ mt: 2 }}
             >
               Browse Courses

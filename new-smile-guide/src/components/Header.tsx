@@ -18,7 +18,13 @@ import {
   Menu,
   MenuItem,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Navigation links
@@ -112,18 +118,20 @@ const Header: React.FC = () => {
       anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
     >
       <MenuItem component={RouterLink} to="/dashboard" onClick={handleProfileMenuClose}>
-        Dashboard
+        <DashboardOutlinedIcon sx={{ mr: 1.5, opacity: 0.7 }} fontSize="small" /> Dashboard
       </MenuItem>
       <MenuItem component={RouterLink} to="/profile" onClick={handleProfileMenuClose}>
-        My Profile
+        <PersonOutlineOutlinedIcon sx={{ mr: 1.5, opacity: 0.7 }} fontSize="small" /> My Profile
       </MenuItem>
       <MenuItem component={RouterLink} to="/my-courses" onClick={handleProfileMenuClose}>
-        My Courses
+        <SchoolOutlinedIcon sx={{ mr: 1.5, opacity: 0.7 }} fontSize="small" /> My Courses
       </MenuItem>
       <MenuItem component={RouterLink} to="/certificates" onClick={handleProfileMenuClose}>
-        Certificates
+        <WorkspacePremiumOutlinedIcon sx={{ mr: 1.5, opacity: 0.7 }} fontSize="small" /> Certificates
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={handleProfileMenuClose}>
+        <LogoutOutlinedIcon sx={{ mr: 1.5, opacity: 0.7 }} fontSize="small" /> Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -160,7 +168,7 @@ const Header: React.FC = () => {
               onClick={toggleDrawer(true)}
               sx={{ mr: 2, display: { md: 'none' } }}
             >
-              <MenuIcon />
+              <MenuOutlinedIcon />
             </IconButton>
           )}
 
@@ -224,6 +232,7 @@ const Header: React.FC = () => {
                   fontWeight: 600,
                   boxShadow: 2,
                 }}
+                startIcon={<LoginOutlinedIcon />}
               >
                 Log In
               </Button>

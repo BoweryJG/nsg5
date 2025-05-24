@@ -17,11 +17,21 @@ import {
   Stack,
 } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import SchoolIcon from '@mui/icons-material/School';
-import StarIcon from '@mui/icons-material/Star';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined'; // For filled star in featured chip & ratings
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined'; // For empty star in ratings
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
+import ListAltOutlinedIcon from '@mui/icons-material/ListAltOutlined';
+// For levels, we might use something like:
+// import LooksOneOutlinedIcon from '@mui/icons-material/LooksOneOutlined';
+// import LooksTwoOutlinedIcon from '@mui/icons-material/LooksTwoOutlined';
+// import Looks3OutlinedIcon from '@mui/icons-material/Looks3Outlined';
+// Or more generic:
+import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
+
 
 interface Course {
   id: string;
@@ -111,13 +121,13 @@ const CoursesPage: React.FC = () => {
               color="secondary"
               size="medium"
               sx={{ mt: 1 }}
-              startIcon={<WorkspacePremiumIcon />}
+              startIcon={<WorkspacePremiumOutlinedIcon />}
             >
               View Sample Certificates
             </Button>
           </Box>
           <Box sx={{ flex: { md: 1 }, display: 'flex', justifyContent: 'center' }}>
-            <WorkspacePremiumIcon sx={{ fontSize: 100, color: 'secondary.main' }} />
+            <WorkspacePremiumOutlinedIcon sx={{ fontSize: 100, color: 'secondary.main' }} />
           </Box>
         </Box>
 
@@ -133,7 +143,7 @@ const CoursesPage: React.FC = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon />
+                  <SearchOutlinedIcon />
                 </InputAdornment>
               ),
             }}
@@ -146,11 +156,11 @@ const CoursesPage: React.FC = () => {
             scrollButtons="auto"
             sx={{ mb: 4 }}
           >
-            <Tab label="All Courses" />
-            <Tab label="Featured" />
-            <Tab label="Beginner" />
-            <Tab label="Intermediate" />
-            <Tab label="Advanced" />
+            <Tab icon={<ListAltOutlinedIcon />} iconPosition="start" label="All Courses" />
+            <Tab icon={<StarOutlinedIcon />} iconPosition="start" label="Featured" />
+            <Tab icon={<FilterListOutlinedIcon />} iconPosition="start" label="Beginner" /> 
+            <Tab icon={<FilterListOutlinedIcon />} iconPosition="start" label="Intermediate" />
+            <Tab icon={<FilterListOutlinedIcon />} iconPosition="start" label="Advanced" />
           </Tabs>
         </Box>
 
@@ -189,7 +199,7 @@ const CoursesPage: React.FC = () => {
                     />
                     {course.isFeatured && (
                       <Chip 
-                        icon={<StarIcon />} 
+                        icon={<StarOutlinedIcon />} 
                         label="Featured" 
                         size="small" 
                         sx={{ bgcolor: 'secondary.main', color: 'white' }}
@@ -211,13 +221,13 @@ const CoursesPage: React.FC = () => {
                   
                   <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <AccessTimeIcon fontSize="small" sx={{ mr: 0.5, color: 'text.secondary' }} />
+                      <AccessTimeOutlinedIcon fontSize="small" sx={{ mr: 0.5, color: 'text.secondary' }} />
                       <Typography variant="body2" color="text.secondary">
                         {course.duration} hours
                       </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                      <SchoolIcon fontSize="small" sx={{ mr: 0.5, color: 'text.secondary' }} />
+                      <SchoolOutlinedIcon fontSize="small" sx={{ mr: 0.5, color: 'text.secondary' }} />
                       <Typography variant="body2" color="text.secondary">
                         {course.modules} modules
                       </Typography>
@@ -225,16 +235,21 @@ const CoursesPage: React.FC = () => {
                   </Stack>
                   
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                    {[...Array(5)].map((_, i) => (
-                      <StarIcon 
-                        key={i} 
-                        fontSize="small" 
-                        sx={{ 
-                          color: i < Math.floor(course.rating) ? 'warning.main' : 'text.disabled',
-                          mr: 0.5
-                        }} 
-                      />
-                    ))}
+                    {[...Array(5)].map((_, i) => 
+                      i < Math.floor(course.rating) ? (
+                        <StarOutlinedIcon 
+                          key={`filled-${i}`} 
+                          fontSize="small" 
+                          sx={{ color: 'warning.main', mr: 0.5 }} 
+                        />
+                      ) : (
+                        <StarBorderOutlinedIcon 
+                          key={`border-${i}`} 
+                          fontSize="small" 
+                          sx={{ color: 'text.disabled', mr: 0.5 }} 
+                        />
+                      )
+                    )}
                     <Typography variant="body2" sx={{ ml: 0.5 }}>
                       ({course.enrolledStudents} students)
                     </Typography>
@@ -249,6 +264,7 @@ const CoursesPage: React.FC = () => {
                     color="primary" 
                     fullWidth
                     sx={{ textTransform: 'none' }}
+                    startIcon={<PlayArrowOutlinedIcon />}
                   >
                     Start Course
                   </Button>

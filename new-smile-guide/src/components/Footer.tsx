@@ -17,6 +17,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 const Footer: React.FC = () => {
   const theme = useTheme();
@@ -170,6 +171,7 @@ const Footer: React.FC = () => {
                   },
                   whiteSpace: 'nowrap',
                 }}
+                startIcon={<EmailOutlinedIcon />}
               >
                 Subscribe
               </Button>

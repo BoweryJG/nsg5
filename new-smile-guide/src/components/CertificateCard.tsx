@@ -9,9 +9,10 @@ import {
   Divider,
   Stack,
 } from '@mui/material';
-import DownloadIcon from '@mui/icons-material/Download';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 import { Certificate, Course } from '../services/supabase';
 
 type CertificateCardProps = {
@@ -64,7 +65,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           boxShadow: 2,
         }}
       >
-        <WorkspacePremiumIcon sx={{ fontSize: 30, color: '#fff' }} />
+        <WorkspacePremiumOutlinedIcon sx={{ fontSize: 30, color: '#fff' }} />
       </Box>
       
       <CardContent sx={{ pt: 4, pb: 2, flexGrow: 1 }}>
@@ -73,7 +74,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
             Certificate of Completion
           </Typography>
           <Chip 
-            icon={<VerifiedIcon />} 
+            icon={<VerifiedOutlinedIcon />} 
             label="Verified" 
             size="small" 
             color="success" 
@@ -118,7 +119,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
       
       <Box sx={{ display: 'flex', p: 1.5, gap: 1 }}>
         <Button 
-          startIcon={<DownloadIcon />}
+          startIcon={<DownloadOutlinedIcon />}
           variant="outlined" 
           color="primary"
           size="small"
@@ -128,6 +129,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
           Download
         </Button>
         <Button 
+          startIcon={<PersonSearchOutlinedIcon />}
           variant="contained" 
           color="primary"
           size="small"
