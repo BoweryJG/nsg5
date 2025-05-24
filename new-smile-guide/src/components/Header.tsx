@@ -59,7 +59,6 @@ const Header: React.FC = () => {
     setDrawerOpen(open);
   };
 
-  const mobileMenuId = 'primary-menu-mobile';
   const profileMenuId = 'primary-menu-profile';
 
   const drawer = (

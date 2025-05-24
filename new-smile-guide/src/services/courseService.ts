@@ -154,14 +154,14 @@ export const courseService = {
       value_amount: 500 // $500 certificate value
     };
 
-    const { data, error } = await supabase
+    const { data, error: insertError } = await supabase
       .from('certificates')
       .insert(newCertificate)
       .select()
       .single();
 
-    if (error) {
-      console.error('Error generating certificate:', error);
+    if (insertError) {
+      console.error('Error generating certificate:', insertError);
       return null;
     }
 
