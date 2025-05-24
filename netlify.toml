@@ -1,8 +1,25 @@
 [build]
   base    = "new-smile-guide"
-  command = "npm install && npm run build" # Explicitly run npm install in the base directory
+  command = "npm ci --prefer-offline --no-audit && npm run build" # Use ci for more reliable installs
   publish = "build" # This is relative to the 'base' directory
 
 [build.environment]
   NODE_VERSION = "18"
   CI = "false" # Prevent warnings from being treated as errors
+  NPM_FLAGS = "--no-audit --production=false"
+  NODE_OPTIONS = "--max_old_space_size=4096" # Increase memory limit for Node.js
+
+# Add build processing to optimize performance
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.images]
+  compress = true
