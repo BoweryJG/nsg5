@@ -1,6 +1,23 @@
 import React from 'react';
-import { Container, Typography, Box, Paper, Tabs, Tab, Button } from '@mui/material';
+import { Container, Typography, Box, Paper, Tabs, Tab, Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
+import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+// Icons for list items
+import AdjustOutlinedIcon from '@mui/icons-material/AdjustOutlined'; // For implant parts
+import LooksOneOutlinedIcon from '@mui/icons-material/LooksOneOutlined';
+import LooksTwoOutlinedIcon from '@mui/icons-material/LooksTwoOutlined';
+import Looks3OutlinedIcon from '@mui/icons-material/Looks3Outlined';
+import Looks4OutlinedIcon from '@mui/icons-material/Looks4Outlined';
+import Looks5OutlinedIcon from '@mui/icons-material/Looks5Outlined';
+import Looks6OutlinedIcon from '@mui/icons-material/Looks6Outlined';
+
 
 const DentalImplantsPage: React.FC = () => {
   const [tabValue, setTabValue] = React.useState(0);
@@ -34,6 +51,7 @@ const DentalImplantsPage: React.FC = () => {
             color="secondary"
             size="large"
             sx={{ mt: 2 }}
+            startIcon={<SchoolOutlinedIcon />}
           >
             Take Our Free Course
           </Button>
@@ -50,12 +68,12 @@ const DentalImplantsPage: React.FC = () => {
             scrollButtons="auto"
             sx={{ borderBottom: 1, borderColor: 'divider' }}
           >
-            <Tab label="What Are Dental Implants?" />
-            <Tab label="The Procedure" />
-            <Tab label="Benefits" />
-            <Tab label="Costs & Financing" />
-            <Tab label="Aftercare" />
-            <Tab label="FAQs" />
+            <Tab icon={<HelpOutlineOutlinedIcon />} iconPosition="start" label="What Are Dental Implants?" />
+            <Tab icon={<MedicalServicesOutlinedIcon />} iconPosition="start" label="The Procedure" />
+            <Tab icon={<CheckCircleOutlineOutlinedIcon />} iconPosition="start" label="Benefits" />
+            <Tab icon={<AttachMoneyOutlinedIcon />} iconPosition="start" label="Costs & Financing" />
+            <Tab icon={<HealingOutlinedIcon />} iconPosition="start" label="Aftercare" />
+            <Tab icon={<QuestionAnswerOutlinedIcon />} iconPosition="start" label="FAQs" />
           </Tabs>
         </Paper>
 
@@ -71,23 +89,20 @@ const DentalImplantsPage: React.FC = () => {
             <Typography variant="body1" paragraph>
               A dental implant consists of three parts:
             </Typography>
-            <Box component="ul" sx={{ pl: 4 }}>
-              <Box component="li">
-                <Typography variant="body1">
-                  <strong>The implant:</strong> A titanium screw that is placed in the jawbone and acts as a tooth root
-                </Typography>
-              </Box>
-              <Box component="li">
-                <Typography variant="body1">
-                  <strong>The abutment:</strong> A connector that supports and holds the tooth or set of teeth
-                </Typography>
-              </Box>
-              <Box component="li">
-                <Typography variant="body1">
-                  <strong>The crown:</strong> The visible part of the tooth that is custom-made to match your natural teeth
-                </Typography>
-              </Box>
-            </Box>
+            <List>
+              <ListItem>
+                <ListItemIcon><AdjustOutlinedIcon color="primary" /></ListItemIcon>
+                <ListItemText primaryTypographyProps={{fontWeight: 'bold'}} primary="The implant:" secondary="A titanium screw that is placed in the jawbone and acts as a tooth root" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><AdjustOutlinedIcon color="primary" /></ListItemIcon>
+                <ListItemText primaryTypographyProps={{fontWeight: 'bold'}} primary="The abutment:" secondary="A connector that supports and holds the tooth or set of teeth" />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><AdjustOutlinedIcon color="primary" /></ListItemIcon>
+                <ListItemText primaryTypographyProps={{fontWeight: 'bold'}} primary="The crown:" secondary="The visible part of the tooth that is custom-made to match your natural teeth" />
+              </ListItem>
+            </List>
             <Typography variant="body1" sx={{ mt: 2 }}>
               Dental implants are designed to look, feel, and function like your natural teeth. They provide a long-term solution for tooth replacement and are considered the gold standard in tooth replacement options.
             </Typography>
@@ -135,59 +150,32 @@ const DentalImplantsPage: React.FC = () => {
             The dental implant procedure typically involves several steps spread out over 3-9 months, depending on your specific situation. Here's what you can expect during the process:
           </Typography>
           
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              1. Initial Consultation and Planning
-            </Typography>
-            <Typography variant="body1">
-              Your dentist will conduct a thorough examination, take X-rays, and create a treatment plan tailored to your specific needs. This may include CT scans to evaluate bone quality and quantity.
-            </Typography>
-          </Box>
-          
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              2. Bone Grafting (if necessary)
-            </Typography>
-            <Typography variant="body1">
-              If your jawbone is too thin or soft to support an implant, bone grafting may be required to create a solid foundation. This may add several months to the process as the graft needs time to heal.
-            </Typography>
-          </Box>
-          
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              3. Implant Placement
-            </Typography>
-            <Typography variant="body1">
-              The oral surgeon places the dental implant into the jawbone during a minor surgical procedure. Local anesthesia is typically used, though sedation options are available for anxious patients.
-            </Typography>
-          </Box>
-          
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              4. Osseointegration Period
-            </Typography>
-            <Typography variant="body1">
-              After the implant is placed, it needs time to fuse with the jawbone through a process called osseointegration. This typically takes 3-6 months and is crucial for creating a stable base for your replacement tooth.
-            </Typography>
-          </Box>
-          
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
-              5. Abutment Placement
-            </Typography>
-            <Typography variant="body1">
-              Once osseointegration is complete, the abutment (connector) is attached to the implant. This requires a minor surgical procedure to reopen the gum and expose the implant.
-            </Typography>
-          </Box>
-          
-          <Box>
-            <Typography variant="h6" gutterBottom>
-              6. Crown Placement
-            </Typography>
-            <Typography variant="body1">
-              After your gums heal (usually within 2 weeks of abutment placement), impressions of your mouth are taken to create a custom crown. Once the crown is ready, it's attached to the abutment, completing the implant process.
-            </Typography>
-          </Box>
+          <List>
+            <ListItem>
+              <ListItemIcon><LooksOneOutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Initial Consultation and Planning" secondary="Your dentist will conduct a thorough examination, take X-rays, and create a treatment plan tailored to your specific needs. This may include CT scans to evaluate bone quality and quantity." />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><LooksTwoOutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Bone Grafting (if necessary)" secondary="If your jawbone is too thin or soft to support an implant, bone grafting may be required to create a solid foundation. This may add several months to the process as the graft needs time to heal." />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Looks3OutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Implant Placement" secondary="The oral surgeon places the dental implant into the jawbone during a minor surgical procedure. Local anesthesia is typically used, though sedation options are available for anxious patients." />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Looks4OutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Osseointegration Period" secondary="After the implant is placed, it needs time to fuse with the jawbone through a process called osseointegration. This typically takes 3-6 months and is crucial for creating a stable base for your replacement tooth." />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Looks5OutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Abutment Placement" secondary="Once osseointegration is complete, the abutment (connector) is attached to the implant. This requires a minor surgical procedure to reopen the gum and expose the implant." />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon><Looks6OutlinedIcon color="primary" /></ListItemIcon>
+              <ListItemText primaryTypographyProps={{variant: "h6"}} primary="Crown Placement" secondary="After your gums heal (usually within 2 weeks of abutment placement), impressions of your mouth are taken to create a custom crown. Once the crown is ready, it's attached to the abutment, completing the implant process." />
+            </ListItem>
+          </List>
         </TabPanel>
 
         <TabPanel value={tabValue} index={2}>
@@ -360,6 +348,7 @@ const DentalImplantsPage: React.FC = () => {
                 color="secondary"
                 size="small"
                 sx={{ mt: 1 }}
+                startIcon={<WorkspacePremiumOutlinedIcon />}
               >
                 Learn More About Our Certificate Program
               </Button>
