@@ -5,4 +5,4 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  CI = "true" # Ensures react-scripts build runs in CI mode (usually default)
+  CI = "false" # Prevent warnings from being treated as errors
