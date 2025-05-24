@@ -1,9 +1,8 @@
 [build]
   base    = "new-smile-guide"
-  command = "npm run build"
-  publish = "build"
+  command = "npm install && npm run build" # Explicitly run npm install in the base directory
+  publish = "build" # This is relative to the 'base' directory
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--no-audit --no-fund" # Optional: Speeds up installs
-  CI = "true" # Ensures react-scripts build runs in CI mode
+  CI = "true" # Ensures react-scripts build runs in CI mode (usually default)
