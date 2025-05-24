@@ -1,0 +1,11 @@
+{
+  "name": "new-smile-guide-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cd new-smile-guide && npm start",
+    "build": "cd new-smile-guide && npm run build",
+    "test": "cd new-smile-guide && npm test",
+    "netlify": "cd new-smile-guide && npm run build"
+  }
+}
