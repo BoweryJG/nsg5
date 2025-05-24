@@ -19,10 +19,12 @@ import {
   CardContent,
   Card,
 } from '@mui/material';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -267,6 +269,7 @@ const ContactPage: React.FC = () => {
                       variant="contained"
                       size="large"
                       sx={{ mt: 2 }}
+                      startIcon={<SendOutlinedIcon />}
                     >
                       Send Message
                     </Button>
@@ -287,7 +290,7 @@ const ContactPage: React.FC = () => {
                 
                 <Box sx={{ mb: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <PhoneIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <PhoneOutlinedIcon sx={{ mr: 2, color: 'primary.main' }} />
                     <Typography variant="body1" fontWeight={500}>
                       Phone
                     </Typography>
@@ -299,7 +302,7 @@ const ContactPage: React.FC = () => {
                 
                 <Box sx={{ mb: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <EmailIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <EmailOutlinedIcon sx={{ mr: 2, color: 'primary.main' }} />
                     <Typography variant="body1" fontWeight={500}>
                       Email
                     </Typography>
@@ -311,7 +314,7 @@ const ContactPage: React.FC = () => {
                 
                 <Box sx={{ mb: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <LocationOnIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <LocationOnOutlinedIcon sx={{ mr: 2, color: 'primary.main' }} />
                     <Typography variant="body1" fontWeight={500}>
                       Address
                     </Typography>
@@ -325,7 +328,7 @@ const ContactPage: React.FC = () => {
                 
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <AccessTimeIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <AccessTimeOutlinedIcon sx={{ mr: 2, color: 'primary.main' }} />
                     <Typography variant="body1" fontWeight={500}>
                       Hours
                     </Typography>
@@ -351,6 +354,7 @@ const ContactPage: React.FC = () => {
                   variant="contained" 
                   color="secondary"
                   fullWidth
+                  startIcon={<PersonSearchOutlinedIcon />}
                 >
                   Find a Specialist
                 </Button>
