@@ -169,7 +169,8 @@ const Header: React.FC = () => {
             <IconButton
               edge="start"
               color="inherit"
-              aria-label="menu"
+              aria-label="Open navigation menu"
+              aria-expanded={drawerOpen}
               onClick={toggleDrawer(true)}
               sx={{ mr: 2, display: { md: 'none' } }}
             >
@@ -197,7 +198,11 @@ const Header: React.FC = () => {
           </Typography>
 
           {/* Desktop navigation */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+          <Box
+            component="nav"
+            aria-label="Main navigation"
+            sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}
+          >
             {navLinks
               .filter((link) => (link.title === 'Admin' ? isAdmin : true))
               .map((link) => (
