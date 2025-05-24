@@ -20,9 +20,17 @@ import {
 } from '@mui/material';
 
 // Icons
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import InfoIcon from '@mui/icons-material/Info';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
+import ReadMoreOutlinedIcon from '@mui/icons-material/ReadMoreOutlined';
+import LooksOneOutlinedIcon from '@mui/icons-material/LooksOneOutlined'; // For single tooth
+import Looks3OutlinedIcon from '@mui/icons-material/Looks3Outlined'; // For multiple teeth
+import AllInclusiveOutlinedIcon from '@mui/icons-material/AllInclusiveOutlined'; // For full arch
+import AppRegistrationOutlinedIcon from '@mui/icons-material/AppRegistrationOutlined';
+
 
 const CustomDentalImplantsPage: React.FC = () => {
   return (
@@ -52,6 +60,7 @@ const CustomDentalImplantsPage: React.FC = () => {
               color="primary" 
               size="large"
               sx={{ mr: 2, mb: { xs: 2, sm: 0 } }}
+              startIcon={<SchoolOutlinedIcon />}
             >
               Explore Implant Courses
             </Button>
@@ -66,6 +75,7 @@ const CustomDentalImplantsPage: React.FC = () => {
                   backgroundColor: 'rgba(255,255,255,0.1)'
                 }
               }}
+              startIcon={<PersonSearchOutlinedIcon />}
             >
               Find a Specialist
             </Button>
@@ -103,23 +113,23 @@ const CustomDentalImplantsPage: React.FC = () => {
               </Typography>
               <List>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Natural appearance and functionality" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Improved comfort and speech" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Easier eating and improved self-esteem" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Durability (can last a lifetime)" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Prevention of bone loss" />
                 </ListItem>
               </List>
@@ -133,23 +143,23 @@ const CustomDentalImplantsPage: React.FC = () => {
               </Typography>
               <List>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="People with one or more missing teeth" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Those with a fully developed jawbone" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Patients with adequate bone density or ability to have bone grafting" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Those without health conditions that affect healing" />
                 </ListItem>
                 <ListItem>
-                  <ListItemIcon><CheckCircleIcon color="primary" /></ListItemIcon>
+                  <ListItemIcon><CheckCircleOutlineOutlinedIcon color="primary" /></ListItemIcon>
                   <ListItemText primary="Non-smokers or those willing to quit" />
                 </ListItem>
               </List>
@@ -263,7 +273,7 @@ const CustomDentalImplantsPage: React.FC = () => {
           </Box>
           
           <Box sx={{ textAlign: 'center' }}>
-            <Button variant="contained" color="primary" size="large">
+            <Button variant="contained" color="primary" size="large" startIcon={<ReadMoreOutlinedIcon />}>
               Learn More About the Procedure
             </Button>
           </Box>
@@ -284,7 +294,8 @@ const CustomDentalImplantsPage: React.FC = () => {
               image="/path/to/single-tooth-implant.jpg"
               alt="Single Tooth Implant"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center'}}>
+              <LooksOneOutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Single Tooth Implants
               </Typography>
@@ -303,7 +314,8 @@ const CustomDentalImplantsPage: React.FC = () => {
               image="/path/to/multiple-implants.jpg"
               alt="Multiple Tooth Implants"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center'}}>
+              <Looks3OutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Multiple Tooth Implants
               </Typography>
@@ -322,7 +334,8 @@ const CustomDentalImplantsPage: React.FC = () => {
               image="/path/to/full-arch.jpg"
               alt="Full Arch Implants"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center'}}>
+              <AllInclusiveOutlinedIcon color="primary" sx={{ fontSize: 40, mb: 1 }} />
               <Typography variant="h5" component="h3" gutterBottom>
                 Full Arch Restoration
               </Typography>
@@ -345,7 +358,7 @@ const CustomDentalImplantsPage: React.FC = () => {
           
           <Box sx={{ maxWidth: 800, mx: 'auto' }}>
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="h6">How long do dental implants last?</Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -358,7 +371,7 @@ const CustomDentalImplantsPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="h6">Is the implant procedure painful?</Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -372,7 +385,7 @@ const CustomDentalImplantsPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="h6">How much do dental implants cost?</Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -385,14 +398,14 @@ const CustomDentalImplantsPage: React.FC = () => {
                 </Typography>
                 <Box sx={{ mt: 2, bgcolor: 'info.light', p: 2, borderRadius: 1 }}>
                   <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <InfoIcon fontSize="small" /> Complete our implant course and receive a $500 certificate toward your procedure!
+                    <InfoOutlinedIcon fontSize="small" /> Complete our implant course and receive a $500 certificate toward your procedure!
                   </Typography>
                 </Box>
               </AccordionDetails>
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="h6">Am I a candidate for dental implants?</Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -407,7 +420,7 @@ const CustomDentalImplantsPage: React.FC = () => {
             </Accordion>
             
             <Accordion>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary expandIcon={<ExpandMoreOutlinedIcon />}>
                 <Typography variant="h6">How do I care for dental implants?</Typography>
               </AccordionSummary>
               <AccordionDetails>
@@ -440,6 +453,7 @@ const CustomDentalImplantsPage: React.FC = () => {
               color="secondary" 
               size="large"
               sx={{ fontWeight: 600, py: 1.5, px: 4 }}
+              startIcon={<AppRegistrationOutlinedIcon />}
             >
               Enroll in Course
             </Button>
@@ -457,6 +471,7 @@ const CustomDentalImplantsPage: React.FC = () => {
                   backgroundColor: 'rgba(255,255,255,0.1)'
                 }
               }}
+              startIcon={<PersonSearchOutlinedIcon />}
             >
               Find a Specialist
             </Button>
