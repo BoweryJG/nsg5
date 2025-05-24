@@ -31,6 +31,7 @@ const navLinks = [
   { title: 'Specialists', path: '/specialists' },
   { title: 'Resources', path: '/resources' },
   { title: 'Certificates', path: '/certificates' },
+  { title: 'Admin', path: '/admin/analytics' },
   { title: 'Contact', path: '/contact' },
 ];
 
@@ -40,6 +41,7 @@ const Header: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isLoggedIn = false; // This would be determined by your auth context
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -64,13 +66,15 @@ const Header: React.FC = () => {
   const drawer = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
       <List>
-        {navLinks.map((link) => (
-          <ListItem key={link.title} disablePadding>
-            <ListItemButton component={RouterLink} to={link.path}>
-              <ListItemText primary={link.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {navLinks
+          .filter((link) => (link.title === 'Admin' ? isAdmin : true))
+          .map((link) => (
+            <ListItem key={link.title} disablePadding>
+              <ListItemButton component={RouterLink} to={link.path}>
+                <ListItemText primary={link.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
         <ListItem disablePadding>
           {!isLoggedIn ? (
             <ListItemButton component={RouterLink} to="/login">
@@ -185,25 +189,27 @@ const Header: React.FC = () => {
 
           {/* Desktop navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-            {navLinks.map((link) => (
-              <Button
-                key={link.title}
-                component={RouterLink}
-                to={link.path}
-                sx={{
-                  my: 2,
-                  mx: 1,
-                  color: 'text.primary',
-                  display: 'block',
-                  fontWeight: 500,
-                  '&:hover': {
-                    color: 'primary.main',
-                  },
-                }}
-              >
-                {link.title}
-              </Button>
-            ))}
+            {navLinks
+              .filter((link) => (link.title === 'Admin' ? isAdmin : true))
+              .map((link) => (
+                <Button
+                  key={link.title}
+                  component={RouterLink}
+                  to={link.path}
+                  sx={{
+                    my: 2,
+                    mx: 1,
+                    color: 'text.primary',
+                    display: 'block',
+                    fontWeight: 500,
+                    '&:hover': {
+                      color: 'primary.main',
+                    },
+                  }}
+                >
+                  {link.title}
+                </Button>
+              ))}
           </Box>
 
           {/* User account */}
