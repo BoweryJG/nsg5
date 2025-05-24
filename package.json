@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "cd new-smile-guide && npm start",
-    "build": "cd new-smile-guide && npm install && CI= npm run build",
+    "build": "cd new-smile-guide && npm install && npm run build",
     "test": "cd new-smile-guide && npm test",
-    "netlify": "cd new-smile-guide && npm install && CI= npm run build"
+    "netlify": "cd new-smile-guide && npm install && npm run build"
   }
 }

@@ -1,9 +1,0 @@
-[build]
-  base = "new-smile-guide/"
-  command = "CI= npm run build"
-  publish = "build"
-  ignore_command = "git diff --quiet HEAD^ HEAD new-smile-guide/"
-
-[build.environment]
-  NODE_VERSION = "18"
-  NPM_FLAGS = "--no-audit --no-fund"

@@ -1,7 +1,9 @@
 [build]
+  base    = "new-smile-guide"
   command = "npm run build"
-  publish = "new-smile-guide/build"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--no-audit --no-fund"
+  NPM_FLAGS = "--no-audit --no-fund" # Optional: Speeds up installs
+  CI = "true" # Ensures react-scripts build runs in CI mode
