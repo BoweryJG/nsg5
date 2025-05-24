@@ -89,7 +89,7 @@ const HomePage: React.FC = () => {
                 },
               }}
             >
-              <img src="/path/to/hero-image.jpg" alt="Dental implant procedure" />
+              <img src="/images/Headerimage.png" alt="Dental implant procedure" />
             </Box>
           </Box>
         </Container>
