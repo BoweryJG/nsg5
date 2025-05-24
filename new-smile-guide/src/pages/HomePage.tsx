@@ -1,6 +1,14 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
+import FormatQuoteOutlinedIcon from '@mui/icons-material/FormatQuoteOutlined';
+import CastForEducationOutlinedIcon from '@mui/icons-material/CastForEducationOutlined';
+
 
 const HomePage: React.FC = () => {
   return (
@@ -51,6 +59,7 @@ const HomePage: React.FC = () => {
                   color="secondary"
                   size="large"
                   sx={{ py: 1.5, px: 4 }}
+                  startIcon={<InfoOutlinedIcon />}
                 >
                   Learn About Implants
                 </Button>
@@ -61,6 +70,7 @@ const HomePage: React.FC = () => {
                   color="inherit"
                   size="large"
                   sx={{ py: 1.5, px: 4, borderColor: 'rgba(255,255,255,0.5)' }}
+                  startIcon={<SchoolOutlinedIcon />}
                 >
                   Explore Courses
                 </Button>
@@ -131,7 +141,8 @@ const HomePage: React.FC = () => {
                     objectFit: 'cover',
                   }}
                 />
-                <Box sx={{ p: 3, flexGrow: 1 }}>
+                <Box sx={{ p: 3, flexGrow: 1, textAlign: 'center' }}>
+                  <feature.icon sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
                   <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
                     {feature.title}
                   </Typography>
@@ -173,6 +184,7 @@ const HomePage: React.FC = () => {
                 color="secondary"
                 size="large"
                 sx={{ py: 1.5, px: 4 }}
+                startIcon={<PlayArrowOutlinedIcon />}
               >
                 Start Your Course Today
               </Button>
@@ -212,8 +224,9 @@ const HomePage: React.FC = () => {
                   p: 3,
                 }}
               >
+                <FormatQuoteOutlinedIcon sx={{ fontSize: 40, color: 'primary.light', mb: 1 }} />
                 <Typography variant="body1" paragraph sx={{ fontStyle: 'italic', mb: 3 }}>
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
                   <Box
@@ -251,16 +264,19 @@ const features = [
     title: 'Expert-Led Courses',
     description: 'Learn from top dental surgeons with comprehensive courses designed specifically for patients.',
     image: '/path/to/feature1.jpg',
+    icon: CastForEducationOutlinedIcon,
   },
   {
     title: 'Find Specialists Near You',
     description: 'Connect with verified implant specialists in your area who can provide personalized care.',
     image: '/path/to/feature2.jpg',
+    icon: PersonSearchOutlinedIcon,
   },
   {
     title: 'Earn Certificates',
     description: 'Complete courses to receive certificates worth $500 towards your dental implant procedure.',
     image: '/path/to/feature3.jpg',
+    icon: WorkspacePremiumOutlinedIcon,
   },
 ];
 
