@@ -9,6 +9,7 @@ import SpecialistsPage from './pages/SpecialistsPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import UserCertificatesPage from './pages/UserCertificatesPage';
+import FinancingPage from './pages/FinancingPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/certificates" element={<UserCertificatesPage />} />
+          <Route path="/financing" element={<FinancingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </MainLayout>

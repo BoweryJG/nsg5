@@ -27,6 +27,7 @@ const navLinks = [
   { title: 'About', path: '/about' },
   { title: 'Dental Implants', path: '/dental-implants' },
   { title: 'Courses', path: '/courses' },
+  { title: 'Financing', path: '/financing' },
   { title: 'Specialists', path: '/specialists' },
   { title: 'Resources', path: '/resources' },
   { title: 'Certificates', path: '/certificates' },
