@@ -1,27 +1,61 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Stack } from '@mui/material';
+import { 
+  Box, 
+  Container, 
+  Typography, 
+  Button, 
+  Stack, 
+  Grid, 
+  Card, 
+  CardContent, 
+  Chip,
+  Avatar,
+  Rating,
+  Divider,
+  Paper,
+  useTheme,
+  alpha
+} from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import PersonSearchOutlinedIcon from '@mui/icons-material/PersonSearchOutlined';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import FormatQuoteOutlinedIcon from '@mui/icons-material/FormatQuoteOutlined';
 import CastForEducationOutlinedIcon from '@mui/icons-material/CastForEducationOutlined';
-
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import GroupsIcon from '@mui/icons-material/Groups';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 const HomePage: React.FC = () => {
+  const theme = useTheme();
+
   return (
     <Box>
-      {/* Hero Section */}
+      {/* Enhanced Hero Section with Gradient Background */}
       <Box
         sx={{
-          backgroundColor: 'primary.main',
+          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
           color: '#fff',
-          py: { xs: 8, md: 12 },
+          py: { xs: 10, md: 15 },
           mb: 8,
           position: 'relative',
           overflow: 'hidden',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+            opacity: 0.3,
+          },
         }}
       >
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
@@ -30,273 +64,502 @@ const HomePage: React.FC = () => {
               display: 'flex',
               flexDirection: { xs: 'column', md: 'row' },
               alignItems: 'center',
-              gap: 4,
+              gap: 6,
             }}
           >
             <Box sx={{ flex: 1 }}>
+              {/* Trust Badge */}
+              <Chip
+                icon={<VerifiedIcon />}
+                label="Trusted by 10,000+ Patients"
+                sx={{
+                  mb: 3,
+                  backgroundColor: alpha('#fff', 0.2),
+                  color: '#fff',
+                  fontWeight: 600,
+                  '& .MuiChip-icon': { color: '#fff' },
+                }}
+              />
+              
               <Typography
                 variant="h1"
                 gutterBottom
                 sx={{
-                  fontWeight: 700,
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  lineHeight: 1.2,
+                  fontWeight: 800,
+                  fontSize: { xs: '2.8rem', md: '4rem' },
+                  lineHeight: 1.1,
+                  mb: 3,
+                  background: 'linear-gradient(45deg, #fff 30%, #f0f8ff 90%)',
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
-                Expert Guidance for Your Dental Implant Journey
+                Transform Your Smile with Expert Guidance
               </Typography>
+              
               <Typography
                 variant="h5"
-                sx={{ mb: 4, fontWeight: 400, opacity: 0.9 }}
+                sx={{ 
+                  mb: 4, 
+                  fontWeight: 400, 
+                  opacity: 0.95,
+                  lineHeight: 1.6,
+                  maxWidth: '90%'
+                }}
               >
-                Comprehensive, patient-friendly education to help you make informed decisions about dental implants.
+                Join thousands who've made informed decisions about dental implants through our comprehensive, patient-first education platform.
               </Typography>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <Button
-                  component={RouterLink}
-                  to="/dental-implants"
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                  sx={{ py: 1.5, px: 4 }}
-                  startIcon={<InfoOutlinedIcon />}
-                >
-                  Learn About Implants
-                </Button>
+
+              {/* Key Benefits */}
+              <Stack direction="row" spacing={3} sx={{ mb: 4, flexWrap: 'wrap', gap: 2 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <CheckCircleIcon sx={{ color: theme.palette.secondary.main }} />
+                  <Typography variant="body1" fontWeight={500}>Expert-Led Courses</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <CheckCircleIcon sx={{ color: theme.palette.secondary.main }} />
+                  <Typography variant="body1" fontWeight={500}>$500 Certificates</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <CheckCircleIcon sx={{ color: theme.palette.secondary.main }} />
+                  <Typography variant="body1" fontWeight={500}>Verified Specialists</Typography>
+                </Box>
+              </Stack>
+              
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
                 <Button
                   component={RouterLink}
                   to="/courses"
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                  sx={{ 
+                    py: 2, 
+                    px: 5,
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    borderRadius: 50,
+                    boxShadow: '0 8px 25px rgba(242, 156, 116, 0.3)',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 12px 35px rgba(242, 156, 116, 0.4)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                  startIcon={<PlayArrowOutlinedIcon />}
+                >
+                  Start Free Course
+                </Button>
+                <Button
+                  component={RouterLink}
+                  to="/dental-implants"
                   variant="outlined"
                   color="inherit"
                   size="large"
-                  sx={{ py: 1.5, px: 4, borderColor: 'rgba(255,255,255,0.5)' }}
-                  startIcon={<SchoolOutlinedIcon />}
+                  sx={{ 
+                    py: 2, 
+                    px: 5,
+                    fontSize: '1.1rem',
+                    fontWeight: 600,
+                    borderRadius: 50,
+                    borderColor: 'rgba(255,255,255,0.6)',
+                    borderWidth: 2,
+                    '&:hover': {
+                      borderColor: '#fff',
+                      backgroundColor: alpha('#fff', 0.1),
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                  startIcon={<InfoOutlinedIcon />}
                 >
-                  Explore Courses
+                  Learn More
                 </Button>
               </Stack>
             </Box>
+            
             <Box
               sx={{
                 flex: 1,
                 display: 'flex',
                 justifyContent: 'center',
-                '& img': {
-                  maxWidth: '100%',
-                  height: 'auto',
-                  borderRadius: 2,
-                  boxShadow: 8,
-                },
+                position: 'relative',
               }}
             >
-              <img src="/images/Headerimage.png" alt="Dental implant procedure" />
+              <Box
+                sx={{
+                  position: 'relative',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: -20,
+                    left: -20,
+                    right: -20,
+                    bottom: -20,
+                    background: `linear-gradient(45deg, ${alpha(theme.palette.secondary.main, 0.3)}, ${alpha(theme.palette.primary.light, 0.3)})`,
+                    borderRadius: 4,
+                    zIndex: -1,
+                  },
+                }}
+              >
+                <img 
+                  src="/images/Headerimage.png" 
+                  alt="Dental implant procedure" 
+                  style={{
+                    maxWidth: '100%',
+                    height: 'auto',
+                    borderRadius: 16,
+                    boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+                  }}
+                />
+              </Box>
             </Box>
           </Box>
         </Container>
       </Box>
 
-      {/* Features Section */}
+      {/* Stats Section */}
       <Container maxWidth="lg" sx={{ mb: 10 }}>
-        <Box textAlign="center" mb={8}>
-          <Typography variant="h2" component="h2" gutterBottom sx={{ fontWeight: 700 }}>
-            Why Choose New Smile Guide
-          </Typography>
-          <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 700, mx: 'auto' }}>
-            We provide comprehensive resources to help you understand dental implants, connect with specialists, and make informed decisions.
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 4,
-          }}
-        >
-          {features.map((feature, index) => (
-            <Box key={index} sx={{ flex: 1 }}>
-              <Box
+        <Grid container spacing={4}>
+          {stats.map((stat, index) => (
+            <Grid item xs={6} md={3} key={index}>
+              <Paper
+                elevation={0}
                 sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  bgcolor: 'background.paper',
+                  p: 3,
+                  textAlign: 'center',
+                  backgroundColor: 'transparent',
+                  border: `2px solid ${alpha(theme.palette.primary.main, 0.1)}`,
                   borderRadius: 3,
-                  boxShadow: 3,
-                  overflow: 'hidden',
-                  transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: 6,
+                    borderColor: theme.palette.primary.main,
+                    transform: 'translateY(-5px)',
+                    boxShadow: `0 10px 30px ${alpha(theme.palette.primary.main, 0.1)}`,
                   },
                 }}
               >
-                <Box
-                  component="img"
-                  src={feature.image}
-                  alt={feature.title}
-                  sx={{
-                    height: 200,
-                    width: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-                <Box sx={{ p: 3, flexGrow: 1, textAlign: 'center' }}>
-                  <feature.icon sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
-                  <Typography variant="h5" component="h3" gutterBottom fontWeight={600}>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary">
-                    {feature.description}
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
+                <stat.icon sx={{ fontSize: 40, color: 'primary.main', mb: 1 }} />
+                <Typography variant="h3" fontWeight={800} color="primary.main" gutterBottom>
+                  {stat.value}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" fontWeight={500}>
+                  {stat.label}
+                </Typography>
+              </Paper>
+            </Grid>
           ))}
-        </Box>
+        </Grid>
       </Container>
 
-      {/* Call-to-Action Section */}
-      <Box sx={{ backgroundColor: 'primary.light', py: 8, mb: 10 }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: 4,
+      {/* Enhanced Features Section */}
+      <Container maxWidth="lg" sx={{ mb: 12 }}>
+        <Box textAlign="center" mb={8}>
+          <Typography 
+            variant="h2" 
+            component="h2" 
+            gutterBottom 
+            sx={{ 
+              fontWeight: 800,
+              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            <Box sx={{ flex: { md: 2 } }}>
-              <Typography variant="h3" gutterBottom fontWeight={600} color="white">
-                Ready to take the next step?
+            Why 10,000+ Patients Choose Us
+          </Typography>
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto', lineHeight: 1.6 }}>
+            Comprehensive resources, expert guidance, and proven results for your dental implant journey.
+          </Typography>
+        </Box>
+
+        <Grid container spacing={4}>
+          {enhancedFeatures.map((feature, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <Card
+                sx={{
+                  height: '100%',
+                  borderRadius: 4,
+                  border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
+                    boxShadow: `0 20px 60px ${alpha(theme.palette.primary.main, 0.15)}`,
+                    borderColor: theme.palette.primary.main,
+                  },
+                }}
+              >
+                <CardContent sx={{ p: 4, textAlign: 'center' }}>
+                  <Box
+                    sx={{
+                      width: 80,
+                      height: 80,
+                      borderRadius: '50%',
+                      backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      mx: 'auto',
+                      mb: 3,
+                    }}
+                  >
+                    <feature.icon sx={{ fontSize: 40, color: 'primary.main' }} />
+                  </Box>
+                  
+                  <Typography variant="h5" fontWeight={700} gutterBottom>
+                    {feature.title}
+                  </Typography>
+                  
+                  <Typography variant="body1" color="text.secondary" paragraph sx={{ lineHeight: 1.7 }}>
+                    {feature.description}
+                  </Typography>
+
+                  {feature.badge && (
+                    <Chip
+                      label={feature.badge}
+                      size="small"
+                      sx={{
+                        backgroundColor: alpha(theme.palette.secondary.main, 0.1),
+                        color: 'secondary.main',
+                        fontWeight: 600,
+                        mb: 2,
+                      }}
+                    />
+                  )}
+
+                  <Button
+                    component={RouterLink}
+                    to={feature.link}
+                    variant="text"
+                    color="primary"
+                    endIcon={<ArrowForwardIcon />}
+                    sx={{ fontWeight: 600 }}
+                  >
+                    {feature.buttonText}
+                  </Button>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+
+      {/* Enhanced CTA Section */}
+      <Box 
+        sx={{ 
+          background: `linear-gradient(135deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 100%)`,
+          py: 10,
+          mb: 12,
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Typography variant="h3" gutterBottom fontWeight={700} color="white">
+                Ready to Start Your Journey?
               </Typography>
-              <Typography variant="h6" paragraph color="white" sx={{ opacity: 0.9 }}>
-                Sign up for our comprehensive course on dental implants and receive a $500 certificate upon completion.
+              <Typography variant="h6" paragraph color="white" sx={{ opacity: 0.95, mb: 4 }}>
+                Join our comprehensive course and receive a $500 certificate upon completion. 
+                Start learning from top dental professionals today.
               </Typography>
-            </Box>
-            <Box sx={{ textAlign: { xs: 'left', md: 'right' } }}>
+              
+              <Stack direction="row" spacing={2} sx={{ mb: 3 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <AccessTimeIcon sx={{ color: 'white', opacity: 0.8 }} />
+                  <Typography color="white" fontWeight={500}>Self-paced learning</Typography>
+                </Box>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <MonetizationOnIcon sx={{ color: 'white', opacity: 0.8 }} />
+                  <Typography color="white" fontWeight={500}>$500 certificate value</Typography>
+                </Box>
+              </Stack>
+            </Grid>
+            
+            <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'left', md: 'center' } }}>
               <Button
                 component={RouterLink}
                 to="/courses"
                 variant="contained"
                 color="secondary"
                 size="large"
-                sx={{ py: 1.5, px: 4 }}
+                sx={{ 
+                  py: 2.5, 
+                  px: 6,
+                  fontSize: '1.2rem',
+                  fontWeight: 700,
+                  borderRadius: 50,
+                  boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
+                  '&:hover': {
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 15px 40px rgba(0,0,0,0.3)',
+                  },
+                  transition: 'all 0.3s ease',
+                }}
                 startIcon={<PlayArrowOutlinedIcon />}
               >
-                Start Your Course Today
+                Start Free Course
               </Button>
-            </Box>
-          </Box>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 
-      {/* Testimonials Section */}
-      <Container maxWidth="lg" sx={{ mb: 10 }}>
+      {/* Enhanced Testimonials Section */}
+      <Container maxWidth="lg" sx={{ mb: 12 }}>
         <Box textAlign="center" mb={8}>
-          <Typography variant="h2" component="h2" gutterBottom sx={{ fontWeight: 700 }}>
-            Patient Success Stories
+          <Typography 
+            variant="h2" 
+            component="h2" 
+            gutterBottom 
+            sx={{ 
+              fontWeight: 800,
+              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Success Stories
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" sx={{ maxWidth: 700, mx: 'auto' }}>
-            Here's what our patients say about their dental implant journey after learning with New Smile Guide.
+          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+            Real patients sharing their transformative experiences with New Smile Guide.
           </Typography>
         </Box>
 
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            gap: 4,
-          }}
-        >
-          {testimonials.map((testimonial, index) => (
-            <Box key={index} sx={{ flex: 1 }}>
-              <Box
+        <Grid container spacing={4}>
+          {enhancedTestimonials.map((testimonial, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <Card
                 sx={{
                   height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  bgcolor: 'background.paper',
-                  borderRadius: 3,
-                  boxShadow: 3,
-                  p: 3,
+                  borderRadius: 4,
+                  border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: `0 15px 40px ${alpha(theme.palette.primary.main, 0.1)}`,
+                  },
                 }}
               >
-                <FormatQuoteOutlinedIcon sx={{ fontSize: 40, color: 'primary.light', mb: 1 }} />
-                <Typography variant="body1" paragraph sx={{ fontStyle: 'italic', mb: 3 }}>
-                  {testimonial.quote}
-                </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', mt: 'auto' }}>
-                  <Box
-                    component="img"
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      borderRadius: '50%',
-                      mr: 2,
-                    }}
-                  />
-                  <Box>
-                    <Typography variant="subtitle1" fontWeight={600}>
-                      {testimonial.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {testimonial.location}
+                <CardContent sx={{ p: 4 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Rating value={5} readOnly size="small" sx={{ mr: 2 }} />
+                    <Typography variant="body2" color="text.secondary" fontWeight={600}>
+                      Verified Patient
                     </Typography>
                   </Box>
-                </Box>
-              </Box>
-            </Box>
+                  
+                  <FormatQuoteOutlinedIcon sx={{ fontSize: 30, color: 'primary.light', mb: 2 }} />
+                  
+                  <Typography variant="body1" paragraph sx={{ fontStyle: 'italic', lineHeight: 1.7, mb: 3 }}>
+                    "{testimonial.quote}"
+                  </Typography>
+                  
+                  <Divider sx={{ mb: 3 }} />
+                  
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Avatar
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      sx={{ width: 50, height: 50, mr: 2 }}
+                    />
+                    <Box>
+                      <Typography variant="subtitle1" fontWeight={700}>
+                        {testimonial.name}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {testimonial.location}
+                      </Typography>
+                      <Typography variant="caption" color="primary.main" fontWeight={600}>
+                        {testimonial.procedure}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </Box>
+        </Grid>
       </Container>
     </Box>
   );
 };
 
-// Sample data
-const features = [
+// Enhanced data with more comprehensive information
+const stats = [
   {
-    title: 'Expert-Led Courses',
-    description: 'Learn from top dental surgeons with comprehensive courses designed specifically for patients.',
-    image: '/path/to/feature1.jpg',
-    icon: CastForEducationOutlinedIcon,
+    value: '10K+',
+    label: 'Patients Educated',
+    icon: GroupsIcon,
   },
   {
-    title: 'Find Specialists Near You',
-    description: 'Connect with verified implant specialists in your area who can provide personalized care.',
-    image: '/path/to/feature2.jpg',
-    icon: PersonSearchOutlinedIcon,
+    value: '98%',
+    label: 'Success Rate',
+    icon: TrendingUpIcon,
   },
   {
-    title: 'Earn Certificates',
-    description: 'Complete courses to receive certificates worth $500 towards your dental implant procedure.',
-    image: '/path/to/feature3.jpg',
+    value: '500+',
+    label: 'Verified Specialists',
+    icon: LocalHospitalIcon,
+  },
+  {
+    value: '$2M+',
+    label: 'Certificates Issued',
     icon: WorkspacePremiumOutlinedIcon,
   },
 ];
 
-const testimonials = [
+const enhancedFeatures = [
   {
-    quote: 'The courses at New Smile Guide helped me understand exactly what to expect from my implant procedure. I felt confident and prepared every step of the way.',
+    title: 'Expert-Led Education',
+    description: 'Learn from board-certified oral surgeons and prosthodontists through comprehensive video courses, interactive modules, and detailed guides.',
+    icon: CastForEducationOutlinedIcon,
+    badge: 'Most Popular',
+    link: '/courses',
+    buttonText: 'View Courses',
+  },
+  {
+    title: 'Verified Specialist Network',
+    description: 'Connect with pre-screened, highly-rated implant specialists in your area. Read reviews, compare credentials, and book consultations.',
+    icon: PersonSearchOutlinedIcon,
+    badge: 'Trusted Network',
+    link: '/specialists',
+    buttonText: 'Find Specialists',
+  },
+  {
+    title: '$500 Value Certificates',
+    description: 'Complete our courses to earn certificates worth $500 towards your dental implant procedure. Accepted by our network specialists.',
+    icon: WorkspacePremiumOutlinedIcon,
+    badge: 'Guaranteed Value',
+    link: '/certificates',
+    buttonText: 'Learn More',
+  },
+];
+
+const enhancedTestimonials = [
+  {
+    quote: 'The comprehensive course gave me confidence to move forward with implants. The $500 certificate made the decision even easier. My new smile is perfect!',
     name: 'Sarah Johnson',
     location: 'New York, NY',
+    procedure: 'Single Tooth Implant',
     avatar: '/path/to/avatar1.jpg',
   },
   {
-    quote: 'After completing the course, I found a specialist through New Smile Guide who was perfect for my needs. The $500 certificate was a wonderful bonus!',
+    quote: 'Finding a specialist through New Smile Guide was seamless. The education prepared me perfectly, and the entire process exceeded my expectations.',
     name: 'Michael Rodriguez',
     location: 'Miami, FL',
+    procedure: 'Full Mouth Restoration',
     avatar: '/path/to/avatar2.jpg',
   },
   {
-    quote: 'I was anxious about getting dental implants until I went through the educational materials. Now I can smile with confidence again!',
+    quote: 'I was nervous about implants until I completed the course. The knowledge I gained and the specialist I found made all the difference in my journey.',
     name: 'Emily Chen',
     location: 'Seattle, WA',
+    procedure: 'Multiple Implants',
     avatar: '/path/to/avatar3.jpg',
   },
 ];
