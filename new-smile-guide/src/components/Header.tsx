@@ -37,6 +37,7 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
+import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
 import { keyframes } from '@mui/system';
 
@@ -72,6 +73,7 @@ const primaryNavLinks: NavLink[] = [
   { title: 'Home', path: '/', icon: <MedicalServicesOutlinedIcon /> },
   { title: 'About', path: '/about', icon: <InfoOutlinedIcon /> },
   { title: 'Dental Implants', path: '/dental-implants', icon: <LocalHospitalOutlinedIcon /> },
+  { title: 'AI Simulator', path: '/simulator', icon: <SmartToyOutlinedIcon /> },
   { title: 'Courses', path: '/courses', icon: <SchoolOutlinedIcon />, highlight: true },
 ];
 

@@ -12,6 +12,7 @@ import UserCertificatesPage from './pages/UserCertificatesPage';
 import FinancingPage from './pages/FinancingPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AdminAnalyticsPage from './pages/AdminAnalyticsPage';
+import DentalImplantSimulatorPage from './pages/DentalImplantSimulatorPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function RouteChangeTracker() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/dental-implants" element={<DentalImplantsPage />} />
+          <Route path="/simulator" element={<DentalImplantSimulatorPage />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/specialists" element={<SpecialistsPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
